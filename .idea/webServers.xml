@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5e4781d5-354f-4abd-9a67-9c265f00fc50" name="positive-news-capstone" url="https://ddc-web-student.cnm.edu/~jmarchbanks2/positive-news-capstone/">
+        <fileTransfer rootFolder="/home/jmarchbanks2/public_html/positive-news-capstone" accessType="SFTP" host="ddc-web-student.cnm.edu" port="22" sshConfigId="c1af4e9f-9273-4913-8caf-d0d88ba64f49" sshConfig="jmarchbanks2@ddc-web-student.cnm.edu:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
