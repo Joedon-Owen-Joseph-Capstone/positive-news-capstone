@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import {Navigation} from "@/app/shared/Navigation";
+import {Footer} from "@/app/shared/Footer";
 
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function RootLayout(props : RootLayoutProps) {
         <body>
         <Navigation/>
         {children}
-
+        <Footer/>
         </body>
         </html>
     )
