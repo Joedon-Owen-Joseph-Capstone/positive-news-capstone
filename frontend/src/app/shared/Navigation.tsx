@@ -18,13 +18,13 @@ export function Navigation() : JSX.Element {
                     </div>
 
                     <div className="flex-none">
-                        <ul className="menu menu-horizontal">
+                        <ul className="menu menu-horizontal z-50">
                             <li>
                                 <details>
                                     <summary className="lg:hidden text-3xl focus:outline-2 cursor-pointer">
                                         &#9776;
                                     </summary>
-                                    <ul className="bg-base-100 italic p-2 rounded-t-none text-black">
+                                    <ul className="bg-white italic p-2 rounded-t-none text-black">
                                         <li>
                                             <div className="dropdown dropdown-end">
 
