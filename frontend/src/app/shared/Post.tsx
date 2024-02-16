@@ -4,7 +4,7 @@ export function Post ({image, title, description} : PostProps) {
     return (
         <>
             <div className="block m-5 pt-10">
-                <div className="rounded-b-none card shadow-xl image-full h-96">
+                <div className="card shadow-xl image-full h-96">
                     <figure><img src={image} alt="Post background"/></figure>
                     <div className="card-body">
                         <h2 className="card-title">{title}</h2>
