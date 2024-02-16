@@ -1,15 +1,16 @@
 export default function About() {
     return (
         <>
+            <body>
             {/*about joseph*/}
-            <section id={"joseph"} className="py-18 text-black">
+            <section id={"joseph"} className="py-18 mt-20 bg-[#CCCCFF] text-white rounded-3xl">
                 <h1 className="text-4xl font-bold text-center pt-10 italic">ABOUT PNN</h1>
                 <div className="md:flex gap-10 mx-auto max-md:space-y-12 p-16 flex-4">
                     <div className="basis-1/6 flex-shrink-0 justify-center max-md:px-16">
                         <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
                              className="shadow-2xl rounded-lg"/>
                     </div>
-                    <div className="basis-5/6 max-md-8  bg-[]">
+                    <div className="basis-5/6 max-md-8">
                         <h3 className="font-bold text-xl italic text-center">Joseph Marchbanks</h3>
                         <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
                             Miami.
@@ -50,7 +51,7 @@ export default function About() {
             </section>
 
             {/*about owen*/}
-            <section id={"owen"} className="py-18 text-black">
+            <section id={"owen"} className="py-18 mt-20 bg-[#CCCCFF] text-white rounded-3xl">
                 <div className="md:flex gap-10 mx-auto max-md:space-y-12 p-16 flex-4">
                     <div className="basis-1/6 flex-shrink-0 justify-center max-md:px-16">
                         <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
@@ -97,7 +98,7 @@ export default function About() {
             </section>
 
             {/*about joedon*/}
-            <section id={"joedon"} className="py-18 text-black">
+            <section id={"joedon"} className="py-18 my-20 bg-[#CCCCFF] text-white rounded-3xl">
                 <div className="md:flex gap-10 mx-auto max-md:space-y-12 p-16 flex-4">
                     <div className="basis-1/6 flex-shrink-0 justify-center max-md:px-16">
                         <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
@@ -143,6 +144,7 @@ export default function About() {
                     </div>
                 </div>
             </section>
+            </body>
         </>
     )
 }
