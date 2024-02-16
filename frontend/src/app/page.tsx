@@ -44,24 +44,49 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section>
-            <div className="container mx-auto">
-                <h2>Popular U.S.</h2>
-                <Posts/>
-            </div>
+            <section className='my-24'>
+                <div className="container mx-auto">
+                    <div className='flex justify-between'>
+                        <h2 className='text-5xl'>Popular U.S.</h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="white"
+                             className="bi bi-filter-right" viewBox="0 0 16 16">
+                            <path
+                                d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5"/>
+                        </svg>
+                    </div>
+                    <Posts/>
+                </div>
             </section>
 
-            <section>
-            <div className="container mx-auto">
-                <div>
-                    <h2>Popular World</h2>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16">
-                        <path
-                            d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5"/>
-                    </svg>
+            <section className='bg-gray-500 p-10'>
+                <h2 className='text-center text-5xl'>Today in History</h2>
+                <div className='flex justify-center items-center gap-20 p-10'>
+                    <img className='image-full' src={"https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"} alt={'history pic'}/>
+                    <div>
+                        <h3 className='text-4xl'>Title</h3>
+                        <p className='text-2xl'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit tincidunt nulla fermentum faucibus. Integer consectetur est vel pharetra viverra. Donec commodo mi nec ligula pharetra mattis. Proin faucibus magna ut elit efficitur efficitur. Aliquam vel quam ut lectus tincidunt molestie a ac risus. Donec ut ornare ante. In quis orci dui. </p>
+                    </div>
                 </div>
-                <Posts/>
-            </div>
+
+            </section>
+
+            <section className='my-24'>
+                <div className="container mx-auto">
+                    <div className='flex justify-between'>
+                        <h2 className='text-5xl'>Popular World</h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="white"
+                             className="bi bi-filter-right" viewBox="0 0 16 16">
+                            <path
+                                d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5"/>
+                        </svg>
+                    </div>
+                    <Posts/>
+                </div>
+            </section>
+
+            <section className='flex justify-between items-baseline border-t-4 border-gray-300 p-20'>
+                <h2 className='text-5xl'>PNN</h2>
+                <p className='text-2xl hover:underline'>Back to the Top</p>
             </section>
         </>
     )
