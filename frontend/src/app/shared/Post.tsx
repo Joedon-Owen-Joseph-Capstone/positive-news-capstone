@@ -1,14 +1,16 @@
-type PostProps = {image:string, title: string, description: string}
+type Article = {articleId:string, articleImage:string, articleTitle: string, articleDescription: string}
+type PostProps = {article: Article}
 
-export function Post ({image, title, description} : PostProps) {
+export function Post ({article} : PostProps) {
+    const {articleId, articleImage, articleTitle, articleDescription} = article
     return (
         <>
             <div className="block m-5 pt-10">
                 <div className="card shadow-xl image-full h-96">
-                    <figure><img src={image} alt="Post background"/></figure>
+                    <figure><img src={articleImage} alt="Post background"/></figure>
                     <div className="card-body">
-                        <h2 className="card-title">{title}</h2>
-                        <p>{description}</p>
+                        <h2 className="card-title">{articleTitle}</h2>
+                        <p>{articleDescription}</p>
                     </div>
                 </div>
                 <div className="flex justify-between bg-gray-500 bg-opacity-25 p-5 rounded-xl">
