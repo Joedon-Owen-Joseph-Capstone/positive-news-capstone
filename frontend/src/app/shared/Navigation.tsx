@@ -7,7 +7,7 @@ export function Navigation() : JSX.Element {
             <div className="navbar bg-gradient-to-br from-[#0D0B33] to-[#52489F] text-white p-5 rounded-b">
 
                 <div className="flex-1">
-                    <a className="btn btn-ghost text-xl">PNN</a>
+                    <a className="btn btn-ghost text-2xl md:text-3xl lg:text-4xl">PNN</a>
                 </div>
 
                 <div className="flex-none gap-2">
@@ -53,10 +53,10 @@ export function Navigation() : JSX.Element {
                     </div>
 
                     <div className='hidden lg:flex'>
-                        <ul className="menu menu-horizontal px-1">
-                            <li><a>About PNN</a></li>
-                            <li><a>U.S.</a></li>
-                            <li><a>World</a></li>
+                        <ul className="menu menu-horizontal px-1 text-lg">
+                            <li className='hover:underline'><a>About PNN</a></li>
+                            <li className='hover:underline'><a>U.S.</a></li>
+                            <li className='hover:underline'><a>World</a></li>
                         </ul>
                     </div>
 
