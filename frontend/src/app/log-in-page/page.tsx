@@ -5,7 +5,7 @@ export default function SignUp (): JSX.Element {
         <>
             <section className="bg-white dark:bg-gray-900">
                 <div className="flex justify-center min-h-screen">
-                    <div className="hidden lg:flex bg-cover bg-center lg:w-2/5"
+                    <div className="hidden bg-cover lg:block lg:w-2/5"
                          style={{backgroundImage: "url('/WhiteArrow.jpg')"}}>
                     </div>
 
