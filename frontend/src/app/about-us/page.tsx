@@ -1,10 +1,10 @@
+
 export default function About() {
     return (
         <>
-            <body>
             {/*about joseph*/}
-            <section id={"joseph"} className="py-18 mt-20 bg-[#CCCCFF] text-white rounded-3xl">
-                <h1 className="text-4xl font-bold text-center pt-10 italic">ABOUT PNN</h1>
+            <section id={"joseph"} className="py-18 mt-20 bg-[#CCCCFF] text-black rounded-3xl">
+                <h1 className="text-4xl font-bold text-center pt-10 italic">ABOUT THE DEVS</h1>
                 <div className="md:flex gap-10 mx-auto max-md:space-y-12 p-16 flex-4">
                     <div className="basis-1/6 flex-shrink-0 justify-center max-md:px-16">
                         <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
@@ -27,7 +27,7 @@ export default function About() {
                     </div>
                     <div className={"mt-20"}>
                         <h4 className="font-bold italic">Contact Joseph</h4>
-                        <div className={"inline-flex px-10 mx-auto"}>
+                        <div className={"flex gap px-10 mx-auto"}>
                         <a href="https://github.com/JPHMarchB">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                  className="bi bi-github mb-2.5 hover:shadow-2xl" viewBox="0 0 16 16">
@@ -51,7 +51,7 @@ export default function About() {
             </section>
 
             {/*about owen*/}
-            <section id={"owen"} className="py-18 mt-20 bg-[#CCCCFF] text-white rounded-3xl">
+            <section id={"owen"} className="py-18 mt-20 bg-[#CCCCFF] text-black rounded-3xl">
                 <div className="md:flex gap-10 mx-auto max-md:space-y-12 p-16 flex-4">
                     <div className="basis-1/6 flex-shrink-0 justify-center max-md:px-16">
                         <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
@@ -98,7 +98,7 @@ export default function About() {
             </section>
 
             {/*about joedon*/}
-            <section id={"joedon"} className="py-18 my-20 bg-[#CCCCFF] text-white rounded-3xl">
+            <section id={"joedon"} className="py-18 my-20 bg-[#CCCCFF] text-black rounded-3xl">
                 <div className="md:flex gap-10 mx-auto max-md:space-y-12 p-16 flex-4">
                     <div className="basis-1/6 flex-shrink-0 justify-center max-md:px-16">
                         <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
@@ -130,7 +130,7 @@ export default function About() {
                             </svg>
                         </a>
 
-                        <a href="hhttps://www.linkedin.com/in/joedon-mcconnell-381a8013a/">
+                        <a href="https://www.linkedin.com/in/joedon-mcconnell-381a8013a/">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="blue"
                                  className="bi bi-linkedin hover:shadow-2xl" viewBox="0 0 16 16">
                                 <path
@@ -144,7 +144,6 @@ export default function About() {
                     </div>
                 </div>
             </section>
-            </body>
         </>
     )
 }
