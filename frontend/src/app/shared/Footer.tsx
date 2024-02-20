@@ -3,9 +3,15 @@ import {JSX} from 'react'
 export function Footer(): JSX.Element {
     return (
         <>
+            {/* Return to top and logo */}
+            <section className='flex justify-between items-baseline font-custom border-t-4 border-black py-16 px-10 lg:px-40 mt-28 lg:mt-56'>
+                <h2 className='italic text-3xl md:text-4xl lg:text-5xl'>PNN</h2>
+                <p className='md:text-lg lg:text-xl hover:underline'>Back to the Top</p>
+            </section>
+
 
             {/* Footer content */}
-            <footer className="footer footer-center p-10 bg-gradient-to-tr from-[#1B264F] to-[#274690] text-white rounded">
+            <footer className="footer footer-center p-10 bg-gradient-to-tr from-[#1B264F] to-[#274690] text-white font-custom rounded">
 
                 {/* Footer links */}
                 <nav className="grid grid-flow-col gap-4 text-lg">
