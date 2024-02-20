@@ -10,11 +10,17 @@ export function Posts() {
     ]
 
     return (
+        <>
         <section className="container mx-auto">
+
+            {/* All posts layout */}
             <div className='container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto'>
                 {articles.map((article, index) => <Post key={article.articleId} article={article}/>)}
             </div>
+
+            {/* View all button */}
             <p className='text-right hover:underline py-10 pe-5'>View All...</p>
         </section>
+        </>
     )
 }
