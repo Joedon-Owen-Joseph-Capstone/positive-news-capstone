@@ -3,13 +3,21 @@ import {JSX} from 'react'
 export function Footer(): JSX.Element {
     return (
         <>
-            <footer className="footer footer-center p-10 bg-gradient-to-tr from-[#0D0B33] to-[#52489F] text-white rounded">
+
+            {/* Footer content */}
+            <footer className="footer footer-center p-10 bg-gradient-to-tr from-[#1B264F] to-[#274690] text-white rounded">
+
+                {/* Footer links */}
                 <nav className="grid grid-flow-col gap-4 text-lg">
                     <a className="link link-hover">About Us</a>
                     <a className="link link-hover">U.S.</a>
                     <a className="link link-hover">World</a>
                 </nav>
+
+                {/* Owner links */}
                 <nav className='block md:flex gap-20 text-center *:p-5'>
+
+                    {/* Joseph links */}
                     <div className="block md:flex gap-4">
                         <h2 className='text-lg'>Joseph:</h2>
                         <div className='flex gap-4'>
@@ -29,6 +37,8 @@ export function Footer(): JSX.Element {
                         </a>
                         </div>
                     </div>
+
+                    {/* Owen links */}
                     <div className="block md:flex gap-4">
                         <h2 className='text-lg'>Owen:</h2>
                     <div className='flex gap-4'>
@@ -48,6 +58,8 @@ export function Footer(): JSX.Element {
                         </a>
                     </div>
                     </div>
+
+                    {/* Joedon links */}
                     <div className="block md:flex gap-4">
                         <h2 className='text-lg'>Joedon:</h2>
                     <div className='flex gap-4'>
