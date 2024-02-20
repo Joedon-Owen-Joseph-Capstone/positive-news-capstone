@@ -3,15 +3,26 @@ type PostProps = {image:string, title: string, description: string}
 export function Post ({image, title, description} : PostProps) {
     return (
         <>
+            {/* Post layout */}
             <div className="block m-5 pt-10">
+
+                {/* Post content container */}
                 <div className="rounded-b-none card shadow-xl image-full h-96">
+
+                    {/* Post image */}
                     <figure><img src={image} alt="Post background"/></figure>
+
+                    {/* Post text */}
                     <div className="card-body">
                         <h2 className="card-title">{title}</h2>
                         <p>{description}</p>
                     </div>
                 </div>
+
+                {/* Post interaction bar */}
                 <div className="flex justify-between bg-gray-500 bg-opacity-25 p-5 rounded-xl">
+
+                    {/* Like, comment, share */}
                     <div className="flex gap-8">
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 16 16">
                             <path
