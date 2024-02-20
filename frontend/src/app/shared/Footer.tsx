@@ -5,7 +5,7 @@ export function Footer(): JSX.Element {
         <>
 
             {/* Footer content */}
-            <footer className="footer footer-center p-10 bg-gradient-to-tr from-[#0D0B33] to-[#52489F] text-white rounded">
+            <footer className="footer footer-center p-10 bg-gradient-to-tr from-[#1B264F] to-[#274690] text-white rounded">
 
                 {/* Footer links */}
                 <nav className="grid grid-flow-col gap-4 text-lg">
