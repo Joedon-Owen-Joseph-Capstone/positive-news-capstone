@@ -9,7 +9,7 @@ export function Navigation() : JSX.Element {
             <nav>
 
                 {/* Nav bar container */}
-                <div className="navbar bg-gradient-to-br from-[#0D0B33] to-[#52489F] text-white p-5 rounded-b">
+                <div className="navbar bg-gradient-to-br from-[#1B264F] to-[#274690] text-white p-5 rounded-b">
 
                     {/* PNN logo/Home button */}
                     <div className="flex-1">

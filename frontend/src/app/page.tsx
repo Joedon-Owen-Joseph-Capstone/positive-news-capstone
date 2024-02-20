@@ -8,7 +8,7 @@ export default function Home() {
             <section className='my-24'>
 
                 {/* Header */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white italic pb-24">POSITIVE NEWS NETWORK</h1>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black font-libre text-center text-gray font-custom italic pb-24">POSITIVE NEWS NETWORK</h1>
 
                 {/* Carousel */}
                 <div className="carousel w-full min-h-72">
@@ -25,7 +25,7 @@ export default function Home() {
                     </div>
 
                     {/* Carousel image 2 */}
-                    <div id="some" className="carousel-item relative w-full">
+                    <div id="slide2" className="carousel-item relative w-full">
                         <img src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
                              className="w-full" alt='slide 2 image'/>
                         <div
