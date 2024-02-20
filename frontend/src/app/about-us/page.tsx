@@ -2,7 +2,6 @@
 export default function About() {
     return (
         <>
-            <body>
             {/*about joseph*/}
             <section id={"joseph"} className="py-18 mt-20 bg-[#CCCCFF] text-black rounded-3xl">
                 <h1 className="text-4xl font-bold text-center pt-10 italic">ABOUT THE DEVS</h1>
@@ -145,7 +144,6 @@ export default function About() {
                     </div>
                 </div>
             </section>
-            </body>
         </>
     )
 }
