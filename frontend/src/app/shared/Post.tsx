@@ -5,15 +5,27 @@ export function Post ({article} : PostProps) {
     const {articleId, articleImage, articleTitle, articleDescription} = article
     return (
         <>
+
+            {/* Post container */}
             <div className="block m-5 pt-10">
+
+                {/* Post content */}
                 <div className="card shadow-xl image-full h-96">
+
+                    {/* Post image */}
                     <figure><img src={articleImage} alt="Post background"/></figure>
+
+                    {/* Post text */}
                     <div className="card-body">
                         <h2 className="card-title">{articleTitle}</h2>
                         <p>{articleDescription}</p>
                     </div>
                 </div>
+
+                {/* Post interaction bar */}
                 <div className="flex justify-between bg-gray-500 bg-opacity-25 p-5 rounded-xl">
+
+                    {/* Like, Comment, Share */}
                     <div className="flex gap-8">
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 16 16">
                             <path
