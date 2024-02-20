@@ -16,14 +16,14 @@ export function Post ({article} : PostProps) {
                     <figure><img src={articleImage} alt="Post background"/></figure>
 
                     {/* Post text */}
-                    <div className="card-body">
+                    <div className="card-body overflow-y-auto">
                         <h2 className="card-title">{articleTitle}</h2>
                         <p>{articleDescription}</p>
                     </div>
                 </div>
 
                 {/* Post interaction bar */}
-                <div className="flex justify-between bg-gray-500 bg-opacity-25 p-5 rounded-xl">
+                <div className="flex justify-between bg-[#344955] p-5 rounded-xl">
 
                     {/* Like, Comment, Share */}
                     <div className="flex gap-8">
