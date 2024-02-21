@@ -10,19 +10,21 @@ export function Post ({article} : PostProps) {
             <div className="block m-5 pt-10">
 
                 {/* Post content */}
-                <div className="card shadow-xl image-full h-96">
+                <a href='../article-page'>
+                    <div className="card shadow-xl image-full h-96">
 
-                    {/* Post image */}
-                    <figure><img src={articleImage} alt="Post background"/></figure>
+                        {/* Post image */}
+                        <figure><img src={articleImage} alt="Post background"/></figure>
 
-                    {/* Post text */}
-                    <div className="card-body overflow-y-auto">
-                        <h2 className="card-title">{articleTitle}</h2>
-                        <p>{articleDescription}</p>
+                        {/* Post text */}
+                        <div className="card-body overflow-y-auto">
+                            <h2 className="card-title">{articleTitle}</h2>
+                            <p>{articleDescription}</p>
+                        </div>
                     </div>
-                </div>
+                </a>
 
-                {/* Post interaction bar */}
+            {/* Post interaction bar */}
                 <div className="flex justify-between bg-[#344955] p-5 rounded-xl">
 
                     {/* Like, Comment, Share */}

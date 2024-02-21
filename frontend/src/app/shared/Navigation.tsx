@@ -13,7 +13,7 @@ export function Navigation() : JSX.Element {
 
                     {/* PNN logo/Home button */}
                     <div className="flex-1">
-                        <a className="btn btn-ghost text-2xl md:text-3xl lg:text-4xl">PNN</a>
+                        <a href='/' className="btn btn-ghost text-2xl md:text-3xl lg:text-4xl">PNN</a>
                     </div>
 
                     <div className="flex-none gap-2">
@@ -55,14 +55,14 @@ export function Navigation() : JSX.Element {
                                                     {/* Profile button links */}
                                                     <ul tabIndex={0}
                                                         className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 text-black">
-                                                        <li><a className="justify-between">Profile</a></li>
-                                                        <li><a>Logout</a></li>
+                                                        <li><a href='../profile-page' className="justify-between">Profile</a></li>
+                                                        <li><a href='/'>Logout</a></li>
                                                     </ul>
                                                 </div>
                                             </li>
 
                                             {/* Other drop down button links */}
-                                            <li><a>About PNN</a></li>
+                                            <li><a href='../about-us'>About PNN</a></li>
                                             <li><a>U.S.</a></li>
                                             <li><a>World</a></li>
                                         </ul>
@@ -76,9 +76,9 @@ export function Navigation() : JSX.Element {
 
                             {/* Nav bar links */}
                             <ul className="menu menu-horizontal px-1 text-lg">
-                                <li className='hover:underline'><a>About PNN</a></li>
-                                <li className='hover:underline'><a>U.S.</a></li>
-                                <li className='hover:underline'><a>World</a></li>
+                                <li className='hover:underline'><a href='../about-us'>About PNN</a></li>
+                                <li className='hover:underline'><a href='../about-us'>U.S.</a></li>
+                                <li className='hover:underline'><a href='../about-us'>World</a></li>
                             </ul>
                         </div>
 
@@ -95,8 +95,8 @@ export function Navigation() : JSX.Element {
                             {/* Profile button links */}
                             <ul tabIndex={0}
                                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 text-black">
-                                <li><a className="justify-between">Profile</a></li>
-                                <li><a>Logout</a></li>
+                                <li><a href='../profile-page' className="justify-between">Profile</a></li>
+                                <li><a href='/'>Logout</a></li>
                             </ul>
                         </div>
                     </div>

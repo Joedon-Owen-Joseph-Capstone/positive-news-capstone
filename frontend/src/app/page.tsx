@@ -8,7 +8,7 @@ export default function Home() {
             <section className='my-24'>
 
                 {/* Header */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black font-libre text-center text-gray font-custom italic pb-24">POSITIVE NEWS NETWORK</h1>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl text-center text-black font-custom italic pb-24">POSITIVE NEWS NETWORK</h1>
 
                 {/* Carousel */}
                 <div className="carousel w-full min-h-72">
@@ -65,7 +65,7 @@ export default function Home() {
 
                     {/* Title and filter */}
                     <div className='flex justify-between'>
-                        <h2 className='font-custom text-3xl md:text-4xl lg:text-5xl'>Popular U.S.</h2>
+                        <h2 className='font-custom text-black text-3xl md:text-4xl lg:text-5xl'>Popular U.S.</h2>
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="black"
                              className="bi bi-filter-right" viewBox="0 0 16 16">
                             <path
@@ -101,7 +101,7 @@ export default function Home() {
                     <div className='flex justify-between'>
 
                         {/* Title and filter */}
-                        <h2 className='font-custom text-3xl md:text-4xl lg:text-5xl'>Popular World</h2>
+                        <h2 className='font-custom text-black text-3xl md:text-4xl lg:text-5xl'>Popular World</h2>
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="black"
                              className="bi bi-filter-right" viewBox="0 0 16 16">
                             <path
