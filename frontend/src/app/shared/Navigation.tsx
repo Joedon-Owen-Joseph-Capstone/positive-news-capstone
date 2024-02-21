@@ -54,7 +54,7 @@ export function Navigation() : JSX.Element {
 
                                                     {/* Profile button links */}
                                                     <ul tabIndex={0}
-                                                        className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 text-black">
+                                                        className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52 text-black">
                                                         <li><a href='../profile-page' className="justify-between">Profile</a></li>
                                                         <li><a href='/'>Logout</a></li>
                                                     </ul>
@@ -94,7 +94,7 @@ export function Navigation() : JSX.Element {
 
                             {/* Profile button links */}
                             <ul tabIndex={0}
-                                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 text-black">
+                                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52 text-black">
                                 <li><a href='../profile-page' className="justify-between">Profile</a></li>
                                 <li><a href='/'>Logout</a></li>
                             </ul>

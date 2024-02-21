@@ -3,7 +3,7 @@ import React from "react";
 export default function SignUp() {
     return (
         <>
-            <section className="bg-white dark:bg-gray-900">
+            <section>
                 <div className="flex justify-center min-h-screen">
                     <div className="hidden bg-cover lg:block lg:w-2/5">
                         <img src="/GoodNews.jpg" alt="Image of good news coming" />
@@ -14,11 +14,11 @@ export default function SignUp() {
 
                         <div className="w-full max-w-md">
 
-                            <h1 className="text-4xl text-black text-center font-medium tracking-wider capitalize dark:text-white mb-16">
+                            <h1 className="text-4xl text-black text-center font-medium tracking-wider capitalize mb-16">
                                 Create Your Account
                             </h1>
 
-                            <div className="w-full bg-slate-200 dark:bg-gray-800 bg-opacity-90 rounded-lg p-6 shadow-2xl">
+                            <div className="w-full dark:bg-gray-800 bg-opacity-90 rounded-lg p-6 shadow-2xl">
 
                             {/* Form fields and submit button */}
                             <form className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-1">
@@ -47,7 +47,7 @@ export default function SignUp() {
                             </form>
                             </div>
                             <p className='text-center text-black text-sm mt-5'>I already have an account,
-                                <a href='http://localhost:3000/log-in-page' className="text-blue-500"> Sign in</a> </p>
+                                <a href='../log-in-page' className="text-blue-500"> Sign in</a> </p>
                         </div>
                     </div>
                 </div>

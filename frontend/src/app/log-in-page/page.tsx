@@ -3,7 +3,7 @@ import React, {JSX} from 'react'
 export default function SignUp (): JSX.Element {
     return (
         <>
-            <section className="bg-white dark:bg-gray-900">
+            <section>
                 <div className="flex justify-center min-h-screen">
                     <div className="bg-cover bg-center lg:block lg:w-2/5 ">
                         <img src="/StackedNewspaper.jpg" alt="Welcome Image"/>
@@ -12,7 +12,7 @@ export default function SignUp (): JSX.Element {
                     <div className="flex-1 flex flex-col justify-center items-center p-8 lg:px-12">
                         <div className="w-full max-w-md">
 
-                            <h1 className="text-5xl text-center text-black font-medium tracking-wider capitalize dark:text-white mb-16 ">
+                            <h1 className="text-5xl text-center text-black font-medium tracking-wider capitalize mb-16 ">
                                 Sign in
                             </h1>
 
@@ -44,7 +44,7 @@ export default function SignUp (): JSX.Element {
                                 </form>
                             </div>
                             <p className='text-center text-black text-sm mt-5'>I don't have an account,
-                                <a href='http://localhost:3000/sign-up-page' className="text-blue-500"> Create one here.</a></p>
+                                <a href='../sign-up' className="text-blue-500"> Create one here.</a></p>
                         </div>
                     </div>
                 </div>

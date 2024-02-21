@@ -19,7 +19,7 @@ export function Posts() {
             </div>
 
             {/* View all button */}
-            <p className='text-right hover:underline py-10 pe-5'>View All...</p>
+            <p className='text-right text-black hover:underline py-10 pe-5'>View All...</p>
         </section>
         </>
     )
