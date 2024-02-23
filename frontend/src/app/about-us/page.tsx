@@ -1,13 +1,13 @@
 
 export default function About() {
     return (
-        <>
-            <h1 className="text-4xl font-custom font-bold text-center text-black pt-10 italic">ABOUT THE DEVS</h1>
+        <section className='p-10'>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl text-center text-black font-custom italic my-24">ABOUT THE CREATORS</h1>
 
             {/*about joseph*/}
             <section id={"joseph"} className="py-18 mt-20 bg-[#0e142a] text-white rounded-3xl">
-                <div className="md:flex gap-10 mx-auto max-md:space-y-12 p-16 flex-4">
-                    <div className="basis-1/6 flex-shrink-0 justify-center max-md:px-16">
+                <div className="lg:flex gap-10 mx-auto max-md:space-y-12 p-6 lg:p-24 flex-4">
+                    <div className="flex justify-center">
                         <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
                              className="shadow-2xl rounded-lg"/>
                     </div>
@@ -53,8 +53,8 @@ export default function About() {
 
             {/*about owen*/}
             <section id={"owen"} className="py-18 mt-20 bg-[#0e142a] text-white rounded-3xl">
-                <div className="md:flex gap-10 mx-auto max-md:space-y-12 p-16 flex-4">
-                    <div className="basis-1/6 flex-shrink-0 justify-center max-md:px-16">
+                <div className="lg:flex gap-10 mx-auto max-md:space-y-12 p-6 lg:p-24 flex-4">
+                    <div className="flex justify-center">
                         <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
                              className="shadow-2xl rounded-lg"/>
                     </div>
@@ -100,8 +100,8 @@ export default function About() {
 
             {/*about joedon*/}
             <section id={"joedon"} className="py-18 my-20 bg-[#0e142a] text-white rounded-3xl">
-                <div className="md:flex gap-10 mx-auto max-md:space-y-12 p-16 flex-4">
-                    <div className="basis-1/6 flex-shrink-0 justify-center max-md:px-16">
+                <div className="lg:flex gap-10 mx-auto max-md:space-y-12 p-6 lg:p-24 flex-4">
+                    <div className="flex justify-center">
                         <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
                              className="shadow-2xl rounded-lg"/>
                     </div>
@@ -145,6 +145,6 @@ export default function About() {
                     </div>
                 </div>
             </section>
-        </>
+        </section>
     )
 }

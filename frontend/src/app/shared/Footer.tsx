@@ -16,8 +16,8 @@ export function Footer(): JSX.Element {
                 {/* Footer links */}
                 <nav className="grid grid-flow-col gap-4 text-lg">
                     <a href='../about-us' className="link link-hover">About Us</a>
-                    <a href='' className="link link-hover">U.S.</a>
-                    <a href='' className="link link-hover">World</a>
+                    <a href='../us-page' className="link link-hover">U.S.</a>
+                    <a href='../world-page' className="link link-hover">World</a>
                 </nav>
 
                 {/* Owner links */}
@@ -87,7 +87,7 @@ export function Footer(): JSX.Element {
                     </div>
                 </nav>
                 <aside>
-                    <p>Copyright © 2024 - All right reserved by Bruh Industries</p>
+                    <p>Copyright © 2024 - All rights reserved by JOJ</p>
                 </aside>
             </footer>
         </>

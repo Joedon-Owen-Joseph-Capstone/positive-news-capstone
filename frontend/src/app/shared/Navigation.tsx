@@ -48,7 +48,7 @@ export function Navigation() : JSX.Element {
                                                          className="btn btn-ghost btn-circle avatar">
                                                         <div className="w-10 rounded-full">
                                                             <img alt="Tailwind CSS Navbar component"
-                                                                 src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"/>
+                                                                 src="https://www.milton.edu/wp-content/uploads/2019/11/avatar-placeholder.jpg"/>
                                                         </div>
                                                     </div>
 
@@ -63,8 +63,8 @@ export function Navigation() : JSX.Element {
 
                                             {/* Other drop down button links */}
                                             <li><a href='../about-us'>About PNN</a></li>
-                                            <li><a>U.S.</a></li>
-                                            <li><a>World</a></li>
+                                            <li><a href='../us-page'>U.S.</a></li>
+                                            <li><a href='../world-page'>World</a></li>
                                         </ul>
                                     </details>
                                 </li>
@@ -77,8 +77,8 @@ export function Navigation() : JSX.Element {
                             {/* Nav bar links */}
                             <ul className="menu menu-horizontal px-1 text-lg">
                                 <li className='hover:underline'><a href='../about-us'>About PNN</a></li>
-                                <li className='hover:underline'><a href='../about-us'>U.S.</a></li>
-                                <li className='hover:underline'><a href='../about-us'>World</a></li>
+                                <li className='hover:underline'><a href='../us-page'>U.S.</a></li>
+                                <li className='hover:underline'><a href='../world-page'>World</a></li>
                             </ul>
                         </div>
 
@@ -88,7 +88,7 @@ export function Navigation() : JSX.Element {
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
                                     <img alt="Tailwind CSS Navbar component"
-                                         src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"/>
+                                         src="https://www.milton.edu/wp-content/uploads/2019/11/avatar-placeholder.jpg"/>
                                 </div>
                             </div>
 

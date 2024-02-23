@@ -66,18 +66,44 @@ export default function Home() {
                     {/* Title and filter */}
                     <div className='flex justify-between'>
                         <h2 className='font-custom text-black text-3xl md:text-4xl lg:text-5xl'>Popular U.S.</h2>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="black"
-                             className="bi bi-filter-right" viewBox="0 0 16 16">
-                            <path
-                                d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5"/>
-                        </svg>
+                        {/* Filter */}
+                        <div>
+
+                            {/* Filter list */}
+                            <ul className="menu menu-horizontal z-50">
+                                <li>
+                                    <details>
+
+                                        {/* Filter drop down */}
+                                        <summary className="text-3xl focus:outline-2 cursor-pointer">
+                                            <img width="36" height="36" src='/filter-right.svg' alt='filter button'/>
+                                        </summary>
+
+                                        {/* Drop down links */}
+                                        <ul className="bg-white italic p-2 rounded-t-none text-black">
+
+                                            {/* Filter categories */}
+                                            <li><a>Animals</a></li>
+                                            <li><a>Health</a></li>
+                                            <li><a>Science</a></li>
+                                            <li><a>Space</a></li>
+                                            <li><a>Technology</a></li>
+                                        </ul>
+                                    </details>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <Posts/>
+
+                    {/* View all button */}
+                    <p className='text-right text-black hover:underline py-10 pe-5'><a href='/us-page'>View All...</a>
+                    </p>
                 </div>
             </section>
 
             {/* History section */}
-            <section className='bg-[#0e142a] text-white font-custom p-20 mt-28 lg:mt-56'>
+            <section className='bg-[#0e142a] text-white font-custom p-32 mt-28 lg:mt-56'>
                 <h2 className='text-center text-3xl md:text-4xl lg:text-5xl pb-5'>Today in History</h2>
 
                 {/* History content */}
@@ -88,8 +114,11 @@ export default function Home() {
 
                     {/* History text */}
                     <div>
-                        <h3 className='text-2xl md:text-3xl lg:text-4xl pt-5 lg:pt-0'>Title</h3>
-                        <p className='font-serif text-lg md:text-xl lg:text-2xl'>Article Description</p>
+                        <h3 className='text-2xl md:text-3xl lg:text-4xl py-10'>Gaia the cat may be cute but she’s actually a deadly predator</h3>
+                        <p className='font-serif text-lg md:text-xl lg:text-2xl'>
+                            A Salt Lake City zoo has welcomed the world’s deadliest cat, which apparently is also the cutest. On Dec. 28, Utah’s Hogle Zoo announced the arrival of its newest resident: Gaia, an 8-month-old predatory feline belonging to a species known as the black-footed cat. Gaia is not yet fully grown and weighs in at 2.6 pounds. Black spots and stripes are dotted all along Gaia’s tawny fur, and her pupils can grow so big she could give Puss in Boots a run for his money. But don’t let her looks fool you.
+                        </p>
+                        <p className='pt-10'>Date: 2024-2-22</p>
                     </div>
                 </div>
 
@@ -102,13 +131,40 @@ export default function Home() {
 
                         {/* Title and filter */}
                         <h2 className='font-custom text-black text-3xl md:text-4xl lg:text-5xl'>Popular World</h2>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="black"
-                             className="bi bi-filter-right" viewBox="0 0 16 16">
-                            <path
-                                d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5"/>
-                        </svg>
+
+                        {/* Filter */}
+                        <div>
+
+                            {/* Filter list */}
+                            <ul className="menu menu-horizontal z-50">
+                                <li>
+                                    <details>
+
+                                        {/* Filter drop down */}
+                                        <summary className="text-3xl focus:outline-2 cursor-pointer">
+                                            <img width="36" height="36" src='/filter-right.svg' alt='filter button'/>
+                                        </summary>
+
+                                        {/* Drop down links */}
+                                        <ul className="bg-white italic p-2 rounded-t-none text-black">
+
+                                            {/* Filter categories */}
+                                            <li><a>Animals</a></li>
+                                            <li><a>Health</a></li>
+                                            <li><a>Science</a></li>
+                                            <li><a>Space</a></li>
+                                            <li><a>Technology</a></li>
+                                        </ul>
+                                    </details>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <Posts/>
+
+                    {/* View all button */}
+                    <p className='text-right text-black hover:underline py-10 pe-5'><a href='/world-page'>View All...</a>
+                    </p>
                 </div>
             </section>
         </>

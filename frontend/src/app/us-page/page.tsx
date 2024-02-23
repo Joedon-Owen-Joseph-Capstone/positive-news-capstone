@@ -9,11 +9,34 @@ export default function Us() {
                     {/* Title and filter */}
                     <div className='flex justify-between'>
                         <h2 className='font-custom text-3xl md:text-4xl lg:text-5xl'>Popular U.S.</h2>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="black"
-                             className="bi bi-filter-right" viewBox="0 0 16 16">
-                            <path
-                                d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5m0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5"/>
-                        </svg>
+
+                        {/* Filter */}
+                        <div>
+
+                            {/* Filter list */}
+                            <ul className="menu menu-horizontal z-50">
+                                <li>
+                                    <details>
+
+                                        {/* Filter drop down */}
+                                        <summary className="text-3xl focus:outline-2 cursor-pointer">
+                                            <img width="36" height="36" src='/filter-right.svg' alt='filter button'/>
+                                        </summary>
+
+                                        {/* Drop down links */}
+                                        <ul className="bg-white italic p-2 rounded-t-none text-black">
+
+                                            {/* Filter categories */}
+                                            <li><a>Animals</a></li>
+                                            <li><a>Health</a></li>
+                                            <li><a>Science</a></li>
+                                            <li><a>Space</a></li>
+                                            <li><a>Technology</a></li>
+                                        </ul>
+                                    </details>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <Posts/>
                 </div>
