@@ -6,7 +6,7 @@ export default function About() {
                 CREATORS</h1>
 
             {/*about joseph*/}
-            <section id={"joseph"} className="py-18 mx-24 mt-20 bg-[#0e142a] text-white rounded-3xl">
+            <section id={"joseph"} className="py-18 mx-0 md:mx-12 lg:mx-24 mt-20 bg-[#0e142a] text-white rounded-3xl">
                 <div className="p-6 lg:p-24">
                     <div className="flex justify-center">
                         <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
@@ -38,7 +38,7 @@ export default function About() {
                     </div>
                 </div>
             </section>
-            <div className="basis-5/6 mx-24 max-md-8 text-black">
+            <div className="basis-5/6 mx-0 md:mx-12 lg:mx-24 text-black">
                 <h3 className="font-bold font-serif text-xl italic text-center">Joseph Marchbanks</h3>
                 <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
                     Miami.
