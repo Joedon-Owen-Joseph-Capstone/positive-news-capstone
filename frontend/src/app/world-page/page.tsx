@@ -9,7 +9,7 @@ export default function world() {
 
                     {/* Title and filter */}
                     <div className='flex justify-between'>
-                        <h2 className='font-custom text-3xl md:text-4xl lg:text-5xl'>Popular World</h2>
+                        <h2 className='font-custom text-black text-3xl md:text-4xl lg:text-5xl'>Popular World</h2>
 
                         {/* Filter */}
                         <div>
