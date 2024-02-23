@@ -1,6 +1,6 @@
 import {Posts} from "@/app/shared/Posts";
 
-export default function world() {
+export default function World() {
     return (
         <>
             <title>Popular World</title>
@@ -8,14 +8,13 @@ export default function world() {
                 <div className="container mx-auto">
 
                     {/* Title and filter */}
-                    <div className='flex justify-between'>
-                        <h2 className='font-custom text-black text-3xl md:text-4xl lg:text-5xl'>Popular World</h2>
+                    <div className='flex justify-end'>
 
                         {/* Filter */}
                         <div>
 
                             {/* Filter list */}
-                            <ul className="menu menu-horizontal z-50">
+                            <ul className="menu menu-horizontal">
                                 <li>
                                     <details>
 
@@ -25,7 +24,7 @@ export default function world() {
                                         </summary>
 
                                         {/* Drop down links */}
-                                        <ul className="bg-white italic p-2 rounded-t-none text-black">
+                                        <ul className="bg-white italic p-2 rounded-t-none text-black z-50">
 
                                             {/* Filter categories */}
                                             <li><a>Animals</a></li>

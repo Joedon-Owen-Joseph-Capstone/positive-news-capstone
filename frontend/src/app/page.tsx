@@ -70,7 +70,7 @@ export default function Home() {
                         <div>
 
                             {/* Filter list */}
-                            <ul className="menu menu-horizontal z-50">
+                            <ul className="menu menu-horizontal">
                                 <li>
                                     <details>
 
@@ -80,7 +80,7 @@ export default function Home() {
                                         </summary>
 
                                         {/* Drop down links */}
-                                        <ul className="bg-white italic p-2 rounded-t-none text-black">
+                                        <ul className="bg-white italic p-2 rounded-t-none text-black z-50">
 
                                             {/* Filter categories */}
                                             <li><a>Animals</a></li>
@@ -136,7 +136,7 @@ export default function Home() {
                         <div>
 
                             {/* Filter list */}
-                            <ul className="menu menu-horizontal z-50">
+                            <ul className="menu menu-horizontal">
                                 <li>
                                     <details>
 
@@ -146,7 +146,7 @@ export default function Home() {
                                         </summary>
 
                                         {/* Drop down links */}
-                                        <ul className="bg-white italic p-2 rounded-t-none text-black">
+                                        <ul className="bg-white italic p-2 rounded-t-none text-black z-50">
 
                                             {/* Filter categories */}
                                             <li><a>Animals</a></li>

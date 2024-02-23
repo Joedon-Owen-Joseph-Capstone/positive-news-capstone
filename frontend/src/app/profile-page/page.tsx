@@ -56,34 +56,6 @@ export default function Profile() : JSX.Element {
                 <div className="container mx-auto">
                     <div className='flex justify-between'>
                         <h2 className='text-black text-3xl font-custom md:text-4xl lg:text-5xl'>Liked Articles</h2>
-
-                        {/* Filter */}
-                        <div>
-
-                            {/* Filter list */}
-                            <ul className="menu menu-horizontal z-50">
-                                <li>
-                                    <details>
-
-                                        {/* Filter drop down */}
-                                        <summary className="text-3xl focus:outline-2 cursor-pointer">
-                                            <img width="36" height="36" src='/filter-right.svg' alt='filter button'/>
-                                        </summary>
-
-                                        {/* Drop down links */}
-                                        <ul className="bg-white italic p-2 rounded-t-none text-black">
-
-                                            {/* Filter categories */}
-                                            <li><a>Animals</a></li>
-                                            <li><a>Health</a></li>
-                                            <li><a>Science</a></li>
-                                            <li><a>Space</a></li>
-                                            <li><a>Technology</a></li>
-                                        </ul>
-                                    </details>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                     <Posts/>
                 </div>
