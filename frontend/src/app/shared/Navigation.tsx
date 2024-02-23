@@ -9,14 +9,14 @@ export function Navigation() : JSX.Element {
             <nav>
 
                 {/* Nav bar container */}
-                <div className="navbar bg-gradient-to-br from-[#1B264F] to-[#274690] text-white p-5 rounded-b">
+                <div className="navbar bg-gradient-to-br from-[#1B264F] to-[#274690] text-white p-5">
 
                     {/* PNN logo/Home button */}
                     <div className="flex-1">
-                        <a href='/' className="btn btn-ghost text-2xl md:text-3xl lg:text-4xl">PNN</a>
+                        <a href='/' className="btn btn-ghost font-custom text-2xl md:text-3xl lg:text-4xl">PNN</a>
                     </div>
 
-                    <div className="flex-none gap-2">
+                    <div className="flex-none gap-2 font-serif">
 
                         {/* Search bar */}
                         <div>
