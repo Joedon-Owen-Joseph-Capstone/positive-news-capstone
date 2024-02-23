@@ -1,5 +1,7 @@
+import {JSX} from "react";
+import {SplineScene} from "@/app/shared/SplineScene";
 
-export default function About() {
+export default function About() : JSX.Element {
     return (
         <section className='p-10'>
             <h1 className="text-4xl md:text-5xl lg:text-6xl text-center text-black font-custom italic my-24">ABOUT THE
@@ -9,8 +11,7 @@ export default function About() {
             <section id={"joseph"} className="py-18 mx-0 md:mx-12 lg:mx-24 mt-20 bg-[#0e142a] text-white rounded-3xl">
                 <div className="p-6 lg:p-24">
                     <div className="flex justify-center">
-                        <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
-                             className="shadow-2xl rounded-lg"/>
+                        <SplineScene/>
                     </div>
                     <div className={"mt-20 mx-auto flex justify-center"}>
                         <div>
