@@ -2,31 +2,18 @@
 export default function About() {
     return (
         <section className='p-10'>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-center text-black font-custom italic my-24">ABOUT THE CREATORS</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl text-center text-black font-custom italic my-24">ABOUT THE
+                CREATORS</h1>
 
             {/*about joseph*/}
-            <section id={"joseph"} className="py-18 mt-20 bg-[#0e142a] text-white rounded-3xl">
-                <div className="lg:flex gap-10 mx-auto max-md:space-y-12 p-6 lg:p-24 flex-4">
+            <section id={"joseph"} className="py-18 mx-24 mt-20 bg-[#0e142a] text-white rounded-3xl">
+                <div className="p-6 lg:p-24">
                     <div className="flex justify-center">
                         <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
                              className="shadow-2xl rounded-lg"/>
                     </div>
-                    <div className="basis-5/6 max-md-8">
-                        <h3 className="font-bold text-xl italic text-center">Joseph Marchbanks</h3>
-                        <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
-                            Miami.
-                            This gun is advertised as the most popular gun in American crime. Do you believe that shit?
-                            It actually says that in the little book that comes with it:
-                            the most popular gun in American crime. Like they're actually proud of that shit.</p>
-                        <p className="md:py-2"> the path of the righteous man is beset on all sides by the
-                            iniquities
-                            of
-                            the selfish and the tyranny of evil men. then they show that show to the people who make
-                            shows,
-                            and on the strength of that one show they decide if they're going to make more shows. they
-                            called me mr glass. </p>
-                    </div>
-                    <div className={"mt-20"}>
+                    <div className={"mt-20 mx-auto flex justify-center"}>
+                        <div>
                         <h4 className="font-bold italic">Contact Joseph</h4>
                         <div className={"flex gap-4 mx-auto"}>
                             <a href="https://github.com/JPHMarchB">
@@ -47,9 +34,25 @@ export default function About() {
                         </div>
                         <a href="mailto:josephmarchbanks599@gmail.com"><p
                             className={"hover:text-purple-700 hover:underline"}>josephmarchbanks599@gmail.com</p></a>
+                        </div>
                     </div>
                 </div>
             </section>
+            <div className="basis-5/6 mx-24 max-md-8 text-black">
+                <h3 className="font-bold font-serif text-xl italic text-center">Joseph Marchbanks</h3>
+                <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
+                    Miami.
+                    This gun is advertised as the most popular gun in American crime. Do you believe that shit?
+                    It actually says that in the little book that comes with it:
+                    the most popular gun in American crime. Like they're actually proud of that shit.</p>
+                <p className="md:py-2"> the path of the righteous man is beset on all sides by the
+                    iniquities
+                    of
+                    the selfish and the tyranny of evil men. then they show that show to the people who make
+                    shows,
+                    and on the strength of that one show they decide if they're going to make more shows. they
+                    called me mr glass. </p>
+            </div>
 
             {/*about owen*/}
             <section id={"owen"} className="py-18 mt-20 bg-[#0e142a] text-white rounded-3xl">
@@ -58,21 +61,7 @@ export default function About() {
                         <img src="https://placekitten.com/g/500/500" alt="cat" height="500" width="500"
                              className="shadow-2xl rounded-lg"/>
                     </div>
-                    <div className="basis-5/6 max-md-8">
-                        <h3 className="font-bold text-xl italic text-center">Owen Scarpa</h3>
-                        <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
-                            Miami.
-                            This gun is advertised as the most popular gun in American crime. Do you believe that shit?
-                            It actually says that in the little book that comes with it:
-                            the most popular gun in American crime. Like they're actually proud of that shit.</p>
-                        <p className="md:py-2"> the path of the righteous man is beset on all sides by the
-                            iniquities
-                            of
-                            the selfish and the tyranny of evil men. then they show that show to the people who make
-                            shows,
-                            and on the strength of that one show they decide if they're going to make more shows. they
-                            called me mr glass. </p>
-                    </div>
+
                     <div className={"mt-20"}>
                         <h4 className="font-bold italic">Contact Owen</h4>
                         <div className={"flex gap-4 mx-auto"}>
