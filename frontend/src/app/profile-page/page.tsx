@@ -45,7 +45,7 @@ export default function Profile() : JSX.Element {
                                 <ul className="bg-white italic p-2 rounded-t-none text-black">
 
                                     {/* Edit item */}
-                                    <li><a>Edit Profile</a></li>
+                                    <li><a href='../profile-edit-page'>Edit Profile</a></li>
                                 </ul>
                             </details>
                         </li>
