@@ -3,12 +3,14 @@ import {SplineScene} from "@/app/shared/SplineScene";
 
 export default function About() : JSX.Element {
     return (
-        <section className='p-5 md:p-10'>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-center text-black font-custom italic my-24">ABOUT THE
-                CREATORS</h1>
+        <>
+            <title>About PNN</title>
+            <section className='p-5 md:p-10'>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl text-center text-black font-custom italic my-24">ABOUT THE
+                    CREATORS</h1>
 
-            {/*about joseph*/}
-            <section id={"joseph"} className="py-18 mx-0 md:mx-24 lg:mx-48 mt-20 bg-[#0e142a] text-white rounded-3xl">
+                {/*about joseph*/}
+                <section id={"joseph"} className="py-18 mx-0 md:mx-24 lg:mx-48 mt-20 bg-[#0e142a] text-white rounded-3xl">
                     <div className="flex justify-center">
                         {/*<SplineScene/>*/}
                     </div>
@@ -35,25 +37,25 @@ export default function About() : JSX.Element {
                             </a>
                         </div>
                     </div>
-            </section>
-            <div className="basis-5/6 py-12 mx-0 md:mx-24 lg:mx-48 text-black">
-                <h3 className="font-bold font-serif text-xl italic text-center">Joseph Marchbanks</h3>
-                <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
-                    Miami.
-                    This gun is advertised as the most popular gun in American crime. Do you believe that shit?
-                    It actually says that in the little book that comes with it:
-                    the most popular gun in American crime. Like they're actually proud of that shit.</p>
-                <p className="md:py-2"> the path of the righteous man is beset on all sides by the
-                    iniquities
-                    of
-                    the selfish and the tyranny of evil men. then they show that show to the people who make
-                    shows,
-                    and on the strength of that one show they decide if they're going to make more shows. they
-                    called me mr glass. </p>
-            </div>
+                </section>
+                <div className="basis-5/6 py-12 mx-0 md:mx-24 lg:mx-48 text-black">
+                    <h3 className="font-bold font-serif text-xl italic text-center">Joseph Marchbanks</h3>
+                    <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
+                        Miami.
+                        This gun is advertised as the most popular gun in American crime. Do you believe that shit?
+                        It actually says that in the little book that comes with it:
+                        the most popular gun in American crime. Like they're actually proud of that shit.</p>
+                    <p className="md:py-2"> the path of the righteous man is beset on all sides by the
+                        iniquities
+                        of
+                        the selfish and the tyranny of evil men. then they show that show to the people who make
+                        shows,
+                        and on the strength of that one show they decide if they're going to make more shows. they
+                        called me mr glass. </p>
+                </div>
 
-            {/*about owen*/}
-            <section id={"joseph"} className="py-18 mx-0 md:mx-24 lg:mx-48 mt-20 bg-[#0e142a] text-white rounded-3xl">
+                {/*about owen*/}
+                <section id={"joseph"} className="py-18 mx-0 md:mx-24 lg:mx-48 mt-20 bg-[#0e142a] text-white rounded-3xl">
                     <div className="flex justify-center">
                         {/*<SplineScene/>*/}
                     </div>
@@ -80,25 +82,25 @@ export default function About() : JSX.Element {
                             </a>
                         </div>
                     </div>
-            </section>
-            <div className="basis-5/6 py-12 mx-0 md:mx-24 lg:mx-48 text-black">
-                <h3 className="font-bold font-serif text-xl italic text-center">Owen Scarpa</h3>
-                <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
-                    Miami.
-                    This gun is advertised as the most popular gun in American crime. Do you believe that shit?
-                    It actually says that in the little book that comes with it:
-                    the most popular gun in American crime. Like they're actually proud of that shit.</p>
-                <p className="md:py-2"> the path of the righteous man is beset on all sides by the
-                    iniquities
-                    of
-                    the selfish and the tyranny of evil men. then they show that show to the people who make
-                    shows,
-                    and on the strength of that one show they decide if they're going to make more shows. they
-                    called me mr glass. </p>
-            </div>
+                </section>
+                <div className="basis-5/6 py-12 mx-0 md:mx-24 lg:mx-48 text-black">
+                    <h3 className="font-bold font-serif text-xl italic text-center">Owen Scarpa</h3>
+                    <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
+                        Miami.
+                        This gun is advertised as the most popular gun in American crime. Do you believe that shit?
+                        It actually says that in the little book that comes with it:
+                        the most popular gun in American crime. Like they're actually proud of that shit.</p>
+                    <p className="md:py-2"> the path of the righteous man is beset on all sides by the
+                        iniquities
+                        of
+                        the selfish and the tyranny of evil men. then they show that show to the people who make
+                        shows,
+                        and on the strength of that one show they decide if they're going to make more shows. they
+                        called me mr glass. </p>
+                </div>
 
-            {/*about joedon*/}
-            <section id={"joseph"} className="py-18 mx-0 md:mx-24 lg:mx-48 mt-20 bg-[#0e142a] text-white rounded-3xl">
+                {/*about joedon*/}
+                <section id={"joseph"} className="py-18 mx-0 md:mx-24 lg:mx-48 mt-20 bg-[#0e142a] text-white rounded-3xl">
                     <div className="flex justify-center">
                         {/*<SplineScene/>*/}
                     </div>
@@ -125,22 +127,23 @@ export default function About() : JSX.Element {
                             </a>
                         </div>
                     </div>
+                </section>
+                <div className="basis-5/6 py-12 mx-0 md:mx-24 lg:mx-48 text-black">
+                    <h3 className="font-bold font-serif text-xl italic text-center">Joedon Mcconnell</h3>
+                    <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
+                        Miami.
+                        This gun is advertised as the most popular gun in American crime. Do you believe that shit?
+                        It actually says that in the little book that comes with it:
+                        the most popular gun in American crime. Like they're actually proud of that shit.</p>
+                    <p className="md:py-2"> the path of the righteous man is beset on all sides by the
+                        iniquities
+                        of
+                        the selfish and the tyranny of evil men. then they show that show to the people who make
+                        shows,
+                        and on the strength of that one show they decide if they're going to make more shows. they
+                        called me mr glass. </p>
+                </div>
             </section>
-            <div className="basis-5/6 py-12 mx-0 md:mx-24 lg:mx-48 text-black">
-                <h3 className="font-bold font-serif text-xl italic text-center">Joedon Mcconnell</h3>
-                <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
-                    Miami.
-                    This gun is advertised as the most popular gun in American crime. Do you believe that shit?
-                    It actually says that in the little book that comes with it:
-                    the most popular gun in American crime. Like they're actually proud of that shit.</p>
-                <p className="md:py-2"> the path of the righteous man is beset on all sides by the
-                    iniquities
-                    of
-                    the selfish and the tyranny of evil men. then they show that show to the people who make
-                    shows,
-                    and on the strength of that one show they decide if they're going to make more shows. they
-                    called me mr glass. </p>
-            </div>
-        </section>
+        </>
     )
 }
