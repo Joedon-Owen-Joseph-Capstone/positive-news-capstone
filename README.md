@@ -77,7 +77,7 @@ This project is licensed under the [Apache License 2.0](LICENSE).
 ### Third-Party Resources
 
 - Tailwind CSS - A utility-first CSS framework for rapidly building custom designs. [Website](https://tailwindcss.com/)
-- DaisyUI - A collection of components and utilities for Tailwind CSS. [GitHub](https://github.com/reesew.io/daisyui)
+- DaisyUI - A collection of components and utilities for Tailwind CSS. [Website](https://daisyui.com/)
 - React.js - A JavaScript library for building user interfaces. [Website](https://reactjs.org/)
 - PostgreSQL - An open-source relational database management system. [Website](https://www.postgresql.org/)
 - Express - Fast, unopinionated, minimalist web framework for Node.js. [Website](https://expressjs.com/)
