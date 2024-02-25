@@ -103,6 +103,6 @@ This project is licensed under the [Apache License 2.0](LICENSE).
 
 If you want to check out our other work or have any questions/suggestions, feel free to contact us:
 
-- Joseph: - Email: josephmarchbanks599@gmail.com - Github: [GitHub](https://github.com/JPHMarchB)
-- Owen: - Email: odscarpa512@gmail.com - Github: [GitHub](https://github.com/odscarpa)
+- Joseph: - Email: josephmarchbanks599@gmail.com - [GitHub](https://github.com/JPHMarchB)
+- Owen: - Email: odscarpa512@gmail.com - [GitHub](https://github.com/odscarpa)
 - Joedon: - Email: jdmconnell@gmail.com - [GitHub](https://github.com/JoedyMcconn)
