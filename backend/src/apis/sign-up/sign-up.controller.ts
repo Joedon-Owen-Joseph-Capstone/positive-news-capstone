@@ -49,7 +49,7 @@ export async function signupProfileController (request: Request, response: Respo
 
         // create a mailgun message object
         const mailgunMessage = {
-            from: `Mailgun Sandbox <postmaster@${process.env.MAILGUN_DOMAIN as string}>`,
+            from: `Mailgun Sandbox <mailgun@sandboxa45ca6a27285403cb346520154046024.mailgun.org`,
             to: profileEmail,
             subject: 'One step closer to signup -- Account Activation',
             html: message
@@ -63,7 +63,6 @@ export async function signupProfileController (request: Request, response: Respo
             profileEmail,
             profileHash,
             profileName,
-            profileImageUrl
         }
 
         // insert the new profile into the database
