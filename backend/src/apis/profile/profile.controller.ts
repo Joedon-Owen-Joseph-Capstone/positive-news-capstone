@@ -154,7 +154,7 @@ export async function putProfileController(request: Request, response: Response)
         }
 
         //grab the profile data off of the validated request body
-        const {profileAbout, profileImageUrl, profileName} = validationResultForRequestBody.data
+        const {profileImageUrl, profileName} = validationResultForRequestBody.data
 
         //grab the profile by profileId
         const profile: PrivateProfile|null = await selectPrivateProfileByProfileId(profileId)
@@ -166,7 +166,6 @@ export async function putProfileController(request: Request, response: Response)
         }
 
         //update the profile with the new data
-        profile.profileAbout = profileAbout
         profile.profileImageUrl = profileImageUrl
         profile.profileName = profileName
 
