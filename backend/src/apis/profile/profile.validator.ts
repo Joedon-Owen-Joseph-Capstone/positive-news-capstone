@@ -24,11 +24,13 @@ export const PrivateProfileSchema = z.object({
     })
         .email({ message: 'please provide a valid email' })
         .max(128, { message: 'profileEmail is to long' }),
+
     profileHash: z.string({
         required_error: 'profileHash is required',
         invalid_type_error: 'please provide a valid profileHash'
     })
         .length(97, { message: 'profile hash must be 97 characters' }),
+
     profileImageUrl: z.string({
         required_error: 'profileImage is required',
         invalid_type_error: 'please provide a valid profileImageUrl'

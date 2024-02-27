@@ -16,6 +16,9 @@ export function generateJwt (payload: object, signature: string): string {
     return sign({ exp, auth: payload, iat}, signature)
 }
 
+export function setActivationToken (): string {
+    return crypto.randomBytes(16).toString('hex')
+}
 
 export async function setHash (password: string): Promise<string> {
     return await argon2.hash(

@@ -32,8 +32,8 @@ export type PublicProfile = z.infer<typeof PublicProfileSchema>
  * @returns {Promise<string>} 'Profile successfully updated'
  */
 export async function updateProfile (profile: PrivateProfile): Promise<string> {
-    const { profileId, profileAbout, profileActivationToken, profileEmail, profileHash, profileImageUrl, profileName } = profile
-    await sql`UPDATE profile SET profile_about = ${profileAbout}, profile_activation_token = ${profileActivationToken}, profile_email = ${profileEmail}, profile_hash = ${profileHash}, profile_image_url = ${profileImageUrl}, profile_name = ${profileName} WHERE profile_id = ${profileId}`
+    const { profileId, profileAbout, profileActivationToken, profileEmail, profileHash, profileName } = profile
+    await sql`UPDATE profile SET profile_about = ${profileAbout}, profile_activation_token = ${profileActivationToken}, profile_hash = ${profileHash}, profile_name = ${profileName} WHERE profile_id = ${profileId}`
     return 'Profile successfully updated'
 }
 
