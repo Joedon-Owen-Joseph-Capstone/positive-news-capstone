@@ -3,8 +3,7 @@ import {
     PrivateProfile,
     selectPrivateProfileByProfileId,
     selectPublicProfileByProfileId,
-    selectPublicProfileByProfileName,
-    selectPublicProfilesByProfileName, updateProfile
+    updateProfile
 } from "./profile.model";
 import {zodErrorResponse} from "../../utils/response.utils";
 import {PublicProfileSchema} from "./profile.validator";
