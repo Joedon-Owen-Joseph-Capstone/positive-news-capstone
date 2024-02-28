@@ -49,7 +49,7 @@ export async function signupProfileController (request: Request, response: Respo
 
         // create a mailgun message object
         const mailgunMessage = {
-            from: `Mailgun Sandbox <mailgun@sandboxa45ca6a27285403cb346520154046024.mailgun.org`,
+            from: `Mailgun Sandbox <mailgun@${process.env.MAILGUN_DOMAIN as string}>`,
             to: profileEmail,
             subject: 'One step closer to signup -- Account Activation',
             html: message
@@ -83,6 +83,7 @@ export async function signupProfileController (request: Request, response: Respo
 
         // catch any errors that occurred during the signup process
     } catch (error: any) {
+        console.error(error)
         const status: Status = {
             status: 500,
             message: error.message,
