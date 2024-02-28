@@ -24,7 +24,7 @@ export async function signInController (request: Request, response: Response): P
         const validationResult = signInProfileSchema.safeParse(request.body)
 
         // if the validation is unsuccessful, return a preformatted response to the client
-        if (!validationResult.success) {
+        if (validationResult.success !== true) {
             return zodErrorResponse(response, validationResult.error)
         }
 
