@@ -28,7 +28,7 @@ export const PrivateProfileSchema = z.object({
     profileImageUrl: z.string({
         required_error: 'profileImage is required',
         invalid_type_error: 'please provide a valid profileImageUrl'
-    }),
+    }).nullable(),
 
     profileName: z.string()
         .trim()
