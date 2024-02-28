@@ -1,1 +1,0 @@
-DELETE FROM profile WHERE profile_id = '5f456651-4e4f-4454-8fc6-2d90060622ce';
