@@ -12,7 +12,7 @@ import { zodErrorResponse } from '../../utils/response.utils'
  * @endpoint POST /apis/sign-up/
  * @param request an object containing the body contain a profileName, profileEmail, profilePassword and profilePasswordConfirm.
  * @param response an object modeling the response that will be sent to the client.
- * @returns response to the client indicating whether the sign up was successful or not
+ * @returns response to the client indicating whether the sign-up was successful or not
  * */
 export async function signupProfileController (request: Request, response: Response): Promise<Response | undefined> {
     try {
@@ -61,6 +61,7 @@ export async function signupProfileController (request: Request, response: Respo
             profileActivationToken,
             profileEmail,
             profileHash,
+            profileImageUrl,
             profileName,
         }
 
