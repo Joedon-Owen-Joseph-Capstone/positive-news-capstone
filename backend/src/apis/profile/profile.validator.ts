@@ -25,6 +25,10 @@ export const PrivateProfileSchema = z.object({
     })
         .length(97, { message: 'profile hash must be 97 characters' }),
 
+    profileImageUrl: z.string({
+        required_error: 'profileImage is required',
+        invalid_type_error: 'please provide a valid profileImageUrl'
+    }),
 
     profileName: z.string()
         .trim()
