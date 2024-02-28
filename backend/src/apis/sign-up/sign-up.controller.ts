@@ -40,7 +40,7 @@ export async function signupProfileController (request: Request, response: Respo
         const profileImageUrl = ''
 
         // create a basePath variable containing the scheme, host, port, and base path
-        const basePath: string = `${request.protocol}://${request.hostname}:8080${request.originalUrl}activation/${profileActivationToken}`
+        const basePath: string = `${request.protocol}://${request.hostname}:8080${request.originalUrl}/activation/${profileActivationToken}`
 
         // create a message for the activation email body
         const message = `<h2>Welcome to PNN.</h2>
