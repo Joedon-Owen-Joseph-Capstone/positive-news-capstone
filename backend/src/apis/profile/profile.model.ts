@@ -98,7 +98,7 @@ export async function insertProfile (profile: PrivateProfile): Promise<string> {
 
     //
     const { profileActivationToken, profileEmail, profileHash, profileImageUrl, profileName } = profile
-    await sql`INSERT INTO profile(profile_id, profile_activation_token, profile_email, profile_hash, profile_image_url, profile_name) VALUES (gen_random_uuid() , ${profileActivationToken}, ${profileEmail}, ${profileHash}, ${profileImageUrl}, ${profileName})`
+    await sql`INSERT INTO profile(profile_id, profile_activation_token, profile_email, profile_hash, profile_image_url, profile_name) VALUES (gen_random_uuid(), ${profileActivationToken}, ${profileEmail}, ${profileHash}, ${profileImageUrl}, ${profileName})`
     return 'Profile Successfully Created'
 }
 
