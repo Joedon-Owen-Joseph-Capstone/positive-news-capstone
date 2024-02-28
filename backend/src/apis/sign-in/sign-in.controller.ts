@@ -5,6 +5,7 @@ import { signInProfileSchema } from './sign-in.validator'
 import { zodErrorResponse } from '../../utils/response.utils'
 import { v4 as uuid } from 'uuid'
 import {Status} from "../../utils/interfaces/Status";
+import "../../index";
 
 /**
  * Express controller for sign-in
