@@ -3,7 +3,7 @@ import {z} from "zod";
 import {sql} from "../../utils/database.utils";
 
 /**
- * The shape of a article in the article table in the database
+ * The shape of an article in the article table in the database
  * @property articleId {string} the primary key
  * @property articleAuthor {string} the article's author
  * @property articleDatetime {string} the article's datetime
@@ -77,7 +77,88 @@ export async function selectArticleByArticleId(articleId : string): Promise<Arti
                   FROM article
                   WHERE article_id = ${articleId}`
 
-    // parse the article from the database into a article object
+    // parse the article from the database into an article object
+    const result = ArticleSchema.array().max(1).parse(rowList)
+
+
+    // return the article or null if no article is found
+    return result.length === 0 ? null : result[0]
+}
+
+/**
+ * get the article from the article table in the database by articleAuthor and return it
+ * @param articleAuthor {string} the article's author to search for in the article table
+ * @returns <Article|null> the article that has the articleAuthor or null if no article is found
+ */
+export async function selectArticleByArticleAuthor(articleAuthor : string): Promise<Article | null> {
+    // get the article from the article table in the database by articleAuthor
+    const rowList = <Article[]>
+        await sql`SELECT article_id,
+                         article_author,
+                         article_datetime,
+                         article_image,
+                         article_summary,
+                         article_text,
+                         article_title,
+                         article_url
+                  FROM article
+                  WHERE article_author = ${articleAuthor}`
+
+    // parse the article from the database into an article object
+    const result = ArticleSchema.array().max(1).parse(rowList)
+
+
+    // return the article or null if no article is found
+    return result.length === 0 ? null : result[0]
+}
+
+/**
+ * get the article from the article table in the database by articleDatetime and return it
+ * @param articleDatetime {string} the article's date to search for in the article table
+ * @returns <Article|null> the article that has the articleDatetime or null if no article is found
+ */
+export async function selectArticleByArticleDatetime(articleDatetime : string): Promise<Article | null> {
+    // get the article from the article table in the database by articleDatetime
+    const rowList = <Article[]>
+        await sql`SELECT article_id,
+                         article_author,
+                         article_datetime,
+                         article_image,
+                         article_summary,
+                         article_text,
+                         article_title,
+                         article_url
+                  FROM article
+                  WHERE article_datetime = ${articleDatetime}`
+
+    // parse the article from the database into an article object
+    const result = ArticleSchema.array().max(1).parse(rowList)
+
+
+    // return the article or null if no article is found
+    return result.length === 0 ? null : result[0]
+}
+
+/**
+ * get the article from the article table in the database by articleTitle and return it
+ * @param articleTitle {string} the article's title to search for in the article table
+ * @returns <Article|null> the article that has the articleTitle or null if no article is found
+ */
+export async function selectArticleByArticleTitle(articleTitle : string): Promise<Article | null> {
+    // get the article from the article table in the database by articleTitle
+    const rowList = <Article[]>
+        await sql`SELECT article_id,
+                         article_author,
+                         article_datetime,
+                         article_image,
+                         article_summary,
+                         article_text,
+                         article_title,
+                         article_url
+                  FROM article
+                  WHERE article_title = ${articleTitle}`
+
+    // parse the article from the database into an article object
     const result = ArticleSchema.array().max(1).parse(rowList)
 
 

@@ -1,7 +1,7 @@
 import {Router} from "express";
 import {
-    getAllArticles,
-    getArticleByArticleIdController,
+    getAllArticles, getArticleByArticleAuthorController, getArticleByArticleDatetimeController,
+    getArticleByArticleIdController, getArticleByArticleTitleController,
     getPageOfArticlesController, postArticleController
 } from "./article.controller";
 
@@ -15,6 +15,12 @@ router.route('/')
 
 router.route('/page/:page').get(getPageOfArticlesController)
 
-router.route('/:articleId').get(getArticleByArticleIdController)
+router.route('/articleId/:articleId').get(getArticleByArticleIdController)
+
+router.route('/articleAuthor/:articleAuthor').get(getArticleByArticleAuthorController)
+
+router.route('/articleDatetime/:articleDatetime').get(getArticleByArticleDatetimeController)
+
+router.route('/articleTitle/:articleTitle').get(getArticleByArticleTitleController)
 
 export const articleRoute = { basePath, router }

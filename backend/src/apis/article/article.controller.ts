@@ -2,8 +2,8 @@ import {Request, Response} from 'express'
 import {Status} from "../../utils/interfaces/Status";
 import {
     Article, insertArticle,
-    selectAllArticles,
-    selectArticleByArticleId,
+    selectAllArticles, selectArticleByArticleAuthor, selectArticleByArticleDatetime,
+    selectArticleByArticleId, selectArticleByArticleTitle,
     selectPageOfArticles
 } from "./article.model";
 import {zodErrorResponse} from "../../utils/response.utils";
@@ -84,7 +84,7 @@ export async function getAllArticles (request: Request, response: Response): Pro
 }
 
 /**
- * gets a article from the database by article id and returns it to the user in the response
+ * gets an article from the database by article id and returns it to the user in the response
  * @param request from the client to the server to get an article by article id from
  * @param response from the server to the client with an article by article id or an error message
  */
@@ -108,6 +108,114 @@ export async function getArticleByArticleIdController (request: Request, respons
         const data = await selectArticleByArticleId(articleId)
 
         // return the response with the status code 200, a message, and the article as data
+        return response.json({status: 200, message: null, data})
+
+        // if there is an error, return the response with the status code 500, an error message, and null data
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: '',
+            data: []
+        })
+    }
+}
+
+/**
+ * gets an article from the database by article author and returns it to the user in the response
+ * @param request from the client to the server to get an article by article author from
+ * @param response from the server to the client with an article by article author or an error message
+ */
+export async function getArticleByArticleAuthorController (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+
+        // validate the incoming request articleAuthor with the uuid schema
+        const validationResult = z.string()
+            .safeParse(request.params.articleAuthor)
+
+        // if the validation fails, return a response to the client
+        if (!validationResult.success) {
+            return zodErrorResponse(response, validationResult.error)
+        }
+
+        // get the article id from the request parameters
+        const articleAuthor = validationResult.data
+
+        // get the article from the database by article author and store it in a variable called data
+        const data = await selectArticleByArticleAuthor(articleAuthor)
+
+        // return the response with the status code 200, a message, and the article as data
+        return response.json({status: 200, message: null, data})
+
+        // if there is an error, return the response with the status code 500, an error message, and null data
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: '',
+            data: []
+        })
+    }
+}
+
+/**
+ * gets an article from the database by article date and returns it to the user in the response
+ * @param request from the client to the server to get an article by article date from
+ * @param response from the server to the client with an article by article date or an error message
+ */
+export async function getArticleByArticleDatetimeController (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+
+        // validate the incoming request articleDatetime
+        const validationResult = z.string()
+            .safeParse(request.params.articleDatetime)
+
+        // if the validation fails, return a response to the client
+        if (!validationResult.success) {
+            return zodErrorResponse(response, validationResult.error)
+        }
+
+        // get the article date from the request parameters
+        const articleDatetime = validationResult.data
+
+        // get the article from the database by article date and store it in a variable called data
+        const data = await selectArticleByArticleDatetime(articleDatetime)
+
+        // return the response with the status code 200, a message, and the article as data
+        return response.json({status: 200, message: null, data})
+
+        // if there is an error, return the response with the status code 500, an error message, and null data
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: '',
+            data: []
+        })
+    }
+}
+
+/**
+ * gets an article from the database by article title and returns it to the user in the response
+ * @param request from the client to the server to get an article by article title from
+ * @param response from the server to the client with an article by article title or an error message
+ */
+export async function getArticleByArticleTitleController (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+
+        // validate the incoming request articleTitle
+        const validationResult = z.string()
+            .safeParse(request.params.articleTitle)
+
+        // if the validation fails, return a response to the client
+        if (!validationResult.success) {
+            return zodErrorResponse(response, validationResult.error)
+        }
+
+        // get the article title from the request parameters
+        const articleTitle = validationResult.data
+
+        // get the article from the database by article title and store it in a variable called data
+        const data = await selectArticleByArticleTitle(articleTitle)
+
+        // return the response with the status code 200, a message, and the articles as data
         return response.json({status: 200, message: null, data})
 
         // if there is an error, return the response with the status code 500, an error message, and null data
