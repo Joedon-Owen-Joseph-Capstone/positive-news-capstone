@@ -10,7 +10,7 @@ export const ArticleSchema = z.object({
         required_error: 'please provide a valid articleAuthor'})
         .max(255, {message:'please provide a valid article author (max 255 characters)'}),
 
-    articleDatetime: z.date({
+    articleDatetime: z.coerce.date({
         required_error: 'please provide a valid articleDatetime'})
         .nullable(),
 

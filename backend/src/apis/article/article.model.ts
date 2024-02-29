@@ -118,6 +118,8 @@ export async function selectArticleByArticleAuthor(articleAuthor : string): Prom
  * @returns <Article|null> the article that has the articleDatetime or null if no article is found
  */
 export async function selectArticleByArticleDatetime(articleDatetime : string): Promise<Article | null> {
+    const futureDate = new Date(articleDatetime)
+    futureDate.setMinutes(futureDate.getMinutes() + 1)
     // get the article from the article table in the database by articleDatetime
     const rowList = <Article[]>
         await sql`SELECT article_id,
@@ -129,7 +131,7 @@ export async function selectArticleByArticleDatetime(articleDatetime : string): 
                          article_title,
                          article_url
                   FROM article
-                  WHERE article_datetime >= CURRENT_TIMESTAMP AND article_datetime <= CURRENT_TIMESTAMP + INTERVAL '1 minute'`
+                  WHERE article_datetime BETWEEN ${articleDatetime} AND ${futureDate}`
 
     // parse the article from the database into an article object
     const result = ArticleSchema.array().max(1).parse(rowList)
