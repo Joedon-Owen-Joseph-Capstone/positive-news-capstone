@@ -2,13 +2,16 @@ import {Router} from "express";
 import {
     getAllThreads,
     getArticleByArticleIdController,
-    getPageOfArticlesController} from "./article.controller";
+    getPageOfArticlesController, postArticleController
+} from "./article.controller";
 
 const basePath = '/apis/article'
 
 const router: Router = Router()
 
-router.route('/').get(getAllThreads)
+router.route('/')
+    .post(postArticleController)
+    .get(getAllThreads)
 
 router.route('/page/:page').get(getPageOfArticlesController)
 

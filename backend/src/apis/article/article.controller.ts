@@ -1,11 +1,60 @@
 import {Request, Response} from 'express'
 import {Status} from "../../utils/interfaces/Status";
 import {
+    Article, insertArticle,
     selectAllArticles,
     selectArticleByArticleId,
-    selectPageOfArticles} from "./article.model";
+    selectPageOfArticles
+} from "./article.model";
 import {zodErrorResponse} from "../../utils/response.utils";
 import {z} from "zod";
+import {ArticleSchema} from "./article.validator";
+
+/**
+ * Posts a new article to the database and returns a status. If successful, the status will contain the message "Article created successfully." If unsuccessful, the status will contain the message "Error creating article. Try again.".
+ * @param request body must contain a articleText, articleAuthor, and articleImage
+ * @param response will contain a status object with a message and data if successful or a status with an error message and null data if unsuccessful
+ */
+export async function postArticleController(request: Request, response: Response): Promise<Response | undefined> {
+    try {
+
+        // validate the incoming request with the article schema
+        const validationResult = ArticleSchema.safeParse(request.body)
+
+        // if the validation fails, return a response to the client
+        if (!validationResult.success) {
+            return zodErrorResponse(response, validationResult.error)
+        }
+
+        // if the validation succeeds, continue on with postArticleController logic below this line
+
+        // get the article content from the request body
+        const {articleAuthor, articleDatetime, articleImage, articleSummary, articleText, articleUrl} = validationResult.data
+
+        // create a new thread object with the threadProfileId, threadReplyThreadId, threadContent, and threadImageUrl
+        const article: Article = {
+            articleId: null,
+            articleAuthor,
+            articleDatetime,
+            articleImage,
+            articleSummary,
+            articleText,
+            articleUrl
+        }
+
+        // insert the article into the database and store the result in a variable called result
+        const result = await insertArticle(article)
+
+        // return the response with the status code 200, a message, and the result as data
+        const status: Status = {status: 200, message: result, data: null}
+        return response.json(status)
+
+        // if there is an error, return the response with the status code 500, an error message, and null data
+    } catch (error) {
+        console.log(error)
+        return response.json({status: 500, message: 'Error creating article. Try again.', data: null})
+    }
+}
 
 /**
  * gets all articles from the database and returns them to the user in the response

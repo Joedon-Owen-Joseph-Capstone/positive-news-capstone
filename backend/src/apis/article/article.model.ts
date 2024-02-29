@@ -15,6 +15,25 @@ import {sql} from "../../utils/database.utils";
 export type Article = z.infer<typeof ArticleSchema>
 
 /**
+ * posts an article in the article table in the database and returns a message that says 'Article successfully posted'
+ * @param article
+ * @returns 'Thread successfully posted'
+ */
+export async function insertArticle(article: Article): Promise<string> {
+
+    // deconstruct the article object
+    const {articleAuthor, articleImage, articleSummary, articleText, articleUrl} = article
+
+    // insert the article into the article table
+    await sql`INSERT INTO article (
+                     article_id, article_author, article_datetime, article_image, article_summary, article_text, article_url)
+              VALUES (gen_random_uuid(), ${articleAuthor}, now(), ${articleImage}, ${articleSummary}, ${articleText}, ${articleUrl})`
+
+    // return a message that says 'Article successfully posted'
+    return 'Article successfully posted'
+}
+
+/**
  * gets all threads from the thread table in the database and returns them to the user in the response
  * @returns {Promise<Article[]>}
  * @throws {Error} an error if the query fails for some reason or if there are no threads in the database
