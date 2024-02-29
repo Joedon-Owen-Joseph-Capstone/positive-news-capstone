@@ -13,6 +13,8 @@ import {articleRoute} from "./apis/article/article.route";
 import {imageRoute} from "./apis/image/image.route";
 import {commentRoute} from "./apis/comment/comment.route";
 import {likeRoute} from "./apis/like/like.route";
+import {tagRoute} from "./apis/tags/tag.route";
+
 
 // The following class creates the app and instantiates the server
 export class App {
@@ -67,6 +69,7 @@ export class App {
         this.app.use(imageRoute.basePath, imageRoute.router)
         this.app.use(likeRoute.basePath, likeRoute.router)
         this.app.use(commentRoute.basePath, commentRoute.router)
+        this.app.use(tagRoute.basePath, tagRoute.router)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port
