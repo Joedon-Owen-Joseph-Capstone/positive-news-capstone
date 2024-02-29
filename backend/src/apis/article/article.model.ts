@@ -129,7 +129,7 @@ export async function selectArticleByArticleDatetime(articleDatetime : string): 
                          article_title,
                          article_url
                   FROM article
-                  WHERE article_datetime = ${articleDatetime}`
+                  WHERE article_datetime >= CURRENT_TIMESTAMP AND article_datetime <= CURRENT_TIMESTAMP + INTERVAL '1 minute'= ${articleDatetime}`
 
     // parse the article from the database into an article object
     const result = ArticleSchema.array().max(1).parse(rowList)
