@@ -3,7 +3,7 @@ import {z} from "zod";
 import {sql} from "../../utils/database.utils";
 
 /**
- * The shape of a thread in the thread table in the database
+ * The shape of a article in the article table in the database
  * @property articleId {string} the primary key
  * @property articleAuthor {string} the article's author
  * @property articleDatetime {string} the article's datetime
@@ -18,7 +18,7 @@ export type Article = z.infer<typeof ArticleSchema>
 /**
  * posts an article in the article table in the database and returns a message that says 'Article successfully posted'
  * @param article
- * @returns 'Thread successfully posted'
+ * @returns 'Article successfully posted'
  */
 export async function insertArticle(article: Article): Promise<string> {
 
@@ -35,9 +35,9 @@ export async function insertArticle(article: Article): Promise<string> {
 }
 
 /**
- * gets all threads from the thread table in the database and returns them to the user in the response
+ * gets all articles from the articles table in the database and returns them to the user in the response
  * @returns {Promise<Article[]>}
- * @throws {Error} an error if the query fails for some reason or if there are no threads in the database
+ * @throws {Error} an error if the query fails for some reason or if there are no articles in the database
  */
 
 export async function selectAllArticles(): Promise<Article[]> {
@@ -54,7 +54,7 @@ export async function selectAllArticles(): Promise<Article[]> {
                   FROM article
                   ORDER BY article_datetime DESC`
 
-    // parse the threads from the database into an array of Thread objects
+    // parse the articles from the database into an array of Article objects
     return ArticleSchema.array().parse(rowList)
 }
 

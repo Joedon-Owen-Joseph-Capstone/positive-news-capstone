@@ -1,6 +1,6 @@
 import {Router} from "express";
 import {
-    getAllThreads,
+    getAllArticles,
     getArticleByArticleIdController,
     getPageOfArticlesController, postArticleController
 } from "./article.controller";
@@ -11,7 +11,7 @@ const router: Router = Router()
 
 router.route('/')
     .post(postArticleController)
-    .get(getAllThreads)
+    .get(getAllArticles)
 
 router.route('/page/:page').get(getPageOfArticlesController)
 

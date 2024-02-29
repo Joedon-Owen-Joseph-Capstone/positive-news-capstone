@@ -31,7 +31,7 @@ export async function postArticleController(request: Request, response: Response
         // get the article content from the request body
         const {articleAuthor, articleImage, articleSummary, articleText, articleTitle, articleUrl} = validationResult.data
 
-        // create a new thread object with the articleAuthor, articleImage, articleSummary, articleText, articleTitle and articleUrl
+        // create a new article object with the articleAuthor, articleImage, articleSummary, articleText, articleTitle and articleUrl
         const article: Article = {
             articleId: null,
             articleAuthor,
@@ -62,7 +62,7 @@ export async function postArticleController(request: Request, response: Response
  * @param request from the client to the server to get all articles
  * @param response from the server to the client with all articles or an error message
  */
-export async function getAllThreads (request: Request, response: Response): Promise<Response<Status>> {
+export async function getAllArticles (request: Request, response: Response): Promise<Response<Status>> {
     try {
 
         // get the articles from the database and store it in a variable called data
@@ -77,7 +77,7 @@ export async function getAllThreads (request: Request, response: Response): Prom
         console.error(error)
         return response.json({
             status: 500,
-            message: 'Error getting threads. Try again.',
+            message: 'Error getting articles. Try again.',
             data: []
         })
     }
