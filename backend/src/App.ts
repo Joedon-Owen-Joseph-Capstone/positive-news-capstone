@@ -12,6 +12,7 @@ import {profileRoute} from "./apis/profile/profile.route";
 import {articleRoute} from "./apis/article/article.route";
 import {imageRoute} from "./apis/image/image.route";
 import {commentRoute} from "./apis/comment/comment.route";
+import {likeRoute} from "./apis/like/like.route";
 
 // The following class creates the app and instantiates the server
 export class App {
@@ -64,6 +65,7 @@ export class App {
         this.app.use(profileRoute.basePath, profileRoute.router)
         this.app.use(articleRoute.basePath, articleRoute.router)
         this.app.use(imageRoute.basePath, imageRoute.router)
+        this.app.use(likeRoute.basePath, likeRoute.router)
         this.app.use(commentRoute.basePath, commentRoute.router)
     }
 
