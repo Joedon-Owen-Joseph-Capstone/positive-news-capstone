@@ -79,9 +79,9 @@ export async function selectLikesByLikeArticleId(likeArticleId: string): Promise
 
     // select the likes from the like table by likeThreadId
     const rowList = <Like[]>await sql
-                                        `SELECT like_profile_id, like_article_id, like_date_time
-                                      FROM "like"
-                                      WHERE like_article_id = ${likeArticleId}`
+        `SELECT like_profile_id, like_article_id, like_date_time
+         FROM "like"
+         WHERE like_article_id = ${likeArticleId}`
 
     // parse the result into an array of likes and return it
     return LikeSchema.array().parse(rowList)
