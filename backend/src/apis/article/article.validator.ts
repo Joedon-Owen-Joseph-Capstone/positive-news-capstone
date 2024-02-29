@@ -11,13 +11,14 @@ export const ArticleSchema = z.object({
         .max(255, {message:'please provide a valid article author (max 255 characters)'}),
 
     articleDatetime: z.date({
-            required_error: 'please provide a valid articleDatetime'}),
+        required_error: 'please provide a valid articleDatetime'})
+        .nullable(),
 
     articleImage: z.string({
         required_error: 'please provide a valid articleImage'})
-            .trim()
-            .url({message: 'please provide a valid URL for article image'})
-            .max(255, {message: 'please provide a valid articleImage (max 255 characters)'}),
+        .trim()
+        .url({message: 'please provide a valid URL for article image'})
+        .max(255, {message: 'please provide a valid articleImage (max 255 characters)'}),
 
     articleSummary:z.string({
         required_error: 'please provide a valid articleSummary'})
@@ -26,6 +27,10 @@ export const ArticleSchema = z.object({
 
     articleText: z.string({
         required_error: 'please provide a valid articleText'}),
+
+    articleTitle: z.string({
+        required_error: 'please provide a valid articleTitle'})
+        .max(255, {message: 'please provide a valid article title'}),
 
     articleUrl: z.string({
         required_error: 'please provide a valid articleUrl'})

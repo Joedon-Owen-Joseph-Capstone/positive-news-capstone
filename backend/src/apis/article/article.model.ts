@@ -10,6 +10,7 @@ import {sql} from "../../utils/database.utils";
  * @property articleImage {string} the article's image url
  * @property articleSummary {string} the article's summary
  * @property articleText {string} the article's text
+ * @property articleTitle {string} the article's title
  * @property articleUrl {string} the article's url
  */
 export type Article = z.infer<typeof ArticleSchema>
@@ -22,12 +23,12 @@ export type Article = z.infer<typeof ArticleSchema>
 export async function insertArticle(article: Article): Promise<string> {
 
     // deconstruct the article object
-    const {articleAuthor, articleImage, articleSummary, articleText, articleUrl} = article
+    const {articleAuthor, articleImage, articleSummary, articleText, articleTitle, articleUrl} = article
 
     // insert the article into the article table
     await sql`INSERT INTO article (
-                     article_id, article_author, article_datetime, article_image, article_summary, article_text, article_url)
-              VALUES (gen_random_uuid(), ${articleAuthor}, now(), ${articleImage}, ${articleSummary}, ${articleText}, ${articleUrl})`
+                     article_id, article_author, article_datetime, article_image, article_summary, article_text, article_title, article_url)
+              VALUES (gen_random_uuid(), ${articleAuthor}, now(), ${articleImage}, ${articleSummary}, ${articleText}, ${articleTitle}, ${articleUrl})`
 
     // return a message that says 'Article successfully posted'
     return 'Article successfully posted'
@@ -48,6 +49,7 @@ export async function selectAllArticles(): Promise<Article[]> {
                          article_image,
                          article_summary,
                          article_text,
+                         article_title,
                          article_url
                   FROM article
                   ORDER BY article_datetime DESC`
@@ -70,6 +72,7 @@ export async function selectArticleByArticleId(articleId : string): Promise<Arti
                          article_image,
                          article_summary,
                          article_text,
+                         article_title,
                          article_url
                   FROM article
                   WHERE article_id = ${articleId}`
@@ -96,6 +99,7 @@ export async function selectPageOfArticles(page: number): Promise<Article[]> {
                          article_image,
                          article_summary,
                          article_text,
+                         article_title,
                          article_url
                   FROM article
                   ORDER BY article_datetime DESC

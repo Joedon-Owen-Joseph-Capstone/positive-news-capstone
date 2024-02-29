@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS article(
     article_image VARCHAR(255) NOT NULL,
     article_summary VARCHAR(512),
     article_text TEXT NOT NULL,
+    article_title VARCHAR(255) NOT NULL,
     article_url VARCHAR(255) NOT NULL
 );
 

@@ -29,16 +29,17 @@ export async function postArticleController(request: Request, response: Response
         // if the validation succeeds, continue on with postArticleController logic below this line
 
         // get the article content from the request body
-        const {articleAuthor, articleDatetime, articleImage, articleSummary, articleText, articleUrl} = validationResult.data
+        const {articleAuthor, articleImage, articleSummary, articleText, articleTitle, articleUrl} = validationResult.data
 
-        // create a new thread object with the threadProfileId, threadReplyThreadId, threadContent, and threadImageUrl
+        // create a new thread object with the articleAuthor, articleImage, articleSummary, articleText, articleTitle and articleUrl
         const article: Article = {
             articleId: null,
             articleAuthor,
-            articleDatetime,
+            articleDatetime: null,
             articleImage,
             articleSummary,
             articleText,
+            articleTitle,
             articleUrl
         }
 
