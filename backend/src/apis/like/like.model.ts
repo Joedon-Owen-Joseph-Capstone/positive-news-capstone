@@ -1,7 +1,7 @@
 import {z} from 'zod'
 import {LikeSchema} from "./like.validator";
 import {sql} from "../../utils/database.utils";
-import exp from "node:constants";
+
 
 //Shape of a like object
 export type Like = z.infer<typeof LikeSchema>
@@ -14,10 +14,10 @@ export type Like = z.infer<typeof LikeSchema>
 export async function insertLike(like:Like):Promise<string> {
 
     //deconstruct like object
-    const {likeProfieleId, likeArticleId} = like
+    const {likeProfileId, likeArticleId} = like
 
     //insert like into like table
-    await sql`INSERT INTO "like" (like_article_id, like_profile_id, like_date_time) VALUES (${likeProfieleId}, ${likeArticleId}, now())`
+    await sql`INSERT INTO "like" (like_article_id, like_profile_id, like_date_time) VALUES (${likeProfileId}, ${likeArticleId}, now())`
 
     //return a message to the user indicating success
     return  'Successful Like!'

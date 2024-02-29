@@ -12,6 +12,7 @@ import {Status} from "../../utils/interfaces/Status";
 import {LikeSchema} from "./like.validator";
 import {zodErrorResponse} from "../../utils/response.utils";
 import {z} from "zod";
+import "../../index";
 
 /**
  * Handles GET request for all likes associated with a thread
@@ -25,14 +26,14 @@ export async function getLikesByLikeArticleIdController(request: Request, respon
         const validationResult = z.string().uuid("Please provide a valid likeArticleId").safeParse(request.params.likeArticleId)
 
         // if the validation fails, return a response to the client
-        if (!validationResult.success) {
+        if (validationResult.success !== true) {
             return zodErrorResponse(response, validationResult.error)
         }
 
         // if the validation succeeds, continue
 
         // deconstruct the like thread id from the request parameters
-        const likeThreadId = validationResult.data
+        const likeArticleId = validationResult.data
 
         // select the likes by like thread id
         const data = await selectLikesByLikeArticleId(likeArticleId)
@@ -62,7 +63,7 @@ export async function getLikesByLikeProfileIdController(request: Request, respon
         const validationResult = z.string().uuid("Please provide a valid likeProfileId").safeParse(request.params.likeProfileId)
 
     // if the validation fails, return a response to the client
-    if (!validationResult.success) {
+    if (validationResult.success !== true) {
         return zodErrorResponse(response, validationResult.error)
     }
 
@@ -101,7 +102,7 @@ export async function toggleLikeController(request: Request, response: Response)
         const validationResult = LikeSchema.safeParse(request.body)
 
         // if the validation fails, return a response to the client
-        if (!validationResult.success) {
+        if (validationResult.success !== true) {
             return zodErrorResponse(response, validationResult.error)
         }
 
@@ -164,7 +165,7 @@ export async function postLikeController(request: Request, response: Response): 
         const validationResult = LikeSchema.safeParse(request.body)
 
         // if the validation fails, return a response to the client
-        if (!validationResult.success) {
+        if (validationResult.success !== true) {
             return zodErrorResponse(response, validationResult.error)
         }
 
@@ -218,7 +219,7 @@ export async function deleteLikeController(request: Request, response: Response)
         const validationResult = LikeSchema.safeParse(request.body)
 
         // if the validation fails, return a response to the client
-        if (!validationResult.success) {
+        if (validationResult.success !== true) {
             return zodErrorResponse(response, validationResult.error)
         }
 
