@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS profile(
 CREATE TABLE IF NOT EXISTS article(
     article_id UUID NOT NULL PRIMARY KEY,
     article_author VARCHAR(255) NOT NULL,
-    article_date TIMESTAMP WITH TIME ZONE NOT NULL,
+    article_datetime TIMESTAMP WITH TIME ZONE NOT NULL,
     article_image VARCHAR(255) NOT NULL,
     article_summary VARCHAR(512),
     article_text TEXT NOT NULL,
