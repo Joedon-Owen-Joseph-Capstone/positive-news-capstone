@@ -10,6 +10,7 @@ import { signInRoute } from "./apis/sign-in/sign-in.route";
 import { signOutRoute } from "./apis/sign-out/sign-out.route";
 import {profileRoute} from "./apis/profile/profile.route";
 import {articleRoute} from "./apis/article/article.route";
+import {imageRoute} from "./apis/image/image.route";
 
 // The following class creates the app and instantiates the server
 export class App {
@@ -53,7 +54,7 @@ export class App {
         }))
     }
 
-    // private method for setting up routes in their basic sense (ie. any route that performs an action on profiles starts with /profiles)
+    // private method for setting up routes in their basic sense (i.e. any route that performs an action on profiles starts with /profiles)
     private routes (): void {
         this.app.use(indexRoute.basePath, indexRoute.router)
         this.app.use(signUpRoute.basePath, signUpRoute.router)
@@ -61,6 +62,7 @@ export class App {
         this.app.use(signOutRoute.basePath, signOutRoute.router)
         this.app.use(profileRoute.basePath, profileRoute.router)
         this.app.use(articleRoute.basePath, articleRoute.router)
+        this.app.use(imageRoute.basePath, imageRoute.router)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port
