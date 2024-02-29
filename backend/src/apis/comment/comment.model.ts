@@ -22,6 +22,7 @@ export async function insertComment(comment: Comment): Promise<string> {
  * @returns the comment that was selected
  * @returns null if no comment was found
  */
+
 export async function selectCommentByCommentId(commentId: number): Promise<Comment | null> {
     const rowList = await sql<Comment[]>`SELECT * FROM comment WHERE comment_id = ${commentId}`;
 
