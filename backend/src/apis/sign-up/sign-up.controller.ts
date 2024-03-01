@@ -37,10 +37,10 @@ export async function signupProfileController (request: Request, response: Respo
         const profileActivationToken = setActivationToken()
 
         // set a placeholder for profileImageUrl
-        const profileImageUrl = ''
+        const profileImageUrl = 'https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg'
 
         // create a basePath variable containing the scheme, host, port, and base path
-        const basePath: string = `${request.protocol}://${request.hostname}:8080${request.originalUrl}activation/${profileActivationToken}`
+        const basePath: string = `${request.protocol}://${request.hostname}:8080${request.originalUrl}/activation/${profileActivationToken}`
 
         // create a message for the activation email body
         const message = `<h2>Welcome to PNN.</h2>
@@ -49,7 +49,7 @@ export async function signupProfileController (request: Request, response: Respo
 
         // create a mailgun message object
         const mailgunMessage = {
-            from: `Mailgun Sandbox <mailgun@sandboxa45ca6a27285403cb346520154046024.mailgun.org`,
+            from: `Mailgun Sandbox <mailgun@${process.env.MAILGUN_DOMAIN as string}>`,
             to: profileEmail,
             subject: 'One step closer to signup -- Account Activation',
             html: message
@@ -83,6 +83,7 @@ export async function signupProfileController (request: Request, response: Respo
 
         // catch any errors that occurred during the signup process
     } catch (error: any) {
+        console.error(error)
         const status: Status = {
             status: 500,
             message: error.message,

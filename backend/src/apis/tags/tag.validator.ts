@@ -8,14 +8,14 @@ import {z} from 'zod'
 
 export const TagSchema = z.object({
     tagId: z.string({
-        required_error: 'please provide a valid tagId',
+        required_error: 'please provide valid tagId',
         invalid_type_error: 'tagId is not the correct type'
     })
-        .uuid({message: 'please provide a valid uuid for tagId'}),
+        .uuid({message: 'please provide a valid uuid for the tagId'}).nullable(),
 
-    tagName: z.string({
-        required_error: "please provide a valid tagName",
-        invalid_type_error: "tagName is not the correct type"
-    }).max(32, { message: 'please provide a valid tag name. (max 32 characters)'}),
+    tagName: z.string({required_error: 'please provide a valid tagName',
+        invalid_type_error: 'tagName is not the correct type'
+    })
+        .max(32,{message: 'tagName cannot be longer than 32 characters'})
 
-})
+});
