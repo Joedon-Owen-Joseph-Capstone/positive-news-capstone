@@ -16,4 +16,4 @@ router.route('/tagId/:tagId').get(getTagByArticleTagTagIdController)
 router.route('/tagName/:tagName').get(getTagByArticleTagArticleIdController)
 
 
-export const tagRoute = {basePath, router}
+export const articleTagRoute = {basePath, router}
