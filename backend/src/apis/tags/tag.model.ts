@@ -22,3 +22,9 @@ export async function selectTagByTagId(tagId: string) : Promise<Tag|null> {
     const result = TagSchema.array().max(1).parse(rowList)
     return result.length === 0 ? null : result[0]
 }
+
+export async function selectTagByTagName(tagName: string) : Promise<Tag|null> {
+    const rowList = await sql`SELECT tag_id, tag_name FROM tag WHERE tag_name = ${tagName}`
+    const result = TagSchema.array().max(1).parse(rowList)
+    return result.length === 0 ? null : result[0]
+}

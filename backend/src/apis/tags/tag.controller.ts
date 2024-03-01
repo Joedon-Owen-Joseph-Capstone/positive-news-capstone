@@ -2,7 +2,7 @@ import {Request, Response} from "express";
 import {Status} from "../../utils/interfaces/Status";
 import {z} from "zod";
 import {zodErrorResponse} from "../../utils/response.utils";
-import {insertTag, selectTagByTagId} from "./tag.model";
+import {insertTag, selectAllTags, selectTagByTagId, selectTagByTagName} from "./tag.model";
 import {TagSchema} from "./tag.validator";
 
 export async function getTagByTagIdController (request: Request, response: Response): Promise<Response<Status>> {
@@ -38,5 +38,37 @@ export async function postTagController(request: Request, response: Response) :P
         return response.json({status:200, message, data:null})
     }catch (error) {
         return response.json({status: 500, message: 'internal server error try again later'})
+    }
+}
+
+export async function getTagByTagNameController (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+        const validationResult = z.string({required_error: 'please provide a valid tagName',
+            invalid_type_error:'tagId is the wrong type'})
+            .uuid('please provide a valid uuid for tagId')
+            .safeParse(request.params.tagId)
+
+        if(!validationResult.success) {
+            return zodErrorResponse(response, validationResult.error)
+        }
+        const tagName = validationResult.data
+
+        const data = await selectTagByTagName(tagName)
+        return response.json({status: 200, message: null, data})
+
+    } catch (e) {
+        return response.json({status: 500, message: 'An error occurred please try again later.'})
+    }
+}
+
+export async function getAllTagsController (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+
+
+        const data = await selectAllTags()
+        return response.json({status: 200, message: null, data})
+
+    } catch (e) {
+        return response.json({status: 500, message: 'An error occurred please try again later.'})
     }
 }
