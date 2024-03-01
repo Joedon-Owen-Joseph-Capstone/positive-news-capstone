@@ -2,10 +2,10 @@ import {Request, Response} from "express";
 import {Status} from "../../utils/interfaces/Status";
 import {z} from "zod";
 import {zodErrorResponse} from "../../utils/response.utils";
-import {insertTag, selectAllTags, selectTagByTagId, selectTagByTagName} from "./article-tag.model";
+import {insertArticleTag, selectAllArticleTags, selectTagByArticleTagArticleId, selectTagByArticleTagTagId} from "./article-tag.model";
 import {ArticleTagSchema} from "./article-tag.validator";
 
-export async function getTagByTagIdController (request: Request, response: Response): Promise<Response<Status>> {
+export async function getTagByArticleTagTagIdController (request: Request, response: Response): Promise<Response<Status>> {
     try {
         const validationResult = z.string({required_error: 'please provide a valid tagId',
             invalid_type_error:'tagId is the wrong type'})
@@ -17,7 +17,7 @@ export async function getTagByTagIdController (request: Request, response: Respo
         }
         const tagId = validationResult.data
 
-        const data = await selectTagByTagId(tagId)
+        const data = await selectTagByArticleTagTagId(tagId)
         return response.json({status: 200, message: null, data})
 
     } catch (e) {
@@ -25,23 +25,23 @@ export async function getTagByTagIdController (request: Request, response: Respo
     }
 }
 
-export async function postTagController(request: Request, response: Response) :Promise<Response<Status>> {
+export async function postArticleTagController(request: Request, response: Response) :Promise<Response<Status>> {
     try{
-        const validationResult = TagSchema.safeParse(request.body)
+        const validationResult = ArticleTagSchema.safeParse(request.body)
 
         if(!validationResult.success) {
             return zodErrorResponse(response, validationResult.error)
 
         }
         const {tagName} = validationResult.data
-        const message = await insertTag({tagId:null, tagName})
+        const message = await insertArticleTag({tagId:null, tagName})
         return response.json({status:200, message, data:null})
     }catch (error) {
         return response.json({status: 500, message: 'internal server error try again later'})
     }
 }
 
-export async function getTagByTagNameController (request: Request, response: Response): Promise<Response<Status>> {
+export async function getTagByArticleTagArticleIdController (request: Request, response: Response): Promise<Response<Status>> {
     try {
         const validationResult = z.string({required_error: 'please provide a valid tagName',
             invalid_type_error:'tagName is the wrong type'})
@@ -52,7 +52,7 @@ export async function getTagByTagNameController (request: Request, response: Res
         }
         const tagName = validationResult.data
 
-        const data = await selectTagByTagName(tagName)
+        const data = await selectTagByArticleTagArticleId(tagName)
         return response.json({status: 200, message: null, data})
 
     } catch (e) {
@@ -64,7 +64,7 @@ export async function getAllTagsController (request: Request, response: Response
     try {
 
 
-        const data = await selectAllTags()
+        const data = await selectAllArticleTags()
         return response.json({status: 200, message: null, data})
 
     } catch (e) {
