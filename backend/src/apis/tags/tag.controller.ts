@@ -44,9 +44,8 @@ export async function postTagController(request: Request, response: Response) :P
 export async function getTagByTagNameController (request: Request, response: Response): Promise<Response<Status>> {
     try {
         const validationResult = z.string({required_error: 'please provide a valid tagName',
-            invalid_type_error:'tagId is the wrong type'})
-            .uuid('please provide a valid uuid for tagId')
-            .safeParse(request.params.tagId)
+            invalid_type_error:'tagName is the wrong type'})
+            .safeParse(request.params.tagName)
 
         if(!validationResult.success) {
             return zodErrorResponse(response, validationResult.error)
