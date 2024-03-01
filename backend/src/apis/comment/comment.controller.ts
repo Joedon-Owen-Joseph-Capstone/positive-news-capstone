@@ -7,7 +7,8 @@ import {
 } from './comment.model'; // Adjust path as needed
 import { CommentSchema } from './comment.validator'; // Adjust path as needed
 import { Status } from '../../utils/interfaces/Status'; // Adjust path as needed
-import { zodErrorResponse } from '../../utils/response.utils'; // Assuming a utility function for handling Zod errors
+import { zodErrorResponse } from '../../utils/response.utils';
+import {z} from "zod"; // Assuming a utility function for handling Zod errors
 
 /**
  * Handles POST request to insert a comment into the comment table.
@@ -33,9 +34,22 @@ export async function postCommentController(request: Request, response: Response
  */
 export async function getCommentsByArticleIdController(request: Request, response: Response): Promise<Response> {
     try {
-        const articleId = parseInt(request.params.articleId);
-        const comments = await selectCommentsByArticleId(articleId);
-        return response.json({ status: 200, message: null, data: comments });
+        // validate the incoming request articleId with the uuid schema
+        const validationResult = z.string()
+            .uuid({message: 'please provide a valid articleId'})
+            .safeParse(request.params.commentArticleId)
+
+        // if the validation fails, return a response to the client
+        if (!validationResult.success) {
+            return zodErrorResponse(response, validationResult.error)
+        }
+
+        // get the article id from the request parameters
+        const commentArticleId = validationResult.data
+
+        // get the article from the database by article id and store it in a variable called data
+        const data = await selectCommentsByArticleId(commentArticleId)
+        return response.json({ status: 200, message: null, data: data });
     } catch (error: any) {
         return response.json({ status: 500, message: error.message, data: [] });
     }

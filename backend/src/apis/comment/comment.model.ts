@@ -8,10 +8,10 @@ import { CommentSchema, Comment } from "./comment.validator";
  * @returns 'Comment successfully posted'
  */
 export async function insertComment(comment: Comment): Promise<string> {
-    const { commentProfileId, commentArticleId, commentContent } = comment;
+    const { commentContent } = comment;
 
-    await sql`INSERT INTO comment (comment_profile_id, comment_article_id, comment_content, comment_date_time) 
-            VALUES (${commentProfileId}, ${commentArticleId}, ${commentContent}, NOW())`;
+    await sql`INSERT INTO comment (comment_id, comment_profile_id, comment_article_id, comment_content, comment_date_time) 
+            VALUES (gen_random_uuid(), gen_random_uuid(), gen_random_uuid(), ${commentContent}, NOW())`;
 
     return 'Comment successfully posted!';
 }
@@ -23,7 +23,7 @@ export async function insertComment(comment: Comment): Promise<string> {
  * @returns null if no comment was found
  */
 
-export async function selectCommentByCommentId(commentId: number): Promise<Comment | null> {
+export async function selectCommentByCommentId(commentId: string): Promise<Comment | null> {
     const rowList = await sql<Comment[]>`SELECT * FROM comment WHERE comment_id = ${commentId}`;
 
     const result = CommentSchema.array().max(1).parse(rowList);
@@ -36,7 +36,7 @@ export async function selectCommentByCommentId(commentId: number): Promise<Comme
  * @param commentId to be deleted
  * @returns 'Comment successfully deleted'
  */
-export async function deleteComment(commentId: number): Promise<string> {
+export async function deleteComment(commentId: string): Promise<string> {
     await sql`DELETE FROM comment WHERE comment_id = ${commentId}`;
 
     return 'Comment successfully deleted';
@@ -47,7 +47,7 @@ export async function deleteComment(commentId: number): Promise<string> {
  * @param articleId to be used for selection
  * @returns the comments that were selected
  */
-export async function selectCommentsByArticleId(articleId: number): Promise<Comment[]> {
+export async function selectCommentsByArticleId(articleId: string): Promise<Comment[]> {
     const rowList = await sql<Comment[]>`SELECT * FROM comment WHERE comment_article_id = ${articleId}`;
 
     return CommentSchema.array().parse(rowList);
@@ -58,7 +58,7 @@ export async function selectCommentsByArticleId(articleId: number): Promise<Comm
  * @param profileId to be used for selection
  * @returns the comments that were selected
  */
-export async function selectCommentsByProfileId(profileId: number): Promise<Comment[]> {
+export async function selectCommentsByProfileId(profileId: string): Promise<Comment[]> {
     const rowList = await sql<Comment[]>`SELECT * FROM comment WHERE comment_profile_id = ${profileId}`;
 
     return CommentSchema.array().parse(rowList);
