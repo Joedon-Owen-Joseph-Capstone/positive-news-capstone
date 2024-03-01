@@ -4,7 +4,8 @@ import {
     postCommentController,
     getCommentsByArticleIdController,
     getCommentsByProfileIdController,
-    deleteCommentController
+    deleteCommentController,
+    selectCommentByCommentIdController
 } from "./comment.controller";
 
 // Declare a basePath for this router

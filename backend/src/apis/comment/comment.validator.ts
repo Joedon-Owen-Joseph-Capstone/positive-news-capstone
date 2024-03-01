@@ -3,7 +3,8 @@ import { z } from 'zod';
 export const CommentSchema = z.object({
 
     commentId: z.string({required_error:"Please provide a valid commentId"})
-        .uuid({message:"Please provide a valid uuid for commentId"}),
+        .uuid({message:"Please provide a valid uuid for commentId"})
+        .nullable(),
 
     commentProfileId: z.string({required_error:'Please provide a valid commentProfileId'})
         .uuid({message:'Please provide a valid uuid for commentProfileId'}),
