@@ -1,19 +1,33 @@
 import { z } from 'zod';
 import { sql } from "../../utils/database.utils";
 import { CommentSchema, Comment } from "./comment.validator";
+import {ArticleSchema} from "../article/article.validator";
 
 /**
  * Inserts a comment into the comment table and returns a message
  * @param comment to be inserted
  * @returns 'Comment successfully posted'
  */
-export async function insertComment(comment: Comment): Promise<string> {
+
+export type comment = z.infer<typeof CommentSchema>
+
+/**
+ * Inserts a comment into the comment table in the database and returns a message that says 'Comment successfully posted'
+ * @param comment The comment to be inserted
+ * @returns 'Comment successfully posted'
+ */
+export async function insertComment(comment:Comment):Promise<string> {
+
+    // deconstruct the comment object
     const { commentContent } = comment;
 
-    await sql`INSERT INTO comment (comment_id, comment_profile_id, comment_article_id, comment_content, comment_date_time) 
-            VALUES (gen_random_uuid(), gen_random_uuid(), gen_random_uuid(), ${commentContent}, NOW())`;
+    // insert the comment into the comment table
+    await sql`INSERT INTO comment (
+                  comment_id,comment_article_id, comment_profile_id, comment_content, comment_date_time)
+              VALUES (gen_random_uuid(),gen_random_uuid(), gen_random_uuid(), ${commentContent}, now())`;
 
-    return 'Comment successfully posted!';
+    // return a message that says 'Comment successfully posted'
+    return 'Comment successfully posted';
 }
 
 /**
