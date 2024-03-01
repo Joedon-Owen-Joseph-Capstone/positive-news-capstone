@@ -4,10 +4,10 @@ import {sql} from "../../utils/database.utils";
 
 export type Tag = z.infer<typeof ArticleTagSchema>
 
-export async function insertArticleTag(tag: Tag) {
-    const {article_tag_tag_id, article_tag_article_id} = tag
+export async function insertArticleTag(articleTag: Tag) {
+    const {article_tag_tag_id, article_tag_article_id} = articleTag
 
-    await sql`INSERT INTO articleTag(article_tag_tag_id, article_tag_article_id) VALUES(gen_random_uuid(), ${article_tag_article_id})`
+    await sql`INSERT INTO articleTag(article_tag_tag_id, article_tag_article_id) VALUES(gen_random_uuid(), gen_random_uuid())`
 
     return 'tag inserted successfully'
 }

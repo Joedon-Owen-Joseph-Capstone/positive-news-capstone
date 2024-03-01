@@ -1,47 +1,19 @@
-// articleTagController.ts
-import express, { Request, Response } from 'express';
-import { ArticleTagSchema } from './article-tag.validator';
+import {Router} from 'express'
+import {
+    getAllTagsController,
+    getTagByArticleTagTagIdController,
+    getTagByArticleTagArticleIdController,
+    postArticleTagController
+} from "./article-tag.controller";
 
-const router = express.Router();
+const basePath = '/apis/tag'
 
-// Validation middleware
-const validateArticleTag = (req: Request, res: Response, next: any) => {
-    const schema = ArticleTagSchema;
+const router = Router()
+router.route('/').post(postArticleTagController).get(getAllTagsController)
 
-    // Validate req.body against the schema
-    const result = schema.safeParse(req.body);
+router.route('/tagId/:tagId').get(getTagByArticleTagTagIdController)
 
-    if (result.success) {
-        // If validation is successful, store the validated data in req.articleTagData
-        req.articleTagData = result.data;
-        next();
-    } else {
-        // If validation fails, respond with an error
-        res.status(400).json({ error: 'Invalid data provided', details: result.error });
-    }
-};
+router.route('/tagName/:tagName').get(getTagByArticleTagArticleIdController)
 
-// Example route to handle POST requests for creating article tags
-router.post(
-    '/create-article-tag',
-    [
-        // Add validation middleware to the route
-        validateArticleTag,
-    ],
-    (req: Request, res: Response) => {
-        try {
-            // Access the validated data from req.articleTagData
-            const data = req.articleTagData;
 
-            // Perform actions like saving to a database
-            // Replace the following line with your actual logic
-            res.status(200).json({ message: 'Article tag created successfully', data });
-        } catch (error) {
-            // Handle other errors that might occur during processing
-            console.error(error);
-            res.status(500).json({ error: 'Internal server error' });
-        }
-    }
-);
-
-export default router;
+export const tagRoute = {basePath, router}
