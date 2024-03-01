@@ -1,10 +1,10 @@
 import {Request, Response} from "express";
 import {Status} from "../../utils/interfaces/Status";
-import {z} from "zod";
+import {string, z} from "zod";
 import {zodErrorResponse} from "../../utils/response.utils";
 import {insertArticleTag, selectAllArticleTags, selectTagByArticleTagArticleId, selectTagByArticleTagTagId} from "./article-tag.model";
 import {ArticleTagSchema} from "./article-tag.validator";
-import {Tag} from "./article-tag.model";
+import {ArticleTag} from "./article-tag.model";
 
 export async function getTagByArticleTagTagIdController (request: Request, response: Response): Promise<Response<Status>> {
     try {
@@ -38,14 +38,9 @@ export async function postArticleTagController(request: Request, response: Respo
         }
 
         // if the validation succeeds, continue on with postArticleTagController logic below this line
-
-        // get the articleTag content from the request body
-        const { articleTagArticleId, articleTagTagId} = validationResult.data
         // create a new article object with the
-        const articleTag: Tag = {
-            articleTagArticleId: null,
-            articleTagTagId: null
-        }
+        const {articleTagArticleId, articleTagTagId} = validationResult.data
+        const articleTag: ArticleTag = {articleTagArticleId, articleTagTagId}
 
         // insert the article into the database and store the result in a variable called result
         const result = await insertArticleTag(articleTag)
