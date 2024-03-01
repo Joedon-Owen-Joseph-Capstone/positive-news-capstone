@@ -75,7 +75,7 @@ export async function getTagByArticleTagArticleIdController (request: Request, r
     }
 }
 
-export async function getAllTagsController (request: Request, response: Response): Promise<Response<Status>> {
+export async function getAllArticleTagsController (request: Request, response: Response): Promise<Response<Status>> {
     try {
 
 

@@ -1,6 +1,6 @@
 import {Router} from 'express'
 import {
-    getAllTagsController,
+    getAllArticleTagsController,
     getTagByArticleTagTagIdController,
     getTagByArticleTagArticleIdController,
     postArticleTagController
@@ -9,7 +9,7 @@ import {
 const basePath = '/apis/tag'
 
 const router = Router()
-router.route('/').post(postArticleTagController).get(getAllTagsController)
+router.route('/').post(postArticleTagController).get(getAllArticleTagsController)
 
 router.route('/tagId/:tagId').get(getTagByArticleTagTagIdController)
 
