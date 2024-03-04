@@ -42,7 +42,7 @@ export async function postCommentController(request: Request, response: Response
         const result = await insertComment(comment);
 
         // Return the response with status code 200 and the success message
-        const status: Status = {status: 200, message: 'Comment created successfully.', data: null};
+        const status: Status = {status: 200, message: result, data: null}
         return response.json(status);
 
     } catch (error: any) {
