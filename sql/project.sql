@@ -36,6 +36,12 @@ CREATE TABLE IF NOT EXISTS comment(
     comment_profile_id UUID NOT NULL,
     comment_content VARCHAR(512) NOT NULL,
     comment_date_time TIMESTAMP WITH TIME ZONE NOT NULL,
+    comment_reply_comment_id UUID NOT NULL,
+    comment_reply_profile_id UUID NOT NULL,
+    comment_reply_date_time TIMESTAMP WITH TIME ZONE NOT NULL,
+    comment_reply_content VARCHAR(512) NOT NULL,
+    FOREIGN KEY (comment_reply_comment_id) REFERENCES comment(comment_id),
+    FOREIGN KEY (comment_reply_profile_id) REFERENCES profile(profile_id),
     FOREIGN KEY (comment_article_id) REFERENCES article(article_id),
     FOREIGN KEY (comment_profile_id) REFERENCES profile(profile_id)
 );
