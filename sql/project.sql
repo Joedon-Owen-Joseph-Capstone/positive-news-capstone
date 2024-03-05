@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS comment;
 DROP TABLE IF EXISTS article;
 DROP TABLE IF EXISTS tag;
 DROP TABLE IF EXISTS profile;
+DROP TABLE IF EXISTS follow;
 
 CREATE TABLE IF NOT EXISTS tag(
     tag_id UUID NOT NULL PRIMARY KEY,
@@ -17,6 +18,14 @@ CREATE TABLE IF NOT EXISTS profile(
     profile_hash CHAR(97) NOT NULL UNIQUE,
     profile_image_url VARCHAR(255),
     profile_name VARCHAR(32) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS follow(
+    -- this is the profile that is doing the following
+    follow_profile_id UUID NOT NULL REFERENCES profile(profile_id),
+    -- this is the profile that is being followed
+    follow_following_profile_id UUID NOT NULL REFERENCES profile(profile_id),
+    PRIMARY KEY(follow_profile_id, follow_following_profile_id)
 );
 
 CREATE TABLE IF NOT EXISTS article(
