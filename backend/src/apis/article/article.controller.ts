@@ -1,9 +1,14 @@
 import {Request, Response} from 'express'
 import {Status} from "../../utils/interfaces/Status";
 import {
-    Article, insertArticle,
-    selectAllArticles, selectArticleByArticleAuthor, selectArticleByArticleDatetime,
-    selectArticleByArticleId, selectArticleByArticleTitle,
+    Article,
+    insertArticle,
+    selectAllArticles,
+    selectArticleByArticleAuthor,
+    selectArticleByArticleDatetime,
+    selectArticleByArticleId,
+    selectArticleByArticleSourceCountry,
+    selectArticleByArticleTitle,
     selectPageOfArticles
 } from "./article.model";
 import {zodErrorResponse} from "../../utils/response.utils";
@@ -29,7 +34,7 @@ export async function postArticleController(request: Request, response: Response
         // if the validation succeeds, continue on with postArticleController logic below this line
 
         // get the article content from the request body
-        const {articleAuthor, articleImage, articleSummary, articleText, articleTitle, articleUrl} = validationResult.data
+        const {articleAuthor, articleImage, articleSourceCountry, articleSourceNumber, articleSummary, articleText, articleTitle, articleUrl} = validationResult.data
 
         // create a new article object with the articleAuthor, articleImage, articleSummary, articleText, articleTitle and articleUrl
         const article: Article = {
@@ -37,6 +42,8 @@ export async function postArticleController(request: Request, response: Response
             articleAuthor,
             articleDatetime: null,
             articleImage,
+            articleSourceCountry,
+            articleSourceNumber,
             articleSummary,
             articleText,
             articleTitle,
@@ -180,6 +187,42 @@ export async function getArticleByArticleDatetimeController (request: Request, r
         const data = await selectArticleByArticleDatetime(articleDatetime)
 
         // return the response with the status code 200, a message, and the article as data
+        return response.json({status: 200, message: null, data})
+
+        // if there is an error, return the response with the status code 500, an error message, and null data
+    } catch (error) {
+        return response.json({
+            status: 500,
+            message: '',
+            data: []
+        })
+    }
+}
+
+/**
+ * gets an article from the database by article source country and returns it to the user in the response
+ * @param request from the client to the server to get an article by article source country from
+ * @param response from the server to the client with an article by article source country or an error message
+ */
+export async function getArticleByArticleSourceCountryController (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+
+        // validate the incoming request articleSourceCountry
+        const validationResult = z.string()
+            .safeParse(request.params.articleSourceCountry)
+
+        // if the validation fails, return a response to the client
+        if (!validationResult.success) {
+            return zodErrorResponse(response, validationResult.error)
+        }
+
+        // get the article title from the request parameters
+        const articleSourceCountry = validationResult.data
+
+        // get the article from the database by article source country and store it in a variable called data
+        const data = await selectArticleByArticleSourceCountry(articleSourceCountry)
+
+        // return the response with the status code 200, a message, and the articles as data
         return response.json({status: 200, message: null, data})
 
         // if there is an error, return the response with the status code 500, an error message, and null data

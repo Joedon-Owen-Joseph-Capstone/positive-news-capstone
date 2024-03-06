@@ -1,8 +1,13 @@
 import {Router} from "express";
 import {
-    getAllArticles, getArticleByArticleAuthorController, getArticleByArticleDatetimeController,
-    getArticleByArticleIdController, getArticleByArticleTitleController,
-    getPageOfArticlesController, postArticleController
+    getAllArticles,
+    getArticleByArticleAuthorController,
+    getArticleByArticleDatetimeController,
+    getArticleByArticleIdController,
+    getArticleByArticleSourceCountryController,
+    getArticleByArticleTitleController,
+    getPageOfArticlesController,
+    postArticleController
 } from "./article.controller";
 
 const basePath = '/apis/article'
@@ -20,6 +25,8 @@ router.route('/articleId/:articleId').get(getArticleByArticleIdController)
 router.route('/articleAuthor/:articleAuthor').get(getArticleByArticleAuthorController)
 
 router.route('/articleDatetime/:articleDatetime').get(getArticleByArticleDatetimeController)
+
+router.route('/articleSourceCountry/:articleSourceCountry').get(getArticleByArticleSourceCountryController)
 
 router.route('/articleTitle/:articleTitle').get(getArticleByArticleTitleController)
 

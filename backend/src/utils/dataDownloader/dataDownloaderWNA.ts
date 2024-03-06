@@ -1,5 +1,8 @@
 import axios from "axios"
-import {insertArticle} from "../../apis/article/article.model";
+import {
+    insertArticle,
+    selectArticleSourceNumber
+} from "../../apis/article/article.model";
 
 // Create an interface type for the articles to follow
 interface Article {
@@ -7,6 +10,8 @@ interface Article {
     articleAuthor: string,
     articleDatetime: Date | null,
     articleImage: string,
+    articleSourceCountry: string,
+    articleSourceNumber: string,
     articleSummary: string,
     articleText: string,
     articleTitle: string,
@@ -15,6 +20,8 @@ interface Article {
 
 function dataDownloader() : Promise<any> {
     return main()
+
+    // Catch potential structural errors in the async function and log them
     async function main() {
         try {
             await downloadArticles()
@@ -29,13 +36,27 @@ function dataDownloader() : Promise<any> {
         try {
 
             // Create a variable to pull the 'data' from the API
-            const {data} = await axios.get("https://api.worldnewsapi.com/search-news?number=5&min-sentiment=0.7&language=en", {headers:{"x-api-key":process.env.NEWS_KEY}})
+            // Search filters: Sentiment-0.68, language-english, published after-2024/01/01, news sources-Forbes & BBC & ...
+            const {data} = await axios.get("https://api.worldnewsapi.com/search-news?number=5&min-sentiment=0.68&language=en&earliest-publish-date=2024-01-01&news-sources=https://www.bbc.co.uk,https://www.forbes.com,https://www.nbcnews.com,https://www.cnn.com,https://www.theguardian.com,https://www.newsweek.com,https://news.google.com,https://abcnews.go.com,https://www.usnews.com,https://www.cbsnews.com,https://apnews.com,https://www.washingtonpost.com,https://www.nytimes.com,https://www.usatoday.com,https://www.aljazeera.com,https://www.npr.org,https://www.pbs.org,https://www.msnbc.com,https://www.wsj.com,https://time.com,https://www.bloomberg.com,https://nypost.com,https://news.un.org,https://www.vox.com,https://www.buzzfeednews.com", {headers:{"x-api-key":process.env.NEWS_KEY}})
 
-            // loop through each article item and assign them a value corresponding to the info on the API
+            // loop through each article item within the API
             for(let currentArticle of data.news) {
 
+                // Create a variable to hold existing articles (not article UUID, it's the APIs' identifier for the article)
+                const existingArticle = await selectArticleSourceNumber(currentArticle.id)
+
+                // Check if the article already exists in the database
+                if (existingArticle !== null) {
+
+                    // Log that the article exists if true
+                    console.log("Skipping article because it already exists:", currentArticle)
+
+                    // Skip to the next iteration of the loop after
+                    continue
+                }
+
                 // Check if all required fields are present
-                if (currentArticle.author && currentArticle.publish_date && currentArticle.image && currentArticle.url && currentArticle.title && currentArticle.text) {
+                if (currentArticle.author && currentArticle.publish_date && currentArticle.image && currentArticle.source_country && currentArticle.id && currentArticle.url && currentArticle.title && currentArticle.text) {
                     console.log("currentArticle", currentArticle)
 
                     // Create manual summary
@@ -47,6 +68,8 @@ function dataDownloader() : Promise<any> {
                         articleAuthor: currentArticle.author,
                         articleDatetime: currentArticle.publish_date,
                         articleImage: currentArticle.image,
+                        articleSourceCountry: currentArticle.source_country,
+                        articleSourceNumber: currentArticle.id,
                         articleSummary: articleSummary,
                         articleUrl: currentArticle.url,
                         articleTitle: currentArticle.title,
