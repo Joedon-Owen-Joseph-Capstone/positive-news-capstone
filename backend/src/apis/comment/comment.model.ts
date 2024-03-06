@@ -1,7 +1,6 @@
 import { z } from 'zod';
 import { sql } from "../../utils/database.utils";
-import { CommentSchema, Comment } from "./comment.validator";
-import {ArticleSchema} from "../article/article.validator";
+import { CommentSchema } from "./comment.validator";
 
 /**
  * Inserts a comment into the comment table and returns a message
@@ -9,7 +8,7 @@ import {ArticleSchema} from "../article/article.validator";
  * @returns 'Comment successfully posted'
  */
 
-export type comment = z.infer<typeof CommentSchema>
+export type Comment = z.infer<typeof CommentSchema>
 
 /**
  * Inserts a comment into the comment table in the database and returns a message that says 'Comment successfully posted'

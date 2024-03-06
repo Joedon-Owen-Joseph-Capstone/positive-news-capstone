@@ -19,5 +19,3 @@ export const CommentSchema = z.object({
     commentDateTime: z.coerce.date({required_error: 'please provide a valid commentDatetime or null'})
         .nullable(),
 });
-
-export type Comment = z.infer<typeof CommentSchema>;
