@@ -98,9 +98,15 @@ export async function getCommentsByProfileIdController(request: Request, respons
 
         // get the comments from the database by profile id and store them in a variable called data
         const data = await selectCommentsByProfileId(profileId);
+
         return response.json({ status: 200, message: null, data: data });
+
+        // return any errors to the user
     } catch (error: any) {
-        return response.json({ status: 500, message: error.message, data: [] });
+        return response.json({
+            status: 500,
+            message: error.message,
+            data: [] });
     }
 }
 

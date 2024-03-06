@@ -18,12 +18,12 @@ export type Comment = z.infer<typeof CommentSchema>
 export async function insertComment(comment:Comment):Promise<string> {
 
     // deconstruct the comment object
-    const { commentContent } = comment;
+    const { commentContent, commentId, commentArticleId, commentProfileId } = comment;
 
     // insert the comment into the comment table
     await sql`INSERT INTO comment (
                   comment_id,comment_article_id, comment_profile_id, comment_content, comment_date_time)
-              VALUES (gen_random_uuid(),gen_random_uuid(), gen_random_uuid(), ${commentContent}, now())`;
+              VALUES (gen_random_uuid(),${commentArticleId},${commentProfileId}, ${commentContent}, now())`;
 
     // return a message that says 'Comment successfully posted'
     return 'Comment successfully posted';
