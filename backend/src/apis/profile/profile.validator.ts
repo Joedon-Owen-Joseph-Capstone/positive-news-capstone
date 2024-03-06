@@ -6,18 +6,27 @@ export const PrivateProfileSchema = z.object({
         invalid_type_error: 'Please provide a valid profileId'
     })
         .uuid({ message: 'please provide a valid profileId' }),
+
     profileActivationToken: z.string({
         required_error: 'profileActivationToken is required',
         invalid_type_error: 'please provide a valid profileActivationToken'
     })
         .length(32, { message: 'profile activation token is to long' })
         .nullable(),
+
     profileEmail: z.string({
         required_error: 'profileEmail is required',
         invalid_type_error: ' please provide a valid profileEmail'
     })
         .email({ message: 'please provide a valid email' })
         .max(128, { message: 'profileEmail is to long' }),
+
+    profileAbout: z.string({
+        required_error: 'profile about is a required field.',
+        invalid_type_error: 'please provide a valid profile about'
+    })
+        .max(512, { message: 'profile about length is too long' })
+        .nullable(),
 
     profileHash: z.string({
         required_error: 'profileHash is required',

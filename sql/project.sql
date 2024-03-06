@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS tag(
 
 CREATE TABLE IF NOT EXISTS profile(
     profile_id UUID NOT NULL PRIMARY KEY,
+    profile_about VARCHAR(512),
     profile_activation_token CHAR(32),
     profile_email VARCHAR(128) NOT NULL UNIQUE,
     profile_hash CHAR(97) NOT NULL UNIQUE,
