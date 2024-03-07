@@ -58,6 +58,7 @@ export async function signupProfileController (request: Request, response: Respo
         // create a new profile object
         const profile: PrivateProfile = {
             profileId: '',
+            profileAbout: null,
             profileActivationToken,
             profileEmail,
             profileHash,

@@ -2,7 +2,7 @@ import {z} from 'zod'
 import {PrivateProfileSchema} from "../profile/profile.validator";
 
 export const SignUpProfileSchema = PrivateProfileSchema
-    .omit({ profileId: true, profileHash: true, profileActivationToken: true, profileImageUrl: true })
+    .omit({ profileId: true, profileHash: true, profileActivationToken: true, profileImageUrl: true, profileAbout: true })
     .extend({
         profilePasswordConfirm: z.string({
             required_error: 'confirmed password required',

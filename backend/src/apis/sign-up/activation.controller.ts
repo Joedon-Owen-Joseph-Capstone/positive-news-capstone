@@ -1,4 +1,4 @@
-import {NextFunction, Request, Response} from 'express'
+import { Request, Response} from 'express'
 import { selectPrivateProfileByProfileActivationToken, updateProfile} from '../profile/profile.model'
 import {Status} from '../../utils/interfaces/Status'
 
