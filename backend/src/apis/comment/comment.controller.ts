@@ -58,9 +58,18 @@ export async function postCommentController(request: Request, response: Response
         return response.json(status);
 
     } catch (error: any) {
-        // If there's an error during the process, log it and return a response with status code 500 and the error message
-        console.log(error);
-        return response.json({status: 500, data: null, message: error.message});
+        if (error.code === "23503") { // PostgreSQL error code for foreign key violation
+            return response.status(400).json({
+                status: 400,
+                message: "The provided article ID does not exist.",
+                data: null
+            });
+        }
+        return response.status(500).json({
+            status: 500,
+            message: error.message,
+            data: null
+        });
     }
 }
 
