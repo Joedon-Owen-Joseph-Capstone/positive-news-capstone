@@ -1,15 +1,9 @@
-DROP TABLE IF EXISTS articleTag;
+DROP TABLE IF EXISTS tag;
 DROP TABLE IF EXISTS "like";
 DROP TABLE IF EXISTS comment;
 DROP TABLE IF EXISTS article;
-DROP TABLE IF EXISTS tag;
 DROP TABLE IF EXISTS profile;
 DROP TABLE IF EXISTS follow;
-
-CREATE TABLE IF NOT EXISTS tag(
-    tag_id UUID NOT NULL PRIMARY KEY,
-    tag_name VARCHAR(32) NOT NULL
-);
 
 CREATE TABLE IF NOT EXISTS profile(
     profile_id UUID NOT NULL PRIMARY KEY,
@@ -21,13 +15,16 @@ CREATE TABLE IF NOT EXISTS profile(
     profile_name VARCHAR(32) NOT NULL UNIQUE
 );
 
-CREATE TABLE IF NOT EXISTS follow(
-    -- this is the profile that is doing the following
-    follow_profile_id UUID NOT NULL REFERENCES profile(profile_id),
-    -- this is the profile that is being followed
-    follow_following_profile_id UUID NOT NULL REFERENCES profile(profile_id),
-    PRIMARY KEY(follow_profile_id, follow_following_profile_id)
+
+CREATE TABLE IF NOT EXISTS follow (
+    follow_profile_id UUID NOT NULL,
+    follow_following_profile_id UUID NOT NULL,
+    follow_date timestamptz NOT NULL,
+    PRIMARY KEY (follow_profile_id, follow_following_profile_id),
+    FOREIGN KEY (follow_profile_id) REFERENCES profile(profile_id),
+    FOREIGN KEY (follow_following_profile_id) REFERENCES profile(profile_id)
 );
+
 
 CREATE TABLE IF NOT EXISTS article(
     article_id UUID NOT NULL PRIMARY KEY,
@@ -61,10 +58,10 @@ CREATE TABLE IF NOT EXISTS "like"(
     PRIMARY KEY (like_article_id, like_profile_id)
 );
 
-CREATE TABLE IF NOT EXISTS articleTag(
-    article_tag_article_id UUID NOT NULL,
-    article_tag_tag_id UUID NOT NULL,
-    FOREIGN KEY (article_tag_article_id) REFERENCES article(article_id),
-    FOREIGN KEY (article_tag_tag_id) REFERENCES tag(tag_id),
-    PRIMARY KEY (article_tag_article_id, article_tag_tag_id)
+CREATE TABLE IF NOT EXISTS tag(
+    tag_comment_id UUID NOT NULL,
+    tag_profile_id UUID NOT NULL,
+    FOREIGN KEY (tag_comment_id) REFERENCES comment(comment_id),
+    FOREIGN KEY (tag_profile_id) REFERENCES profile(profile_id),
+    PRIMARY KEY (tag_comment_id, tag_profile_id)
 );
