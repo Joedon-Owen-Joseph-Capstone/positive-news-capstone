@@ -13,7 +13,7 @@ import {articleRoute} from "./apis/article/article.route";
 import {imageRoute} from "./apis/image/image.route";
 import {commentRoute} from "./apis/comment/comment.route";
 import {likeRoute} from "./apis/like/like.route";
-import {tagRoute} from "./apis/tags/tag.route";
+import {tagRoute} from "./apis/tag/tag.route";
 import {articleTagRoute} from "./apis/article-tag/article-tag.route";
 
 
