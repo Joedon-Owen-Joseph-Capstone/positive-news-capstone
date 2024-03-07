@@ -2,7 +2,7 @@ import {Request, Response} from "express";
 import {Status} from "../../utils/interfaces/Status";
 import {z} from "zod";
 import {zodErrorResponse} from "../../utils/response.utils";
-import {insertTag, selectAllTags, selectTagByTagProfileId, selectTagByTagCommentId} from "./tag.model";
+import {insertTag, selectAllTags, selectTagByTagProfileId, selectTagByTagCommentId,} from "./tag.model";
 import {TagSchema} from "./tag.validator";
 
 export async function getTagByTagProfileIdController (request: Request, response: Response): Promise<Response<Status>> {

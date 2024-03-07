@@ -16,7 +16,7 @@ export async function insertFollow(follow: Follow): Promise<string> {
     const {followProfileId, followFollowingProfileId} = follow
 
     // insert the follow into the follow table
-    await sql`INSERT INTO follow (follow_profile_id, follow_following_profile_id)
+    await sql`INSERT INTO follow (follow_profile_id, follow_following_profile_id, follow_date)
               VALUES (${followProfileId}, ${followFollowingProfileId})`
 
     // return a message to the user indicating success

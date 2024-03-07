@@ -108,8 +108,8 @@ export async function postFollowController (request: Request, response: Response
         // if the validation succeeds, continue on with postFollowController logic below this line
 
         // deconstruct the follow profile id and the follow following profile id from the request body
-        const {followProfileId, followFollowingProfileId} = validationResult.data
-        const result = await insertFollow({followProfileId, followFollowingProfileId})
+        const {followProfileId, followFollowingProfileId, followDate} = validationResult.data
+        const result = await insertFollow({followProfileId, followFollowingProfileId, followDate})
 
         return response.json({status: 200, message: null, data: result})
     } catch (error) {
@@ -125,8 +125,8 @@ export async function postFollowController (request: Request, response: Response
  */
 export async function deleteFollowController (request: Request, response: Response): Promise<Response> {
     try {
-        const {followProfileId, followFollowingProfileId} = request.body
-        const result = await insertFollow({followProfileId, followFollowingProfileId})
+        const {followProfileId, followFollowingProfileId, followDate} = request.body
+        const result = await insertFollow({followProfileId, followFollowingProfileId, followDate})
         return response.json({status: 200, message: null, data: result})
     } catch (error) {
         return response.json({status: 500, message: 'Deleting the follow failed. Please try again.', data: null})
@@ -147,7 +147,8 @@ export async function toggleFollowController (request: Request, response: Respon
 
         const follow: Follow = {
             followProfileId,
-            followFollowingProfileId
+            followFollowingProfileId,
+            followDate: null
         }
 
         // create a status object
