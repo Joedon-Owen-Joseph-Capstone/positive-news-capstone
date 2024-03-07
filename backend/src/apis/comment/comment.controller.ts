@@ -8,7 +8,8 @@ import {
 import { CommentSchema } from './comment.validator'; // Adjust path as needed
 import { Status } from '../../utils/interfaces/Status'; // Adjust path as needed
 import { zodErrorResponse } from '../../utils/response.utils';
-import {z} from "zod"; // Assuming a utility function for handling Zod errors
+import {z} from "zod";
+import {PublicProfile} from "../profile/profile.model"; // Assuming a utility function for handling Zod errors
 
 /**
  * Handles POST request to insert a new comment into the database.
@@ -26,8 +27,12 @@ export async function postCommentController(request: Request, response: Response
             return zodErrorResponse(response, validationResult.error);
         }
 
-        // If the validation succeeds, extract the validated data
-        const {commentArticleId, commentProfileId, commentContent} = validationResult.data;
+        // Deconstruct Comment id from validation result
+        const {commentArticleId, commentContent} = validationResult.data;
+        // Deconstruct Profile from session
+        const profile = request.session.profile as PublicProfile
+        // Deconstruct profileId from profile
+        const commentProfileId = profile.profileId as string
 
         // Create a new comment object (excluding fields like commentId and commentDateTime that are set by the database)
         const comment = {
@@ -38,17 +43,24 @@ export async function postCommentController(request: Request, response: Response
             commentDateTime:null,
         };
 
+        // create a status object
+        const status: Status = {
+            status: 200,
+            message: '',
+            data: null
+        }
+
         // Insert the comment into the database
-        const result = await insertComment(comment);
+        status.message = await insertComment(comment);
 
         // Return the response with status code 200 and the success message
-        const status: Status = {status: 200, message: result, data: null}
+
         return response.json(status);
 
     } catch (error: any) {
         // If there's an error during the process, log it and return a response with status code 500 and the error message
         console.log(error);
-        return response.json({status: 500, message: 'Error creating comment. Try again.', data: null});
+        return response.json({status: 500, data: null, message: error.message});
     }
 }
 
@@ -72,7 +84,10 @@ export async function getCommentsByArticleIdController(request: Request, respons
 
         // get the comment from the database by comment id and store it in a variable called data
         const data = await selectCommentsByArticleId(commentArticleId)
+        // return the status and the likes associated with the thread
         return response.json({ status: 200, message: null, data: data });
+
+        // if an error occurs, return the error to the user
     } catch (error: any) {
         return response.json({ status: 500, message: error.message, data: [] });
     }
@@ -99,6 +114,7 @@ export async function getCommentsByProfileIdController(request: Request, respons
         // get the comments from the database by profile id and store them in a variable called data
         const data = await selectCommentsByProfileId(profileId);
 
+        // return the status and the comments associated with the profile
         return response.json({ status: 200, message: null, data: data });
 
         // return any errors to the user
