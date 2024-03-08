@@ -7,42 +7,17 @@ export default function Home() {
             <title>Home page</title>
 
             {/* Header */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-center text-black font-custom italic my-24">POSITIVE NEWS NETWORK</h1>
+            <div className="bg-[url('/manolo-chretien-RpC-9e0ORNM-unsplash.jpg')] bg-cover bg-fixed bg-center p-52">
+            <h1 className="animation-highlight duration-75 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide text-center font-custom italic pt-2" id='high'>POSITIVE NEWS NETWORK</h1>
+            </div>
 
             {/* U.S. posts */}
             <section className='mt-28 lg:mt-56'>
                 <div className="container mx-auto">
 
-                    {/* Title and filter */}
+                    {/* Title */}
                     <div className='flex justify-between'>
                         <h2 className='font-custom text-black text-3xl md:text-4xl lg:text-5xl'>Popular U.S.</h2>
-                        {/* Filter */}
-                        <div>
-
-                            {/* Filter list */}
-                            <ul className="menu menu-horizontal">
-                                <li>
-                                    <details>
-
-                                        {/* Filter drop down */}
-                                        <summary className="text-3xl focus:outline-2 cursor-pointer">
-                                            <img width="36" height="36" src='/filter-right.svg' alt='filter button'/>
-                                        </summary>
-
-                                        {/* Drop down links */}
-                                        <ul className="bg-white italic p-2 rounded-t-none text-black z-50">
-
-                                            {/* Filter categories */}
-                                            <li><a>Animals</a></li>
-                                            <li><a>Health</a></li>
-                                            <li><a>Science</a></li>
-                                            <li><a>Space</a></li>
-                                            <li><a>Technology</a></li>
-                                        </ul>
-                                    </details>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                     <Posts/>
 
@@ -83,36 +58,8 @@ export default function Home() {
                 <div className="container mx-auto">
                     <div className='flex justify-between'>
 
-                        {/* Title and filter */}
+                        {/* Title */}
                         <h2 className='font-custom text-black text-3xl md:text-4xl lg:text-5xl'>Popular World</h2>
-
-                        {/* Filter */}
-                        <div>
-
-                            {/* Filter list */}
-                            <ul className="menu menu-horizontal">
-                                <li>
-                                    <details>
-
-                                        {/* Filter drop down */}
-                                        <summary className="text-3xl focus:outline-2 cursor-pointer">
-                                            <img width="36" height="36" src='/filter-right.svg' alt='filter button'/>
-                                        </summary>
-
-                                        {/* Drop down links */}
-                                        <ul className="bg-white italic p-2 rounded-t-none text-black z-50">
-
-                                            {/* Filter categories */}
-                                            <li><a>Animals</a></li>
-                                            <li><a>Health</a></li>
-                                            <li><a>Science</a></li>
-                                            <li><a>Space</a></li>
-                                            <li><a>Technology</a></li>
-                                        </ul>
-                                    </details>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                     <Posts/>
 
