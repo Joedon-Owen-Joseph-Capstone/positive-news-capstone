@@ -15,6 +15,6 @@ export const LikeSchema = z.object({
     likeArticleId: z.string({required_error: 'please provide a valid likeArticleId'})
         .uuid({message: 'please provide a valid uuid for likeArticleId'}),
     // throw error for like date time if wrong
-    likeDatetime: z.date({required_error: 'please provide a valid likeDatetime or null'})
+    likeDatetime: z.coerce.date({required_error: 'please provide a valid likeDatetime or null'})
         .nullable()
 })
