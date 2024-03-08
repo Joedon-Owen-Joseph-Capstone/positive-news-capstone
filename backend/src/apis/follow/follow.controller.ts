@@ -113,6 +113,7 @@ export async function postFollowController (request: Request, response: Response
 
         return response.json({status: 200, message: null, data: result})
     } catch (error) {
+        console.log(error)
         return response.json({status: 500, message: 'Posting the follow failed. Please try again.', data: null})
     }
 }

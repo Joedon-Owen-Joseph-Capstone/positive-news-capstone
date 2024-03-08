@@ -17,12 +17,12 @@ CREATE TABLE IF NOT EXISTS profile(
 );
 
 
-CREATE TABLE IF NOT EXISTS follow (
+CREATE TABLE IF NOT EXISTS follow(
     -- this is the profile that is doing the following
     follow_profile_id UUID NOT NULL REFERENCES profile(profile_id),
     -- this is the profile that is being followed
     follow_following_profile_id UUID NOT NULL REFERENCES profile(profile_id),
-    follow_date timestamptz NOT NULL
+    follow_date timestamptz NOT NULL,
     PRIMARY KEY(follow_profile_id, follow_following_profile_id)
 );
 

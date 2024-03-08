@@ -13,7 +13,7 @@ export type Follow = z.infer<typeof FollowSchema>
 export async function insertFollow(follow: Follow): Promise<string> {
 
     // deconstruct the follow object
-    const {followProfileId, followFollowingProfileId} = follow
+    const {followProfileId, followFollowingProfileId, followDate} = follow
 
     // insert the follow into the follow table
     await sql`INSERT INTO follow (follow_profile_id, follow_following_profile_id, follow_date)
