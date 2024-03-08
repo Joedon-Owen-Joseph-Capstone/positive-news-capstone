@@ -7,7 +7,7 @@ export type Tag = z.infer<typeof TagSchema>
 export async function insertTag(tag: Tag) {
     const {tagProfileId, tagCommentId} = tag
 
-    await sql`INSERT INTO tag(tag_profile_id, tag_comment_id) VALUES(gen_random_uuid(), ${tagCommentId})`
+    await sql`INSERT INTO tag(tag_profile_id, tag_comment_id) VALUES(${tagProfileId}, ${tagCommentId})`
 
     return 'tag inserted successfully'
 }

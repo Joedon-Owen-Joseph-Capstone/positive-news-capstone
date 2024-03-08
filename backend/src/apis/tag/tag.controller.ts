@@ -33,8 +33,8 @@ export async function postTagController(request: Request, response: Response) :P
             return zodErrorResponse(response, validationResult.error)
 
         }
-        const {tagCommentId} = validationResult.data
-        const message = await insertTag({tagProfileId:null, tagCommentId})
+        const {tagProfileId, tagCommentId} = validationResult.data
+        const message = await insertTag({tagProfileId, tagCommentId})
         return response.json({status:200, message, data:null})
     }catch (error) {
         return response.json({status: 500, message: 'internal server error try again later'})
