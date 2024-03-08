@@ -32,10 +32,10 @@ export async function getLikesByLikeArticleIdController(request: Request, respon
 
         // if the validation succeeds, continue
 
-        // deconstruct the like thread id from the request parameters
+        // deconstruct the like article id from the request parameters
         const likeArticleId = validationResult.data
 
-        // select the likes by like thread id
+        // select the likes by like article id
         const data = await selectLikesByLikeArticleId(likeArticleId)
 
         // return the status and the likes associated with the thread
