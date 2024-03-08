@@ -105,4 +105,4 @@ If you want to check out our other work or have any questions/suggestions, feel 
 
 - Joseph: - Email: josephmarchbanks599@gmail.com - [GitHub](https://github.com/JPHMarchB)
 - Owen: - Email: odscarpa512@gmail.com - [GitHub](https://github.com/odscarpa)
-- Joedon: - Email: jdmconnell@gmail.com - [GitHub](https://github.com/JoedyMcconn)
+- Joedon: - Email: jmcconnell11@cnm.edu - [GitHub](https://github.com/JoedyMcconn)
