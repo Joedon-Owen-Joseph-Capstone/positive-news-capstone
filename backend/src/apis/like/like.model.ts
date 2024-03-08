@@ -17,7 +17,7 @@ export async function insertLike(like:Like):Promise<string> {
     const {likeProfileId, likeArticleId} = like
 
     //insert like into like table
-    await sql`INSERT INTO "like" (like_article_id, like_profile_id, like_date_time) VALUES (${likeProfileId}, ${likeArticleId}, now())`
+    await sql`INSERT INTO "like" (like_profile_id, like_article_id, like_date_time) VALUES (${likeProfileId}, ${likeArticleId}, now())`
 
     //return a message to the user indicating success
     return  'Successful Like!'
