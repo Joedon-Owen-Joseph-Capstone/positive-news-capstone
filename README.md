@@ -91,7 +91,7 @@ This project is licensed under the [Apache License 2.0](LICENSE).
 - Profile Image - Placeholder image sourced from [milton.edu](https://www.milton.edu/wp-content/uploads/2019/11/avatar-placeholder.jpg)
 - US News Banner Image - Banner image sourced from [flickr.com](https://flic.kr/p/nE3N2P)
 - World News Banner Image - Banner image sourced from [visibleearth.nasa.gov](https://visibleearth.nasa.gov/images/149388/yellow-sea-night-lights/149390l)
-- Homepage Banner Image - Banner image sourced from [blank](blank)
+- Homepage Banner Image - Banner image sourced from [unsplash.com](https://unsplash.com/photos/scattered-magazines-RpC-9e0ORNM)
 - Sign Up Image - Banner image sourced from [unsplash.com](https://unsplash.com/photos/white-good-news-is-coming-paper-on-wall-XmMsdtiGSfo)
 - Log-in Image - Banner image sourced from [unsplash.com](https://unsplash.com/photos/bundle-of-newspaper-on-table-Mwuod2cm8g4)
 
