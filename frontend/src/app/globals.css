@@ -8,4 +8,19 @@
     .font-outline {
         -webkit-text-stroke: 3px black;
     }
+
+    @keyframes highlight {
+        from {
+            color: black;
+            background-color: red;
+        }
+        to {
+            color: white;
+            background-color: blue;
+        }
+    }
+
+    .animation-highlight {
+        animation: highlight 4s infinite alternate;
+    }
 }

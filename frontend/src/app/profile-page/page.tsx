@@ -5,18 +5,25 @@ export default function Profile() : JSX.Element {
     return(
         <>
             <title>User Profile</title>
-            <section className='border-b-4 border-black p-12 md:p-24'>
-                <div className='flex justify-center items-center'>
+            <section className='border-b-4 border-black p-12 md:p-16'>
 
-                    <img className='h-60 w-60 rounded-full border-black border-4 '
-                         src='https://www.milton.edu/wp-content/uploads/2019/11/avatar-placeholder.jpg'
-                         alt='profile image'/>
-                    <p></p>
-                    <p></p>
-                    <p></p>
+                {/* Follower and image */}
+                <div className='block md:flex gap-10 lg:gap-28 items-center'>
+
+                    {/* Profile Image */}
+                    <div className='flex justify-center'>
+                        <div className="bg-[url('https://www.milton.edu/wp-content/uploads/2019/11/avatar-placeholder.jpg')] rounded-full border-black border-4 p-18 md:p-36 w-60 h-60 bg-center">
+                        </div>
+                    </div>
+
+                    {/* Follow text */}
+                    <div className='flex justify-center items-center gap-8 md:gap-16 text-2xl lg:text-4xl text-black text-center font-bold pt-16 md:pt-0'>
+                        <p>100 <br/> Followers</p>
+                        <p>100 <br/> Following</p>
+                    </div>
 
                 </div>
-                <div className='pt-5 lg:pt-0'>
+                <div className='pt-10'>
 
                     {/* Username */}
                     <div>
