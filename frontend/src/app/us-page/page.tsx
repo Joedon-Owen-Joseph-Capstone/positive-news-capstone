@@ -1,4 +1,4 @@
-import {Posts} from "@/app/shared/Posts";
+import {ArticlePostUS} from "@/app/shared/Posts";
 
 export default function Us() {
     return (
@@ -11,7 +11,7 @@ export default function Us() {
             </section>
 
             <section className='pt-12'>
-                <Posts/>
+                <ArticlePostUS/>
             </section>
         </>
     )

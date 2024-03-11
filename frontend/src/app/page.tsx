@@ -1,5 +1,4 @@
-import {Posts} from "@/app/shared/Posts";
-import {articleImage} from "@/app/shared/Posts";
+import {ArticlePost} from "@/app/shared/Posts";
 
 export default function Home() {
     return (
@@ -19,7 +18,7 @@ export default function Home() {
                     <div className='flex justify-between'>
                         <h2 className='font-custom text-black text-3xl md:text-4xl lg:text-5xl'>Popular U.S.</h2>
                     </div>
-                    <Posts/>
+                    <ArticlePost/>
 
                     {/* View all button */}
                     <p className='text-right text-black hover:underline py-10 pe-5'><a href='/us-page'>View All...</a>
@@ -37,7 +36,7 @@ export default function Home() {
 
                     {/* History image */}
                     <div className='flex justify-center'>
-                        <img src={articleImage} alt={'history pic'}/>
+                        <img src={""} alt={'history pic'}/>
                     </div>
 
                     {/* History text */}
@@ -61,7 +60,7 @@ export default function Home() {
                         {/* Title */}
                         <h2 className='font-custom text-black text-3xl md:text-4xl lg:text-5xl'>Popular World</h2>
                     </div>
-                    <Posts/>
+                    <ArticlePost/>
 
                     {/* View all button */}
                     <p className='text-right text-black hover:underline py-10 pe-5'><a href='/world-page'>View All...</a>

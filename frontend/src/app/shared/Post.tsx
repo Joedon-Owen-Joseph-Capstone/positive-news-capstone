@@ -1,8 +1,13 @@
-type Article = {articleId:string, articleImage:string, articleTitle: string, articleDescription: string}
-type PostProps = {article: Article}
+'use client'
 
-export function Post ({article} : PostProps) {
-    const {articleId, articleImage, articleTitle, articleDescription} = article
+import {Article} from "@/utils/models/article.model";
+
+type Props = {
+    article: Article
+}
+
+export function Post (props: Props) {
+    const {article} = props
     return (
         <>
 
@@ -14,12 +19,12 @@ export function Post ({article} : PostProps) {
                     <div className="card shadow-xl image-full h-96">
 
                         {/* Post image */}
-                        <figure><img src={articleImage} alt="Post background"/></figure>
+                        <figure><img src={article.articleImage} alt="Post background"/></figure>
 
                         {/* Post text */}
                         <div className="card-body overflow-y-auto">
-                            <h2 className="card-title">{articleTitle}</h2>
-                            <p>{articleDescription}</p>
+                            <h2 className="card-title">{article.articleTitle}</h2>
+                            <p>{article.articleSummary}</p>
                         </div>
                     </div>
                 </a>
