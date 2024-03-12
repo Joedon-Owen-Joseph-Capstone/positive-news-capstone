@@ -46,7 +46,7 @@ export function ArticleFull(props: Props){
             </div>
             <div className={"text-black *:p-5 lg:px-60"}>
                 <div className='font-bold font-serif'>
-                    <a href={article.articleUrl}>Article URL</a>
+                    <a className='hover:underline hover:text-blue-500' href={article.articleUrl} target='_blank'>Article URL</a>
                     <p>Author: {article.articleAuthor}</p>
                 </div>
                 <h1 className='text-4xl md:text-5xl lg:text-6xl font-custom font-bold'>{article.articleTitle}</h1>
