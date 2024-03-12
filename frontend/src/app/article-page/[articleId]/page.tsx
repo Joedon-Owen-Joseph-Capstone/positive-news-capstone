@@ -10,8 +10,6 @@ export default async function articlePage ({params} : {params :  {articleId : st
 
     return (
         <>
-            <title>News Article</title>
-
             <div>
                 <ArticleFull article={articles} key={articles.articleId} />
             </div>

@@ -1,10 +1,9 @@
 import {JSX} from "react"
-import {Posts} from "@/app/shared/Posts";
+import {ArticlePost} from "@/app/shared/Posts";
 
 export default function Profile() : JSX.Element {
     return(
         <>
-            <title>User Profile</title>
             <section className='border-b-4 border-black p-12 md:p-16'>
 
                 {/* Follower and image */}
@@ -66,7 +65,7 @@ export default function Profile() : JSX.Element {
                     <div className='flex justify-between'>
                         <h2 className='text-black text-3xl font-custom md:text-4xl lg:text-5xl'>Liked Articles</h2>
                     </div>
-                    <Posts/>
+                    <ArticlePost/>
                 </div>
             </section>
 

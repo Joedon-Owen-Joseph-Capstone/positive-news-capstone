@@ -5,7 +5,7 @@ import {Footer} from "@/app/shared/Footer";
 
 
 export const metadata: Metadata = {
-    title: 'Title Goes Here',
+    title: 'PNN',
     description: 'description goes here',
 }
 

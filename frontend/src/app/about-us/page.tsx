@@ -4,7 +4,6 @@ import {SplineScene} from "@/app/shared/SplineScene";
 export default function About() : JSX.Element {
     return (
         <>
-            <title>About PNN</title>
             <section className='p-5 md:p-10'>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl text-center text-black font-custom italic my-24">ABOUT THE
                     CREATORS</h1>
