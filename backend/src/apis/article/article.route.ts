@@ -20,7 +20,7 @@ router.route('/')
 
 router.route('/page/:page').get(getPageOfArticlesController)
 
-router.route('/articleId/:articleId').get(getArticleByArticleIdController)
+router.route('/:articleId').get(getArticleByArticleIdController)
 
 router.route('/articleAuthor/:articleAuthor').get(getArticleByArticleAuthorController)
 

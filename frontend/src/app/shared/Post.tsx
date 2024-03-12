@@ -15,7 +15,7 @@ export function Post (props: Props) {
             <div className="block m-5 pt-10">
 
                 {/* Post content */}
-                <a href='../article-page'>
+                <a href={`/article-page/${article.articleId}`}>
                     <div className="card shadow-xl image-full h-96">
 
                         {/* Post image */}
