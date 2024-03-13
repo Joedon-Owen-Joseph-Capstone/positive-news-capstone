@@ -1,6 +1,6 @@
 import React, {JSX} from 'react'
 
-export default function SignUp (): JSX.Element {
+export default function SignIn (): JSX.Element {
     return (
         <>
             <section>
@@ -39,7 +39,7 @@ export default function SignUp (): JSX.Element {
 
                                     <button
                                         className="items-center px-6 py-3 text-sm text-white bg-blue-500 rounded-lg max-w-fit">
-                                        <span>Sign Up </span>
+                                        <span>Sign In </span>
                                     </button>
                                 </form>
                             </div>

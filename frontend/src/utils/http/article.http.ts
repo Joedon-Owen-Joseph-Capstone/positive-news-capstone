@@ -17,7 +17,7 @@ export async function fetchAllArticles() : Promise<Article[]> {
 }
 
 export async function fetchArticleByArticleId(articleId: string) : Promise<Article> {
-    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/articleId/${articleId}`).then((response: Response) => {
+    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/article/${articleId}`).then((response: Response) => {
         if(!response.ok) {
             throw new Error('Error fetching article')
         } else {
@@ -26,6 +26,4 @@ export async function fetchArticleByArticleId(articleId: string) : Promise<Artic
     })
 
     return ArticleSchema.parse(data)
-
-
 }
