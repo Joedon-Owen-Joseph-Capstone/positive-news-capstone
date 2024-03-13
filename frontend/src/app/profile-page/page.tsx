@@ -4,7 +4,8 @@ import {ArticlePost} from "@/app/shared/Posts";
 export default function Profile() : JSX.Element {
     return(
         <>
-            <section className='border-b-4 border-black p-12 md:p-16'>
+            <title>User Profile</title>
+            <section className='border-b-4 border-black bg-[#b1b6bb] glass p-12 md:p-16'>
 
                 {/* Follower and image */}
                 <div className='block md:flex gap-10 lg:gap-28 items-center'>
@@ -35,28 +36,11 @@ export default function Profile() : JSX.Element {
                     </div>
                 </div>
 
-                {/* edit profile */}
-                <div className='grid'>
+                {/* follow profile */}
+                <div className='grid pt-5 max-w-full md:w-96 lg:w-96'>
 
-                    {/* edit profile */}
-                    <ul className="menu menu-horizontal z-50">
-                        <li>
-                            <details>
-
-                                {/* edit dropdown */}
-                                <summary className="text-black text-right text-6xl focus:outline-2 cursor-pointer">
-                                    . . .
-                                </summary>
-
-                                {/* Drop down links */}
-                                <ul className="bg-white italic p-2 rounded-t-none text-black">
-
-                                    {/* Edit item */}
-                                    <li><a href='../profile-edit-page'>Edit Profile</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                    </ul>
+                    {/* follow profile */}
+                    <button className="btn btn-active bg-[#04bfad] text-white hover:bg-[#8181e6] border-[#04bfad] hover:border-[#8181e6]">Follow +</button>
                 </div>
             </section>
 
