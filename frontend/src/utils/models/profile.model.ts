@@ -34,6 +34,7 @@ export const SignInSchema = z.object({
     })
         .uuid({ message: 'please provide a valid profileId' })
         .nullable(),
+
     profilePassword: z
         .string({required_error: "profile password is required", invalid_type_error: "please provide a valid  password"})
         .min(8, {message: 'please provide a valid password (min 8 characters)'})
