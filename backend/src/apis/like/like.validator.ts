@@ -4,7 +4,7 @@ import { z } from 'zod'
  * The shape of a like object
  * @property likeProfileId {string} the primary key
  * @property likeArticleId {string} the foreign key
- * @property likeDatetime {Date} the date and time the like was posted
+ * @property likeDateTime {Date} the date and time the like was posted
  */
 
 export const LikeSchema = z.object({

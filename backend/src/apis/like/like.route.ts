@@ -22,7 +22,7 @@ router.route('/toggle')
     .post(isLoggedInController, toggleLikeController)
 
 // define like route for this router
-router.route('/likeThreadId/:likeThreadId')
+router.route('/likeArticleId/:likeArticleId')
     .get(getLikesByLikeArticleIdController)
     .delete(isLoggedInController, deleteLikeController)
 

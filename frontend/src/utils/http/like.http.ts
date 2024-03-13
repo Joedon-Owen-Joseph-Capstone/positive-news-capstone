@@ -1,7 +1,8 @@
-import {Like, LikeSchema} from "@/utils/models/like.model";
+import {Like, LikeSchema} from "../models/like.model";
+
 
 export async function fetchLikeToggle() : Promise<Like[]> {
-    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/toggle`).then((response: Response) => {
+    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/like/toggle`).then((response: Response) => {
         if(!response.ok) {
             throw new Error('Error liking')
         } else {
@@ -14,8 +15,8 @@ export async function fetchLikeToggle() : Promise<Like[]> {
 
 }
 
-export async function fetchLikesByProfileId(profileId : string) : Promise<Like[]> {
-    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/like/${profileId}`).then((response: Response) => {
+export async function fetchLikesByArticleId(articleId : string) : Promise<Like[]> {
+    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/like/likeArticleId/${articleId}`).then((response: Response) => {
         if(!response.ok) {
             throw new Error('Error liking')
         } else {
@@ -24,6 +25,5 @@ export async function fetchLikesByProfileId(profileId : string) : Promise<Like[]
     })
 
     return LikeSchema.array().parse(data)
-
 
 }
