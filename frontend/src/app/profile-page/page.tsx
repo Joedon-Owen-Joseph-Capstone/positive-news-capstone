@@ -4,7 +4,6 @@ import {ArticlePost} from "@/app/shared/Posts";
 export default function Profile() : JSX.Element {
     return(
         <>
-            <title>User Profile</title>
             <section className='border-b-4 border-black bg-[#b1b6bb] glass p-12 md:p-16'>
 
                 {/* Follower and image */}
