@@ -4,6 +4,7 @@ import {PrivateProfileSchema} from "../profile/profile.validator";
 export const SignUpProfileSchema = PrivateProfileSchema
     .omit({ profileId: true, profileHash: true, profileActivationToken: true, profileImageUrl: true, profileAbout: true })
     .extend({
+
         profilePasswordConfirm: z.string({
             required_error: 'confirmed password required',
             invalid_type_error: 'Please provide a valid confirmed password'
