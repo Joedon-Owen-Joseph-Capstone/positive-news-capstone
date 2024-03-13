@@ -11,7 +11,7 @@ export default function Profile() : JSX.Element {
 
                     {/* Profile Image */}
                     <div className='flex justify-center'>
-                        <div className="bg-[url('https://www.milton.edu/wp-content/uploads/2019/11/avatar-placeholder.jpg')] rounded-full border-black border-4 p-18 md:p-36 w-60 h-60 bg-center">
+                        <div className="bg-[url('/avatar-placeholder.jpg')] rounded-full border-black border-4 p-18 md:p-36 w-60 h-60 bg-center">
                         </div>
                     </div>
 
