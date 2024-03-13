@@ -1,10 +1,9 @@
 import {JSX} from "react";
-import {Posts} from "@/app/shared/Posts";
+import {ArticlePost} from "@/app/shared/Posts";
 
 export default function EditProfile() : JSX.Element {
     return(
         <>
-            <title>Edit Profile</title>
             <section className='block lg:flex items-center justify-center gap-16 border-b-4 border-black p-12 md:p-24 relative'>
                 <div className='relative inline-block mb-5 md:mb-1'>
                     <img className='h-60 w-60 rounded-full border-black border-2'
@@ -58,7 +57,7 @@ export default function EditProfile() : JSX.Element {
                     <div className='flex justify-between'>
                         <h2 className='text-black text-3xl font-custom md:text-4xl lg:text-5xl'>Liked Articles</h2>
                     </div>
-                    <Posts/>
+                    <ArticlePost/>
                 </div>
             </section>
         </>

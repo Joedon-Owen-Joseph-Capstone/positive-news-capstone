@@ -9,6 +9,10 @@
         -webkit-text-stroke: 3px black;
     }
 
+    .break-fix {
+        word-break: break-word;
+    }
+
     @keyframes highlight {
         from {
             color: black;

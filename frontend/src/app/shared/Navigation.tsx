@@ -40,8 +40,8 @@ export function Navigation() : JSX.Element {
                                         {/* Drop down links */}
                                         <ul className="bg-white italic p-2 rounded-t-none text-black">
 
-                                            {/* Profile button */}
-                                            <li>
+                                            {/* Profile button HIDDEN IN PROGRESS*/}
+                                            <li className='hidden'>
                                                 <div className="dropdown dropdown-end">
 
                                                     <div tabIndex={0} role="button"
@@ -55,13 +55,19 @@ export function Navigation() : JSX.Element {
                                                     {/* Profile button links */}
                                                     <ul tabIndex={0}
                                                         className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52 text-black">
-                                                        <li><a href='../profile-page' className="justify-between">Profile</a></li>
+                                                        <li><a href='../profile-page'
+                                                               className="justify-between">Profile</a></li>
                                                         <li><a href='/'>Logout</a></li>
                                                     </ul>
                                                 </div>
                                             </li>
 
                                             {/* Other drop down button links */}
+                                            <li>
+                                                <button><a
+                                                    className='bg-blue-500 text-center rounded-lg text-white p-2'
+                                                    href="../sign-up">Sign Up</a></button>
+                                            </li>
                                             <li><a href='../about-us'>About PNN</a></li>
                                             <li><a href='../us-page'>U.S.</a></li>
                                             <li><a href='../world-page'>World</a></li>
@@ -82,13 +88,16 @@ export function Navigation() : JSX.Element {
                             </ul>
                         </div>
 
-                        {/* Profile button */}
-                        <div className="dropdown dropdown-end hidden lg:flex">
+                        {/* Create account button */}
+                        <button><a className='hidden lg:flex items-center p-3 text-xl bg-blue-500 rounded-lg' href="../sign-up">Sign Up</a></button>
+
+                        {/* Profile button HIDDEN RIGHT NOW NORMALLY lg:flex*/}
+                        <div className="dropdown dropdown-end hidden">
 
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
                                     <img alt="Tailwind CSS Navbar component"
-                                         src="https://www.milton.edu/wp-content/uploads/2019/11/avatar-placeholder.jpg"/>
+                                         src="/avatar-placeholder.jpg"/>
                                 </div>
                             </div>
 
