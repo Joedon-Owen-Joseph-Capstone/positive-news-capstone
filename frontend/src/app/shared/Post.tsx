@@ -30,14 +30,20 @@ export function Post (props: Props) {
                 </a>
 
                 {/* Post interaction bar */}
-                <div className="flex justify-between bg-[#344955] p-5 rounded-b-sm">
+                <div className='bg-[#344955] p-4 rounded-b-sm'>
+                <div className="flex justify-between">
 
                     {/* Like, Comment, Share */}
                     <div className="flex items-center gap-8">
                         <button><img src='/heart.svg' alt='like button'/></button>
-                        <button><img src='/chat.svg' alt='chat button'/></button>
+                        <div className='flex items-center gap-2'>
+                            <button><img src='/chat.svg' alt='chat button'/></button>
+                            <p>10</p>
+                        </div>
                     </div>
                     <button><img src='/share.svg' alt='chat button'/></button>
+                </div>
+                    <p className='text-gray-300 text-lg pt-4'>10 Likes</p>
                 </div>
 
                 {/* Comment section body */}
