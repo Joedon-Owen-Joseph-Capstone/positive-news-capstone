@@ -35,6 +35,32 @@ export function ArticleFull(props: Props){
                 </div>
                 <button><img src='/share.svg' alt='share button'/></button>
             </div>
+
+            {/* Comment section body */}
+            <section className="bg-gray-800 p-5 rounded-b-xl">
+
+                {/* Comment Display*/}
+                <div className='border-b-2 border-gray-500 py-5'>
+
+                    {/* Profile Image */}
+                    <img className='w-12 h-12 image-full rounded-full' src='/avatar-placeholder.jpg' alt='user profile image'/>
+                    <div>
+
+                        {/* Username */}
+                        <h2 className='text-white text-lg break-fix'>@jmarchBB</h2>
+
+                        {/* Comment Content */}
+                        <p className='text-gray-300 text-sm leading-4 break-fix'>Shrimp fried rice?!? Sure bud, I'll believe it when I see it.</p>
+                    </div>
+                </div>
+
+                {/* Comment box */}
+                <form className='flex items-center gap-2 pt-4'>
+                    <textarea className='bg-gray-200 text-black rounded-lg p-3' rows={1} cols={64} name='comment' id='comment' placeholder='Comment'/>
+                    <button type='submit'><img src='/send-fill.svg' alt='submit comment'/></button>
+                </form>
+            </section>
+
             <div className={"text-black *:p-5 lg:px-60"}>
                 <div className='font-bold font-serif'>
                     <a className='hover:underline hover:text-blue-500' href={article.articleUrl} target='_blank'>Article URL</a>
