@@ -2,7 +2,7 @@
 
 import {Article} from "@/utils/models/article.model";
 import {fetchArticleByArticleId} from "@/utils/http/article.http";
-import {ArticleFull} from "@/app/shared/ArticleFull";
+import {ArticleFull} from "@/app/article-page/ArticleFull";
 
 export default async function articlePage ({params} : {params :  {articleId : string}}) {
     const {articleId} = params

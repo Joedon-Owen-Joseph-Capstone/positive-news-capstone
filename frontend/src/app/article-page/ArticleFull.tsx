@@ -8,7 +8,6 @@ type Props = {
 
 export function ArticleFull(props: Props){
     const {article} = props
-    console.log(article)
 
     return(
 
