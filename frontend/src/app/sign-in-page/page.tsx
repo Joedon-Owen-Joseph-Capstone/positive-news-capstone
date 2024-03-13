@@ -1,6 +1,6 @@
 
 import React from "react";
-import {SignInForm} from "@/app/log-in-page/SignInForm";
+import {SignInForm} from "@/app/sign-in-page/SignInForm";
 
 export default function SignIn() {
     return (
@@ -22,7 +22,7 @@ export default function SignIn() {
                                 <SignInForm/>
 
                                 <p className='text-center text-black text-sm mt-5'>I don't have an account,
-                                    <a href='../sign-up' className="text-blue-500"> Sign up</a>
+                                    <a href='../sign-up' className="text-blue-500"> Sign in</a>
                                 </p>
                             </div>
                         </div>

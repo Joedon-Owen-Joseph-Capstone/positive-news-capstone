@@ -21,7 +21,7 @@ export default function SignUp() {
                                 <SignUpForm/>
 
                                 <p className='text-center text-black text-sm mt-5'>I already have an account,
-                                    <a href='../log-in-page' className="text-blue-500"> Sign in</a>
+                                    <a href='../sign-in-page' className="text-blue-500"> Sign in</a>
                                 </p>
                             </div>
                         </div>
