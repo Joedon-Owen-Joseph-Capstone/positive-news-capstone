@@ -5,7 +5,7 @@ export default function Profile() : JSX.Element {
     return(
         <>
             <title>User Profile</title>
-            <section className='border-b-4 border-black p-12 md:p-16'>
+            <section className='border-b-4 border-black bg-[#b1b6bb] glass p-12 md:p-16'>
 
                 {/* Follower and image */}
                 <div className='block md:flex gap-10 lg:gap-28 items-center'>
@@ -40,7 +40,7 @@ export default function Profile() : JSX.Element {
                 <div className='grid pt-5 max-w-full md:w-96 lg:w-96'>
 
                     {/* follow profile */}
-                    <button className="btn btn-active bg-[#2eff9a] text-[#fffde3] hover:bg">Follow +</button>
+                    <button className="btn btn-active bg-[#04bfad] text-white hover:bg-[#8181e6] border-[#04bfad] hover:border-[#8181e6]">Follow +</button>
                 </div>
             </section>
 
