@@ -4,7 +4,7 @@ export default function Home() {
     return (
         <>
             {/* Header */}
-            <div className="bg-[url('/manolo-chretien-RpC-9e0ORNM-unsplash.jpg')] bg-cover bg-fixed bg-center p-52">
+            <div className="bg-[url('/manolo-chretien-RpC-9e0ORNM-unsplash.jpg')] bg-cover bg-fixed bg-center py-56 p-12 md:p-28 lg:p-52">
             <h1 className="animation-highlight duration-75 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide text-center font-custom italic pt-2" id='high'>POSITIVE NEWS NETWORK</h1>
             </div>
 
