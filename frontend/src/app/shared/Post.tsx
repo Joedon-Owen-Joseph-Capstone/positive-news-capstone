@@ -1,17 +1,21 @@
-'use client'
+'use server'
 
 import {Article} from "@/utils/models/article.model";
 import {LikeForm} from "@/app/shared/LikeForm";
 import {fetchAllArticles} from "@/utils/http/article.http";
 import {Like} from "@/utils/models/like.model";
 import {fetchLikesByArticleId} from "@/utils/http/like.http";
+import {getSession} from "@/utils/fetchSession";
+
 
 type Props = {
     article: Article
     like: Like[]
 }
 
-export function Post (props: Props) {
+export async function Post (props: Props) {
+    const session = await getSession()
+
     const { article, like } = props
     // const likesCount = like.filter(like => like.likeArticleId === article.articleId).length
     return (
@@ -41,7 +45,7 @@ export function Post (props: Props) {
 
                     {/* Like, Comment, Share */}
                     <div className="flex items-center gap-8">
-                        <LikeForm/>
+                        <LikeForm article={article} session={session}/>
                         <div className='flex items-center gap-2'>
                             <button><a href={`/article-page/${article.articleId}`}><img src='/chat.svg' alt='chat button'/></a></button>
                             <p>10</p>

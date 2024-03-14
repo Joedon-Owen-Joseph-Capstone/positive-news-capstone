@@ -1,6 +1,7 @@
-import { NextResponse } from "next/server";
+import {cookies} from "next/headers";
 
 export async function POST(request: Request) {
+
     const data = await request.json();
 
     const responseFromServer = await fetch(`${process.env.PUBLIC_API_URL}/apis/sign-in`, {
@@ -14,6 +15,14 @@ export async function POST(request: Request) {
 
     // Clone the response to manipulate or read it multiple times
     const response = responseFromServer.clone();
+
+    const authorization = response.headers.get("authorization")
+
+    if (authorization) {
+        const cookieStore = cookies()
+        cookieStore.set("jwt-token", authorization, {path: "/", maxAge:86_400_000})
+
+    }
 
     // Check if the sign-up was successful
     if (!response.ok) {

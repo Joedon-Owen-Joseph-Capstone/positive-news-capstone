@@ -10,8 +10,6 @@ export type Session = {
     exp: number
 }
 
-
-
 export let session : Session|undefined = undefined
 
 
@@ -31,13 +29,10 @@ export async function getSession(): Promise<Session|undefined > {
 
 }
 
-
 function setJwtToken(jwtToken: string) {
-    console.log("jwtToken", jwtToken)
+
     try {
         const  parsedJwtToken = jwtDecode(jwtToken) as any
-
-        console.log("token is expired", currentTimeInSeconds < parsedJwtToken.exp)
 
         if(parsedJwtToken &&  currentTimeInSeconds < parsedJwtToken.exp) {
             session = {

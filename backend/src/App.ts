@@ -54,7 +54,7 @@ export class App {
             secret: process.env.SESSION_SECRET as string,
             resave: false,
             cookie: {
-                sameSite: "none",
+                sameSite: "lax",
             }
 
         }))
