@@ -34,20 +34,6 @@ export async function ArticlePostUS () {
     )
 }
 
-// Get all World posts excluding US function
-export async function ArticlePostWorld () {
-    const {articles, likes} =  await getLikeData()
-
-    return (
-        <>
-            {/* Get all world posts and map them */}
-            <div className='container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto'>
-                {articles.map((article: Article) => <Post article={article} like={likes[article.articleId] || null} key={article.articleId}/>)}
-            </div>
-        </>
-    )
-}
-
 // Get article like data function
 async function getLikeData(): Promise<{likes:{[likeArticleId: string ]: Like[]} , articles: Article[]}> {
     const articles = await fetchAllArticles()

@@ -1,4 +1,4 @@
-import {ArticlePostWorld} from "@/app/shared/Posts";
+import {ArticlePostUS} from "@/app/shared/Posts";
 
 export default function World() {
     return (
@@ -8,7 +8,7 @@ export default function World() {
                 <h1 className='text-4xl md:text-5xl lg:text-6xl font-custom text-center text-white italic py-60'>WORLD NEWS</h1>
             </section>
             <section className='pt-12'>
-                <ArticlePostWorld/>
+                <ArticlePostUS/>
             </section>
         </>
     )

@@ -1,7 +1,7 @@
 'use client'
 
 import {Article} from "@/utils/models/article.model";
-import {LikeForm} from "@/app/shared/Like";
+import {LikeForm} from "@/app/shared/LikeForm";
 import {fetchAllArticles} from "@/utils/http/article.http";
 import {Like} from "@/utils/models/like.model";
 import {fetchLikesByArticleId} from "@/utils/http/like.http";

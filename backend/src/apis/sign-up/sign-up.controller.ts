@@ -37,7 +37,7 @@ export async function signupProfileController (request: Request, response: Respo
         const profileActivationToken = setActivationToken()
 
         // set a placeholder for profileImageUrl
-        const profileImageUrl = './frontend/public/avatar-placeholder.jpg'
+        const profileImageUrl = 'https://www.milton.edu/wp-content/uploads/2019/11/avatar-placeholder.jpg'
         // create a basePath variable containing the scheme, host, port, and base path
         const basePath: string = `${request.protocol}://${request.hostname}:8080${request.originalUrl}/activation/${profileActivationToken}`
 

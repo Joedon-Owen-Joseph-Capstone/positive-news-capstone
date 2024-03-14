@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     const response = responseFromServer.clone();
 
     // Check if the sign-up was successful
-    if (response.ok) {
+    if (!response.ok) {
         return new Response(JSON.stringify({message: "Please check your email to activate your account."}), {
             status: 200,
             headers: {
