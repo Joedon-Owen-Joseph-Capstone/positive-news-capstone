@@ -127,7 +127,7 @@ function SignUpFormContent(props: FormikProps<SignUp>) {
                 </div>
                 <DisplayStatus status={status}/>
             </form>
-            <FormDebugger {...props} />
+
         </>
     )
 }
