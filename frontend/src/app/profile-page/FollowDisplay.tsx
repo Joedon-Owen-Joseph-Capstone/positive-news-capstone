@@ -5,11 +5,11 @@ import {ArticlePost} from "@/app/shared/Posts";
 import {Follow} from "@/utils/models/follow.model";
 
 type Props = {
-    follow: Follow
+    follows: Follow[]
 }
 
 export function FollowDisplay(props: Props) : JSX.Element {
-    const {follow = props}
+    const {follows} = props
     return(
         <>
             <section className='border-b-4 border-black bg-[#b1b6bb] glass p-12 md:p-16'>
@@ -25,8 +25,8 @@ export function FollowDisplay(props: Props) : JSX.Element {
 
                     {/* Follow text */}
                     <div className='flex justify-center items-center gap-8 md:gap-16 text-2xl lg:text-4xl text-black text-center font-bold pt-16 md:pt-0'>
-                        <p>{follow.followProfileId} <br/> Followers</p>
-                        <p>{follow.followFollowingProfileId} <br/> Following</p>
+                        <p>{follows.length} <br/> Followers</p>
+                        {/*<p>{follow.followFollowingProfileId} <br/> Following</p>*/}
                     </div>
 
                 </div>

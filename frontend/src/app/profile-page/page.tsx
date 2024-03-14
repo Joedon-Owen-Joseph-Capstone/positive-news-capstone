@@ -7,22 +7,25 @@ import {FollowDisplay} from "@/app/profile-page/FollowDisplay"
 export default async function followUser ({params} : {params :  {followProfileId : string}}) {
 
     const {followProfileId} = params
-
-    const {follow} =  await getData(followProfileId)
+    console.log("line10 followProfileId", followProfileId)
+    const follows =  await getData(followProfileId)
 
     return (
         <>
             <div>
-                <FollowDisplay follow={follow} key={follow.followProfileId} />
+                <FollowDisplay follows={follows}/>
             </div>
         </>
     )
 }
 
-async function getData(followProfileId : string): Promise<{ follow: Follow}> {
+async function getData(followProfileId : string): Promise<Follow[]> {
+try {
+    console.log("followProfileId", followProfileId)
+    return await fetchFollowByFollowProfileId(followProfileId)
 
-    const follow = await fetchFollowByFollowProfileId(followProfileId)
-
-    return {follow}
+} catch (error) {
+    throw error
+}
 }
 
