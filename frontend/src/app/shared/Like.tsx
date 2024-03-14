@@ -4,10 +4,9 @@ import {toFormikValidationSchema} from "zod-formik-adapter";
 import {FormDebugger} from "@/components/formDebugger";
 import {DisplayError} from "@/components/displayError";
 import {DisplayStatus} from "@/components/displayStatus";
-import {SignUp, SignUpSchema} from "@/utils/models/profile.model";
-import {Like} from "@/utils/models/like.model";
+import {Like, LikeSchema} from "@/utils/models/like.model";
 
-export function likeForm() {
+export function LikeForm() {
 
     const initialValues : Like = {
         likeArticleId: null,
@@ -40,7 +39,7 @@ export function likeForm() {
             <Formik
                 initialValues={initialValues}
                 onSubmit={handleSubmit}
-                validationSchema={toFormikValidationSchema(SignUpSchema)}
+                validationSchema={toFormikValidationSchema(LikeSchema)}
             >
                 {LikeFormContent}
             </Formik>
@@ -66,7 +65,7 @@ function LikeFormContent(props: FormikProps<Like>) {
     return(
         <>
             <form onSubmit={handleSubmit} className=''>
-                    <button><img src='/heart-fill.svg' alt='like button'/></button>
+                    <button><img src='/heart.svg' alt='like button'/></button>
                 <DisplayStatus status={status}/>
             </form>
             <FormDebugger {...props} />

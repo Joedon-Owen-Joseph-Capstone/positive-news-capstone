@@ -3,16 +3,18 @@
 import {Article} from "@/utils/models/article.model";
 import {fetchAllArticles} from "@/utils/http/article.http";
 import {Post} from "@/app/shared/Post";
+import {fetchLikesByArticleId} from "@/utils/http/like.http";
+import {Like} from "@/utils/models/like.model";
 
 // Get all posts function
 export async function ArticlePost () {
-    const {articles} =  await getData()
+    const {articles, likes} =  await getLikeData()
 
     return (
         <>
             {/* Get the first six articles to display */}
             <div className='container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto'>
-                {articles.slice(0, 6).map((article: Article) => <Post article={article} key={article.articleId}/>)}
+                {articles.slice(0, 6).map((article: Article) => <Post article={article} like={likes[article.articleId] || null} key={article.articleId}/>)}
             </div>
         </>
     )
@@ -20,13 +22,13 @@ export async function ArticlePost () {
 
 // Get all US posts function
 export async function ArticlePostUS () {
-    const {articles} =  await getData()
+    const {articles, likes} =  await getLikeData()
 
     return (
         <>
             {/* Get all US posts and map them */}
             <div className='container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto'>
-                {articles.map((article: Article) => <Post article={article} key={article.articleId}/>)}
+                {articles.map((article: Article) => <Post article={article} like={likes[article.articleId] || null} key={article.articleId}/>)}
             </div>
         </>
     )
@@ -34,24 +36,26 @@ export async function ArticlePostUS () {
 
 // Get all World posts excluding US function
 export async function ArticlePostWorld () {
-    const {articles} =  await getData()
+    const {articles, likes} =  await getLikeData()
 
     return (
         <>
             {/* Get all world posts and map them */}
             <div className='container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto'>
-                {articles.map((article: Article) => <Post article={article} key={article.articleId}/>)}
+                {articles.map((article: Article) => <Post article={article} like={likes[article.articleId] || null} key={article.articleId}/>)}
             </div>
         </>
     )
 }
 
-// Get article data function
-async function getData(): Promise<{ articles: Article[] }> {
-
-    //  Turn article data into variable
+// Get article like data function
+async function getLikeData(): Promise<{likes:{[likeArticleId: string ]: Like[]} , articles: Article[]}> {
     const articles = await fetchAllArticles()
+    let likes : {[likeArticleId: string ]: Like[]} = {}
 
-    // Return article data
-    return {articles}
+    for(let article of articles) {
+        likes[article.articleId] = await fetchLikesByArticleId(article.articleId)
+    }
+
+    return {likes, articles}
 }

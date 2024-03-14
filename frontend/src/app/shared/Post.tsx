@@ -1,13 +1,19 @@
 'use client'
 
 import {Article} from "@/utils/models/article.model";
+import {LikeForm} from "@/app/shared/Like";
+import {fetchAllArticles} from "@/utils/http/article.http";
+import {Like} from "@/utils/models/like.model";
+import {fetchLikesByArticleId} from "@/utils/http/like.http";
 
 type Props = {
     article: Article
+    like: Like[]
 }
 
 export function Post (props: Props) {
-    const {article} = props
+    const { article, like } = props
+    // const likesCount = like.filter(like => like.likeArticleId === article.articleId).length
     return (
         <>
 
@@ -35,7 +41,7 @@ export function Post (props: Props) {
 
                     {/* Like, Comment, Share */}
                     <div className="flex items-center gap-8">
-                        <button><img src='/heart.svg' alt='like button'/></button>
+                        <LikeForm/>
                         <div className='flex items-center gap-2'>
                             <button><a href={`/article-page/${article.articleId}`}><img src='/chat.svg' alt='chat button'/></a></button>
                             <p>10</p>
