@@ -5,7 +5,7 @@ import {Follow, FollowSchema} from "@/utils/models/follow.model";
 
 export async function fetchFollowByFollowProfileId(followProfileId : string) : Promise<Follow[]> {
     console.log(followProfileId)
-    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/follow/${followProfileId}`).then(response => {
+    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/follow/followProfileId/${followProfileId}`).then(response => {
         if(!response.ok) {
             throw new Error(`Error loading page`)
         } else {
@@ -16,7 +16,7 @@ export async function fetchFollowByFollowProfileId(followProfileId : string) : P
 }
 
 export async function fetchFollowByFollowFollowingProfileId(followFollowingProfileId : string) : Promise<Follow[]> {
-    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/follow/${followFollowingProfileId}`).then(response => {
+    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/follow/followFollowingProfileId/${followFollowingProfileId}`).then(response => {
         if(!response.ok) {
             throw new Error(``)
         } else {

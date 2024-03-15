@@ -1,15 +1,18 @@
-
 'use client'
+
 import {JSX} from "react"
 import {ArticlePost} from "@/app/shared/Posts";
 import {Follow} from "@/utils/models/follow.model";
+import {Profile} from "@/utils/models/profile.model";
 
 type Props = {
     follows: Follow[]
+    following: Follow[],
+    profile: Profile
 }
 
 export function FollowDisplay(props: Props) : JSX.Element {
-    const {follows} = props
+    const {follows, profile,following} = props
     return(
         <>
             <section className='border-b-4 border-black bg-[#b1b6bb] glass p-12 md:p-16'>
@@ -26,7 +29,7 @@ export function FollowDisplay(props: Props) : JSX.Element {
                     {/* Follow text */}
                     <div className='flex justify-center items-center gap-8 md:gap-16 text-2xl lg:text-4xl text-black text-center font-bold pt-16 md:pt-0'>
                         <p>{follows.length} <br/> Followers</p>
-                        {/*<p>{follow.followFollowingProfileId} <br/> Following</p>*/}
+                        <p>{following.length} <br/> Following</p>
                     </div>
 
                 </div>
@@ -34,12 +37,12 @@ export function FollowDisplay(props: Props) : JSX.Element {
 
                     {/* Username */}
                     <div>
-                        <h1 className='text-4xl text-black md:text-5xl lg:text-6xl'>@username</h1>
+                        <h1 className='text-4xl text-black md:text-5xl lg:text-6xl'>{profile.profileName}</h1>
                     </div>
 
                     {/* About User */}
                     <div className='pt-4 text-black leading-8'>
-                        <p>Passionate creator exploring the intersections of technology and creativity. 🚀 Web developer by day, aspiring digital artist by night. 🎨 Follow along for coding insights, design inspiration, and occasional doodles. Let's connect! 🌟 #TechEnthusiast #CreativeSoul</p>
+                        <p>{profile.profileAbout}</p>
                     </div>
                 </div>
 
