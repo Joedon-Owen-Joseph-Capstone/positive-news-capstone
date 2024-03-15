@@ -17,7 +17,7 @@ export async function Post (props: Props) {
     const session = await getSession()
 
     const { article, like } = props
-    // const likesCount = like.filter(like => like.likeArticleId === article.articleId).length
+
     return (
         <>
 

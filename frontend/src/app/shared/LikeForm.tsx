@@ -31,7 +31,7 @@ export function LikeForm(props : LikeFormProps) {
 
     const initialValues = {
         likeArticleId: article.articleId,
-        likeProfileId: profile.profileId,
+        likeProfileId: session?.profile.profileId ?? null,
         likeDateTime: null
     };
 

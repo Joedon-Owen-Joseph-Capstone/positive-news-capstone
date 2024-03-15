@@ -39,9 +39,6 @@ async function getLikeData(): Promise<{likes:{[likeArticleId: string ]: Like[]} 
     const articles = await fetchAllArticles()
     let likes : {[likeArticleId: string ]: Like[]} = {}
 
-    // for(let article of articles) {
-    //     likes[article.articleId] = await fetchLikesByArticleId(article.articleId)
-    // }
 
     return {likes, articles}
 }
