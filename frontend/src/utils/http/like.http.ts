@@ -1,7 +1,7 @@
 import {Like, LikeSchema} from "../models/like.model";
 
 
-export async function fetchLikeToggle() : Promise<Like[]> {
+export async function fetchLikeToggle() : Promise<Like> {
     const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/like/toggle`).then((response: Response) => {
         if(!response.ok) {
             throw new Error('Error liking')
@@ -10,7 +10,7 @@ export async function fetchLikeToggle() : Promise<Like[]> {
         }
     })
 
-    return LikeSchema.array().parse(data)
+    return LikeSchema.parse(data)
 
 
 }

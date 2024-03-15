@@ -1,13 +1,16 @@
-'use client'
+'use server'
 
 import {Article} from "@/utils/models/article.model";
+import {LikeForm} from "@/app/shared/LikeForm";
+import {getSession} from "@/utils/fetchSession";
 
 type Props = {
     article: Article
 }
 
-export function ArticleFull(props: Props){
+export async function ArticleFull(props: Props){
     const {article} = props
+    const session = await getSession()
 
     return(
 
@@ -32,7 +35,7 @@ export function ArticleFull(props: Props){
             <div className='bg-[#344955] p-5'>
             <div className="flex justify-between">
                 <div className="flex gap-8">
-                    <button><img src='/heart.svg' alt='like button'/></button>
+                    <LikeForm article={article} session={session}/>
                     <div className='flex items-center gap-2'>
                         <button><img src='/chat.svg' alt='chat button'/></button>
                         <p className='text-gray-300'>10</p>
