@@ -5,6 +5,7 @@ import {toFormikValidationSchema} from "zod-formik-adapter";
 import {DisplayError} from "@/components/displayError";
 import {DisplayStatus} from "@/components/displayStatus";
 import {SignIn, SignInSchema} from "@/utils/models/profile.model";
+import {redirect} from "next/navigation";
 //import {fetchPostSignIn} from "@/utils/http/profile.http";
 
 export function SignInForm() {
@@ -28,6 +29,10 @@ export function SignInForm() {
             if(json.status === 200) {
                 resetForm()
                 type = 'alert alert-success'
+                setStatus({type, message: json.message})
+                setTimeout(() => {
+                }, 1000);
+                redirect('/about-page')
             }
             setStatus({type, message: json.message})
         })
