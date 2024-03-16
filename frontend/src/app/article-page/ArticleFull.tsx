@@ -3,13 +3,15 @@
 import {Article} from "@/utils/models/article.model";
 import {LikeForm} from "@/app/shared/LikeForm";
 import {getSession} from "@/utils/fetchSession";
+import {Like} from "@/utils/models/like.model";
 
 type Props = {
     article: Article
+    likes: Like[]
 }
 
 export async function ArticleFull(props: Props){
-    const {article} = props
+    const {article, likes} = props
     const session = await getSession()
 
     return(
@@ -35,7 +37,7 @@ export async function ArticleFull(props: Props){
             <div className='bg-[#344955] p-5'>
             <div className="flex justify-between">
                 <div className="flex gap-8">
-                    <LikeForm article={article} session={session}/>
+                    <LikeForm article={article} session={session} likes={likes}/>
                     <div className='flex items-center gap-2'>
                         <button><img src='/chat.svg' alt='chat button'/></button>
                         <p className='text-gray-300'>10</p>
