@@ -1,10 +1,10 @@
 import {cookies} from "next/headers";
 
-export async function GET(request:Request) {
+export async function POST(request:Request) {
     const data = await request.json();
 
     const responseFromServer = await fetch(`${process.env.PUBLIC_API_URL}/apis/sign-out`, {
-        method: "GET",
+        method: "POST",
         credentials: "include",
         headers: {
             "Content-Type": "application/json",
@@ -20,10 +20,8 @@ export async function GET(request:Request) {
     if (authorization) {
         const cookieStore = cookies()
         cookieStore.delete('jwt-token')
-
     }
 
-    // Check if the sign-up was successful
     if (!response.ok) {
         return new Response(JSON.stringify({message: "Failed to sign out. Try again."}), {
             status: 200,

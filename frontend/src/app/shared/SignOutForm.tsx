@@ -1,22 +1,17 @@
 'use client'
 
 import {useRouter} from "next/navigation";
+import {fetchSignOut} from "@/utils/http/profile.http";
 
 export function SignOutButton() {
     const router = useRouter()
     const handleSignOut = async () => {
-        try {
-            const response = await fetch('/apis/sign-out', { method: 'GET' });
-            const { status, message } = await response.json();
-
-            if (status === 200) {
-                console.log(message)
-                router.refresh()
-            }
-        } catch (error) {
-            console.error('Error signing out:', error);
+        const result = await fetchSignOut()
+        if (result.status === 200) {
+            router.refresh()
+            router.push('/sign-in-page')
         }
-    };
+    }
 
     return (
         <>
