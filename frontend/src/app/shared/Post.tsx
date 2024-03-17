@@ -43,7 +43,7 @@ export async function Post (props: Props) {
 
                     {/* Like, Comment, Share */}
                     <div className="flex items-center gap-8">
-                        <LikeForm article={article} session={session} likes={likes}/>
+                        <LikeForm article={article} session={session}/>
                         <div className='flex items-center gap-2'>
                             <button><a href={`/article-page/${article.articleId}`}><img src='/chat.svg' alt='chat button'/></a></button>
                             <p>10</p>
@@ -51,7 +51,7 @@ export async function Post (props: Props) {
                     </div>
                     <button><img src='/share.svg' alt='chat button'/></button>
                 </div>
-                    {/*<p className='text-gray-300 text-lg pt-4'>{likes.length} Likes</p>*/}
+                    <p className='text-gray-300 text-lg pt-4'>{likes.length} Likes</p>
                 </div>
             </div>
         </>
