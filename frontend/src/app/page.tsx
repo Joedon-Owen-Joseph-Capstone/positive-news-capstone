@@ -1,4 +1,5 @@
 import {ArticlePost} from "@/app/shared/Posts";
+import {SignOutButton} from "@/app/shared/SignOutForm";
 
 export default function Home() {
     return (
@@ -65,6 +66,7 @@ export default function Home() {
                     </p>
                 </div>
             </section>
+            <SignOutButton/>
         </>
     )
 }

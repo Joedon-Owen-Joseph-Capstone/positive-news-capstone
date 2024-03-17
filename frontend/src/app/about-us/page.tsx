@@ -1,5 +1,4 @@
 import {JSX} from "react";
-import {SplineScene} from "@/app/shared/SplineScene";
 
 export default function About() : JSX.Element {
     return (
@@ -10,10 +9,10 @@ export default function About() : JSX.Element {
 
                 {/*about joseph*/}
                 <section id={"joseph"} className="py-18 mx-0 md:mx-24 lg:mx-48 mt-20 bg-[#0e142a] text-white rounded-3xl">
-                    <div className="flex justify-center">
-                        {/*<SplineScene/>*/}
+                    <div className="pt-10 lg:pt-20 flex justify-center">
+                        <img className='rounded-lg' src='/joseph-about-img.jpeg' alt='Joseph About Image'/>
                     </div>
-                    <div className={"mt-20 mx-auto p-2 lg:p-20"}>
+                    <div className={"mx-auto p-2 lg:p-20"}>
                         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold italic border-t-2 border-white">Get in Touch With Joseph</h2>
                         <a href="mailto:josephmarchbanks599@gmail.com"><p
                             className={"text-lg md:text-xl lg:text-2xl hover:text-blue-400 hover:underline pt-5"}>Email</p>
@@ -39,26 +38,23 @@ export default function About() : JSX.Element {
                 </section>
                 <div className="basis-5/6 py-12 mx-0 md:mx-24 lg:mx-48 text-black">
                     <h3 className="font-bold font-serif text-xl italic text-center">Joseph Marchbanks</h3>
-                    <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
-                        Miami.
-                        This gun is advertised as the most popular gun in American crime. Do you believe that shit?
-                        It actually says that in the little book that comes with it:
-                        the most popular gun in American crime. Like they're actually proud of that shit.</p>
-                    <p className="md:py-2"> the path of the righteous man is beset on all sides by the
-                        iniquities
-                        of
-                        the selfish and the tyranny of evil men. then they show that show to the people who make
-                        shows,
-                        and on the strength of that one show they decide if they're going to make more shows. they
-                        called me mr glass. </p>
+                    <p className="md:py-2 mt-4 text-lg">
+                        Hey there, I'm Joseph, one of the people behind PNN. When I embarked on my coding bootcamp journey, I was unsure about what path to pursue and what I could create with my newfound coding skills. As the capstone project approached, I found myself drawn to the idea of a positive news aggregator.
+
+                        <br/><br/>Before diving into the bootcamp, I was overwhelmed by a constant barrage of negativity in the media landscape. No matter where I turned, grim news seemed to dominate the headlines, leaving me feeling disheartened and hopeless. Positive stories were like rare gems amidst a sea of darkness. Yet, deep down, I knew there had to be plenty of uplifting narratives waiting to be discovered.
+
+                        <br/><br/>That realization fueled my determination to create something meaningful. I saw an opportunity to build a platform that could gather all those heartwarming stories into one accessible space and took it. Thus, PNN was made a sanctuary for those, like me, who yearn for a break from the relentless negativity pervasive in mainstream media.
+
+                        <br/><br/>Now, with PNN, individuals weary of the bleak news cycle can find solace in a curated collection of inspiring stories. It's a small step towards reshaping the narrative and infusing a dose of positivity into our daily lives.
+                    </p>
                 </div>
 
                 {/*about owen*/}
                 <section id={"joseph"} className="py-18 mx-0 md:mx-24 lg:mx-48 mt-20 bg-[#0e142a] text-white rounded-3xl">
-                    <div className="flex justify-center">
-                        {/*<SplineScene/>*/}
+                    <div className="pt-10 lg:pt-20 flex justify-center">
+                        <img src='/joseph-about-img.jpeg' alt='Joseph About Image'/>
                     </div>
-                    <div className={"mt-20 mx-auto p-2 lg:p-20"}>
+                    <div className={"mx-auto p-2 lg:p-20"}>
                         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold italic border-t-2 border-white">Get in Touch With Owen</h2>
                         <a href="mailto:odscarpa512@gmail.com"><p
                             className={"text-lg md:text-xl lg:text-2xl hover:text-blue-400 hover:underline pt-5"}>Email</p>
@@ -84,7 +80,7 @@ export default function About() : JSX.Element {
                 </section>
                 <div className="basis-5/6 py-12 mx-0 md:mx-24 lg:mx-48 text-black">
                     <h3 className="font-bold font-serif text-xl italic text-center">Owen Scarpa</h3>
-                    <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
+                    <p className="md:py-2 mt-4 text-lg">Now that there is the Tec-9, a crappy spray gun from South
                         Miami.
                         This gun is advertised as the most popular gun in American crime. Do you believe that shit?
                         It actually says that in the little book that comes with it:
@@ -100,10 +96,10 @@ export default function About() : JSX.Element {
 
                 {/*about joedon*/}
                 <section id={"joseph"} className="py-18 mx-0 md:mx-24 lg:mx-48 mt-20 bg-[#0e142a] text-white rounded-3xl">
-                    <div className="flex justify-center">
-                        {/*<SplineScene/>*/}
+                    <div className="pt-10 lg:pt-20 flex justify-center">
+                        <img src='/joseph-about-img.jpeg' alt='Joseph About Image'/>
                     </div>
-                    <div className={"mt-20 mx-auto p-2 lg:p-20"}>
+                    <div className={"mx-auto p-2 lg:p-20"}>
                         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold italic border-t-2 border-white">Get in Touch With Joedon</h2>
                         <a href="mailto:jdmconnell@gmail.com"><p
                             className={"text-lg md:text-xl lg:text-2xl hover:text-blue-400 hover:underline pt-5"}>Email</p>
@@ -129,7 +125,7 @@ export default function About() : JSX.Element {
                 </section>
                 <div className="basis-5/6 py-12 mx-0 md:mx-24 lg:mx-48 text-black">
                     <h3 className="font-bold font-serif text-xl italic text-center">Joedon Mcconnell</h3>
-                    <p className="md:py-2 mt-4">Now that there is the Tec-9, a crappy spray gun from South
+                    <p className="md:py-2 mt-4 text-lg">Now that there is the Tec-9, a crappy spray gun from South
                         Miami.
                         This gun is advertised as the most popular gun in American crime. Do you believe that shit?
                         It actually says that in the little book that comes with it:
