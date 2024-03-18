@@ -5,11 +5,13 @@ import {toFormikValidationSchema} from "zod-formik-adapter";
 import {DisplayError} from "@/components/displayError";
 import {DisplayStatus} from "@/components/displayStatus";
 import {SignIn, SignInSchema} from "@/utils/models/profile.model";
-import {redirect} from "next/navigation";
+import {redirect, useRouter} from "next/navigation";
+import {router} from "next/client";
 //import {fetchPostSignIn} from "@/utils/http/profile.http";
 
 export function SignInForm() {
 
+    const router = useRouter()
     const initialValues : {profileId: string|null, profileEmail: string; profilePassword: string } = {
         profileId:null,
         profileEmail: '',
@@ -29,10 +31,8 @@ export function SignInForm() {
             if(json.status === 200) {
                 resetForm()
                 type = 'alert alert-success'
-                setStatus({type, message: json.message})
-                setTimeout(() => {
-                }, 1000);
-                redirect('/about-page')
+                router.push('/')
+
             }
             setStatus({type, message: json.message})
         })
@@ -69,10 +69,6 @@ function SignInFormContent(props: FormikProps<SignIn>) {
 
     return(
         <>
-
-
-
-
             <form onSubmit={handleSubmit} className={"py-2 "}>
                 <div className="fl pb-2">
                     <label className="text-lg" htmlFor="profileEmail">email</label>
@@ -101,7 +97,7 @@ function SignInFormContent(props: FormikProps<SignIn>) {
                     <DisplayError errors={errors} touched={touched} field={"profilePassword"} />
                 </div>
                 <div className="py-2 flex gap-2">
-                    <button className='btn btn-success bg-blue-500' type="submit">Log In</button>
+                    <button className='btn btn-success bg-blue-500' type="submit" >Log In</button>
 
                 </div>
                 <DisplayStatus status={status} />
