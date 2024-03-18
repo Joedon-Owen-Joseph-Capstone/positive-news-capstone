@@ -42,13 +42,11 @@ export default async function EditProfile()  {
                         <h1 className='text-4xl text-black md:text-5xl lg:text-6xl'>{value.profileName}</h1>
                         <img className='mb-5' src='/edit-button.svg' alt='edit username'/>
                     </div>
+                    <div className={"grid"}>
+                        <ProfileAboutForm profile={value}/>
+                    </div>
                 </div>
-<ProfileAboutForm/>
-                {/* Save and cancel button*/}
-                <div className='text-white *:px-5 *:py-2 absolute bottom-5 right-5'>
-                <button className='bg-blue-400 rounded-lg me-2'>Save</button>
-                <button className='bg-red-400 rounded-lg'> Cancel</button>
-                </div>
+
             </section>
 
             <section className='my-24'>

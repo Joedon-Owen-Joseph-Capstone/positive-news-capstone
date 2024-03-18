@@ -5,25 +5,30 @@ import {FormDebugger} from "@/components/formDebugger";
 import {DisplayError} from "@/components/displayError";
 import {DisplayStatus} from "@/components/displayStatus";
 import {Profile, ProfileSchema} from "@/utils/models/profile.model";
+import {getSession, Session} from "@/utils/fetchSession";
+import {cookies} from "next/headers";
 
 
-export function ProfileAboutForm() {
-
+export function ProfileAboutForm({profile}: {profile: Profile}) {
     const initialValues : Profile = {
-        profileId: '',
-        profileAbout: null,
+        profileId: profile.profileId,
+        profileAbout: '',
         profileImageUrl: null,
-        profileName: '',
+        profileName: profile.profileName,
     }
 
-    const handleSubmit = (values: Profile, actions: FormikHelpers<Profile>) => {
-
+    const handleSubmit = (values: Profile, session: Session, actions: FormikHelpers<Profile>) => {
+        const sid = cookies().get('connect.sid')?.value ?? ""
         const {setStatus, resetForm} = actions
-        fetch('/apis/profile', {
-            method: "POST",
+        fetch(`/apis/profile/${values.profileId}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
+                "authorization": session.authorization,
+                Cookie: `connect.sid=${sid}`
             },
+            credentials: "include",
+
             body: JSON.stringify(values)
         }).then(response => response.json()).then(json => {
             let type = 'alert alert-danger'
@@ -66,9 +71,9 @@ function ProfileAboutFormContent(props: FormikProps<Profile>) {
 
     return(
         <>
-            <form onSubmit={handleSubmit} className={"py-2 "}>
+            <form onSubmit={handleSubmit} className={"py-2"}>
                 <div className="fl pb-2">
-                    <label className="text-lg font-semibold" htmlFor="profileAbout">Name</label>
+                    <label className="text-lg font-semibold text-black" htmlFor="profileAbout">About Me</label>
                     <input
                         onBlur={handleBlur}
                         onChange={handleChange}
@@ -78,11 +83,16 @@ function ProfileAboutFormContent(props: FormikProps<Profile>) {
                         name="profileAbout"
                         id="profileAbout"
                     />
-                    <DisplayError errors={errors} touched={touched} field={"profileName"}/>
+                    {/* Save and cancel button*/}
+                    <DisplayError errors={errors} touched={touched} field={"profileAbout"}/>
                 </div>
-
+                <div className='text-white *:px-5 *:py-2 pt-2.5'>
+                    <button className='bg-blue-400 rounded-lg me-2' type={"submit"}>Save</button>
+                    <button className='bg-red-400 rounded-lg' type={"reset"} onClick={handleReset}> Cancel</button>
+                </div>
             </form>
 
+            <FormDebugger props={...props}/>
         </>
     )
 }
