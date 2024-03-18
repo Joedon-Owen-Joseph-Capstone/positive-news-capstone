@@ -1,4 +1,5 @@
 import { Comment, CommentSchema } from "../models/comment.model";
+import {LikeSchema} from "@/utils/models/like.model";
 
 export async function postComment(commentData: {commentArticleId: string; commentContent: string; commentProfileId: string}): Promise<Comment> {
     const response = await fetch(`${process.env.PUBLIC_API_URL}/apis/comment/`, {
@@ -17,13 +18,18 @@ export async function postComment(commentData: {commentArticleId: string; commen
     return CommentSchema.parse(response.data);
 }
 
-export async function fetchCommentsByArticleId(articleId: string): Promise<Comment[]> {
-    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/comment/articleId/${articleId}`).then((response: Response) => {
-        if (!response.ok) {
-            throw new Error('Error fetching comments')
+export async function fetchCommentsByArticleId(commentArticleId: string): Promise<Comment[]> {
+    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/comment/commentArticleId/${commentArticleId}`, {
+        next:{
+            tags: [`comment-${commentArticleId}`]
+        }}).then((response: Response) => {
+        if(!response.ok) {
+            throw new Error('Error getting comments')
         } else {
             return response.json()
-        }    });
+        }
+    })
 
-    return CommentSchema.array().parse(data);
+    return CommentSchema.array().parse(data)
+
 }
