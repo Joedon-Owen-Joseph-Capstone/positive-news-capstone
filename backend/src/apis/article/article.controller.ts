@@ -59,7 +59,6 @@ export async function postArticleController(request: Request, response: Response
 
         // if there is an error, return the response with the status code 500, an error message, and null data
     } catch (error) {
-        console.log(error)
         return response.json({status: 500, message: 'Error creating article. Try again.', data: null})
     }
 }

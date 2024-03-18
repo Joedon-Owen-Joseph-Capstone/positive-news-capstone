@@ -3,12 +3,13 @@
 import {Article} from "@/utils/models/article.model";
 import {fetchArticleByArticleId} from "@/utils/http/article.http";
 import {ArticleFull} from "@/app/article-page/ArticleFull";
+import {Like} from "@/utils/models/like.model";
 
 // Function to take articleId and display unique article when a post is clicked
-export default async function articlePage ({params} : {params :  {articleId : string}}) {
+export default async function articlePage ({params} : {params :  {articleId : string, likes: Like[]}}) {
 
     // Give function articleId as 'params' to pass it through the function
-    const {articleId} = params
+    const {articleId, likes} = params
 
     // Get the articleId's data
     const {articles} =  await getData(articleId)
@@ -17,7 +18,7 @@ export default async function articlePage ({params} : {params :  {articleId : st
     return (
         <>
             <div>
-                <ArticleFull article={articles} key={articles.articleId} />
+                <ArticleFull article={articles} key={articles.articleId} likes={likes} />
             </div>
         </>
     )

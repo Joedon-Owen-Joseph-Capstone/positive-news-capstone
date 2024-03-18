@@ -26,7 +26,7 @@ router.route('/likeArticleId/:likeArticleId')
     .get(getLikesByLikeArticleIdController)
     .delete(isLoggedInController, deleteLikeController)
 
-router.route('/profileId/:profileId')
+router.route('/likeProfileId/:likeProfileId')
     .get(getLikesByLikeProfileIdController)
 
 // export the router with the basePath and router object
