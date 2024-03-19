@@ -7,6 +7,7 @@ import {DisplayStatus} from "@/components/displayStatus";
 import {SignIn, SignInSchema} from "@/utils/models/profile.model";
 import {redirect, useRouter} from "next/navigation";
 import {router} from "next/client";
+import {revalidatePath} from "next/cache";
 //import {fetchPostSignIn} from "@/utils/http/profile.http";
 
 export function SignInForm() {
@@ -31,7 +32,7 @@ export function SignInForm() {
             if(json.status === 200) {
                 resetForm()
                 type = 'alert alert-success'
-                router.push('/')
+                router.refresh()
 
             }
             setStatus({type, message: json.message})

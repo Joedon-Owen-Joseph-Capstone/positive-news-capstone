@@ -10,7 +10,7 @@ export type Session = {
     exp: number
 }
 
-export let session : Session|undefined = undefined
+let session : Session|undefined = undefined
 
 
 

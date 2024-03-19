@@ -7,6 +7,7 @@ import {getSession, Session} from "@/utils/fetchSession";
 import {fetchProfileByProfileId} from "@/utils/http/profile.http";
 import {redirect} from "next/navigation";
 import {ProfileAboutForm} from "@/app/profile-page/[profileId]/profile-edit-page/ProfileAboutForm";
+import {ProfileImageForm} from "@/app/profile-page/[profileId]/profile-edit-page/ProfileImageForm";
 
 
 
@@ -28,12 +29,14 @@ export default async function EditProfile()  {
         <>
             <section className='block lg:flex items-center justify-center gap-16 border-b-4 border-black p-12 md:p-24 relative'>
                 <div className='relative inline-block mb-5 md:mb-1'>
-                    <img className='h-60 w-60 rounded-full border-black border-2'
+                    {session.profile.profileImageUrl &&
+                        <img className='h-60 w-60 rounded-full border-black border-2'
                          src={session.profile.profileImageUrl}
-                         alt='profile image'/>
-                    <button className="absolute bottom-0 right-0 rounded-full bg-white">
-                        <img src='/arrow-up-circle.svg' height="60" width='60' alt='upload new picture'/>
-                    </button>
+                         alt='profile image'/>}
+                    <ProfileImageForm session={session} profile={session.profile}/>
+                    {/*<button className="absolute bottom-0 right-0 rounded-full bg-white">*/}
+                    {/*    <img src='/arrow-up-circle.svg' height="60" width='60' alt='upload new picture'/>*/}
+                    {/*</button>*/}
                 </div>
                 <div className='pb-10 lg:pb-1'>
 
@@ -43,7 +46,7 @@ export default async function EditProfile()  {
                         <img className='mb-5' src='/edit-button.svg' alt='edit username'/>
                     </div>
                     <div className={"grid"}>
-                        <ProfileAboutForm profile={value}/>
+                        <ProfileAboutForm profile={value} session={session}/>
                     </div>
                 </div>
 

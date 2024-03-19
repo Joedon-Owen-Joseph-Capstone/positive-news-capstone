@@ -2,6 +2,7 @@
 
 import {useRouter} from "next/navigation";
 import {fetchSignOut} from "@/utils/http/profile.http";
+import {revalidatePath} from "next/cache";
 
 export function SignOutButton() {
     const router = useRouter()
@@ -10,6 +11,7 @@ export function SignOutButton() {
         if (result.status === 200) {
             router.refresh()
             router.push('/sign-in-page')
+
         }
     }
 

@@ -1,33 +1,42 @@
-"use client";
+"use client"
+
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import {toFormikValidationSchema} from "zod-formik-adapter";
 import {FormDebugger} from "@/components/formDebugger";
 import {DisplayError} from "@/components/displayError";
-import {DisplayStatus} from "@/components/displayStatus";
-import {Profile, ProfileSchema} from "@/utils/models/profile.model";
+import {Profile, ProfileSchema, SignIn} from "@/utils/models/profile.model";
 import {getSession, Session} from "@/utils/fetchSession";
-import {cookies} from "next/headers";
+import {fetchProfileUpdate} from "@/utils/http/profile.http";
+import {useRouter} from "next/navigation";
 
+type ProfileAboutFormProp = {
+    session : Session
+    profile: Profile
+}
 
-export function ProfileAboutForm({profile}: {profile: Profile}) {
+export function ProfileAboutForm(props: ProfileAboutFormProp) {
+    const { session, profile } = props
+    const router = useRouter()
     const initialValues : Profile = {
         profileId: profile.profileId,
-        profileAbout: '',
-        profileImageUrl: null,
+        profileAbout: profile.profileAbout,
+        profileImageUrl: profile.profileImageUrl,
         profileName: profile.profileName,
     }
 
-    const handleSubmit = (values: Profile, session: Session, actions: FormikHelpers<Profile>) => {
-        const sid = cookies().get('connect.sid')?.value ?? ""
-        const {setStatus, resetForm} = actions
-        fetch(`/apis/profile/${values.profileId}`, {
+    if(!session) {
+        router.push('/')
+    }
+
+    const handleSubmit = (values: Profile, actions: FormikHelpers<Profile>) => {
+        const {resetForm, setStatus} = actions
+        const authorization = session.authorization
+        fetch(`/apis/profile/${profile.profileId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "authorization": session.authorization,
-                Cookie: `connect.sid=${sid}`
+                authorization
             },
-            credentials: "include",
 
             body: JSON.stringify(values)
         }).then(response => response.json()).then(json => {
@@ -35,6 +44,8 @@ export function ProfileAboutForm({profile}: {profile: Profile}) {
             if(json.status === 200) {
                 resetForm()
                 type = 'alert alert-success'
+                router.refresh()
+
             }
             setStatus({type, message: json.message})
         })
@@ -73,6 +84,21 @@ function ProfileAboutFormContent(props: FormikProps<Profile>) {
         <>
             <form onSubmit={handleSubmit} className={"py-2"}>
                 <div className="fl pb-2">
+                    <label className="text-lg font-semibold text-black" htmlFor="profileName">Edit Name</label>
+                    <input
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.profileName as string}
+                        className="input input-bordered w-full max"
+                        type="text"
+                        name="profileName"
+                        id="profileName"
+                    />
+
+                    <DisplayError errors={errors} touched={touched} field={"profileName"}/>
+                </div>
+
+                <div className="fl pb-2">
                     <label className="text-lg font-semibold text-black" htmlFor="profileAbout">About Me</label>
                     <input
                         onBlur={handleBlur}
@@ -86,13 +112,14 @@ function ProfileAboutFormContent(props: FormikProps<Profile>) {
                     {/* Save and cancel button*/}
                     <DisplayError errors={errors} touched={touched} field={"profileAbout"}/>
                 </div>
+
                 <div className='text-white *:px-5 *:py-2 pt-2.5'>
                     <button className='bg-blue-400 rounded-lg me-2' type={"submit"}>Save</button>
                     <button className='bg-red-400 rounded-lg' type={"reset"} onClick={handleReset}> Cancel</button>
                 </div>
             </form>
 
-            <FormDebugger props={...props}/>
+            {/*<FormDebugger props={...props}/>*/}
         </>
     )
 }
