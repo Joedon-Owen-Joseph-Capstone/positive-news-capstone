@@ -11,14 +11,18 @@ import {toFormikValidationSchema} from 'zod-formik-adapter';
 import {fetchCommentsByArticleId} from "@/utils/http/comment.http";
 import {z} from 'zod';
 import {FormDebugger} from "@/components/formDebugger";
+import {fetchAllArticles} from "@/utils/http/article.http";
+import {getLikeData} from "@/app/shared/Posts";
 
 type CommentFormProps = {
     session: Session | undefined
     article: Article
+    // comments: Comment[]
 }
 
-export function CommentForm(props: CommentFormProps) {
+export async function CommentForm(props: CommentFormProps) {
 
+    // const comments = await getLikeData()
     const router = useRouter();
 
     const {session, article} = props;

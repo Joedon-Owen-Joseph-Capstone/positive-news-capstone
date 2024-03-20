@@ -12,8 +12,8 @@ export const CommentSchema = z.object({
         .nullable(),
 
     commentProfileId: z.string({required_error: 'please provide a valid commentProfileId'})
-        .uuid({message: 'please provide a valid uuid for commentProfileId'})
-        .nullable(),
+        .uuid({message: 'please provide a valid uuid for commentProfileId'}),
+
 
     commentArticleId: z.string({required_error: 'please provide a valid commentArticleId'})
         .uuid({message: 'please provide a valid uuid for commentArticleId'})
