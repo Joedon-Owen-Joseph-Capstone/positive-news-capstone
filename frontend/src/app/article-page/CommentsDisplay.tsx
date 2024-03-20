@@ -4,14 +4,15 @@ import {Article} from "@/utils/models/article.model";
 import {Profile} from "@/utils/models/profile.model"
 import {CommentDisplay} from "@/app/article-page/[articleId]/CommentDisplay";
 import {CommentForm} from "@/app/shared/CommentForm";
-import {session} from "@/utils/fetchSession";
+import {Session} from "@/utils/fetchSession";
 
 type Props = {
     comments:Comment[]
     article:Article
+    session: Session | undefined
 }
 export async function CommentsDisplay (props:Props) {
-    const {article} = props
+    const {article, session} = props
     const comments =  await getCommentData(article.articleId)
     return (
         <>

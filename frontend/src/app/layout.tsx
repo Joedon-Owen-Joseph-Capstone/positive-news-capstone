@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import {Navigation} from "@/app/shared/Navigation";
 import {Footer} from "@/app/shared/Footer";
-import {Session, session} from "@/utils/fetchSession";
+import {Session} from "@/utils/fetchSession";
 import {Profile} from "@/utils/models/profile.model";
 
 
@@ -18,7 +18,7 @@ type RootLayoutProps = {
 }
 
 export default function RootLayout(props : RootLayoutProps) {
-    const { children,profile,session } = props
+    const { children,profile, session } = props
     return (
         <html  lang="en" suppressHydrationWarning>
         <body className='bg-[#EDE8E4]'>

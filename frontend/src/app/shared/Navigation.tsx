@@ -19,8 +19,8 @@ async function SignUpProfile(props: Props) {
 
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                        <img alt="Tailwind CSS Navbar component"
-                             src="/avatar-placeholder.jpg"/>
+                        {session.profile.profileImageUrl && <img alt="Tailwind CSS Navbar component"
+                              src={session.profile.profileImageUrl}/>}
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@ export async function Navigation(props: Props) {
         <>
 
             {/* Nav bar content */}
-            <nav className='z-50'>
+            <nav className='z-[99]'>
 
                 {/* Nav bar container */}
                 <div className="navbar bg-gradient-to-br from-[#1B264F] to-[#274690] text-white p-5">
@@ -53,13 +53,13 @@ export async function Navigation(props: Props) {
                         <a href='/' className="btn btn-ghost font-custom text-2xl md:text-3xl lg:text-4xl">PNN</a>
                     </div>
 
-                    <div className="flex-none gap-2 font-serif">
+                    <div className="flex-none gap-4 font-serif">
 
                         {/* Search bar */}
-                        <div>
-                            <input type="text" placeholder="Search"
-                                   className="input input-bordered w-24 md:w-auto bg-[#e2e1f9] text-black"/>
-                        </div>
+                        {/*<div>*/}
+                        {/*    <input type="text" placeholder="Search"*/}
+                        {/*           className="input input-bordered w-24 md:w-auto bg-[#e2e1f9] text-black"/>*/}
+                        {/*</div>*/}
 
                         {/* Dropdown button content */}
                         <div className="flex-none">

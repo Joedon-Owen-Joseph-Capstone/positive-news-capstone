@@ -8,6 +8,7 @@ import {Comment} from "@/utils/models/comment.model";
 import {CommentForm} from "@/app/shared/CommentForm";
 import {fetchCommentsByArticleId} from "@/utils/http/comment.http";
 import {CommentsDisplay} from "./CommentsDisplay";
+import {fetchLikesByArticleId} from "@/utils/http/like.http";
 
 
 type Props = {
@@ -17,9 +18,11 @@ type Props = {
 }
 
 export async function ArticleFull(props: Props){
-    const {article, likes} = props
     const session = await getSession()
-    const comments = await fetchCommentsByArticleId(article.articleId)
+
+    const { article } = props
+    const likes = await fetchLikesByArticleId(article.articleId)
+    const comments =  await fetchCommentsByArticleId(article.articleId)
 
     return(
 
@@ -56,7 +59,7 @@ export async function ArticleFull(props: Props){
             </div>
 
 
-            <CommentsDisplay comments={comments} article={article}/>
+            <CommentsDisplay comments={comments} article={article} session={session}/>
 
 
             <div className={"text-black *:p-5 lg:px-60"}>

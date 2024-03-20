@@ -16,7 +16,7 @@
     @keyframes highlight {
         from {
             color: black;
-            background-color: red;
+            background-color: yellow;
         }
         to {
             color: white;

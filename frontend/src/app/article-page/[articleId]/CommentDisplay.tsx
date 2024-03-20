@@ -21,8 +21,10 @@ export async function CommentDisplay(props:Props) {
                 <div className='border-b-2 border-gray-500 pb-5'>
 
                 {/* Profile Image */}
+                    <a href={`../profile-page/${profile.profileId}`}>
                     {profile.profileImageUrl && <img className='w-12 h-12 image-full rounded-full' src= {profile.profileImageUrl}
                      alt='user profile image'/>}
+                    </a>
 
                     <div>
                     {/* Username */}

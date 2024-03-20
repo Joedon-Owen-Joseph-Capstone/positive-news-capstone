@@ -18,8 +18,8 @@ export async function Post (props: Props) {
     const session = await getSession()
 
     const { article } = props
-    const likes = await getData(article.articleId)
-     const comments =  await fetchCommentsByArticleId(article.articleId)
+    const likes = await fetchLikesByArticleId(article.articleId)
+    const comments =  await fetchCommentsByArticleId(article.articleId)
 
 
     return (
@@ -63,8 +63,3 @@ export async function Post (props: Props) {
         </>
     )
 }
-
-async function getData(articleId : string) {
-    return await fetchLikesByArticleId(articleId)
-}
-
