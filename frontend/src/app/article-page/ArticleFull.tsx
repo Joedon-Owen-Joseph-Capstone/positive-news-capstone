@@ -57,7 +57,7 @@ export async function ArticleFull(props: Props){
 
 
             <CommentsDisplay comments={comments} article={article}/>
-            <CommentForm session={session} article={article}/>
+
 
             <div className={"text-black *:p-5 lg:px-60"}>
                 <div className='font-bold font-serif'>
