@@ -5,10 +5,11 @@ import {fetchAllArticles} from "@/utils/http/article.http";
 import {Post} from "@/app/shared/Post";
 import {fetchLikesByArticleId} from "@/utils/http/like.http";
 import {Like} from "@/utils/models/like.model";
+import {Comment} from "@/utils/models/comment.model";
 
 // Get all posts function
 export async function ArticlePost () {
-    const {articles, likes} =  await getLikeData()
+    const {articles, likes, comments} =  await getLikeData()
 
     return (
         <>
@@ -22,7 +23,7 @@ export async function ArticlePost () {
 
 // Get all US posts function
 export async function ArticlePostUS () {
-    const {articles, likes} =  await getLikeData()
+    const {articles, likes, comments} =  await getLikeData()
 
     return (
         <>
@@ -35,13 +36,15 @@ export async function ArticlePostUS () {
 }
 
 // Get article like data function
-async function getLikeData(): Promise<{likes:{[likeArticleId: string ]: Like[]} , articles: Article[]}>  {
+export async function getLikeData(): Promise<{likes:{[likeArticleId: string ]: Like[]} , comments:{[commentArticleId: string ]: Comment[]},articles: Article[]}>  {
     const articles = await fetchAllArticles()
     let likes : {[likeArticleId: string ]: Like[]} = {}
+    let comments : {[commentArticleId: string ]: Comment[]} = {}
 
-    for(let article of articles) {
-        likes[article.articleId] = await fetchLikesByArticleId(article.articleId)
-    }
 
-    return {likes, articles}
+    return {likes, comments, articles}
 }
+
+
+
+

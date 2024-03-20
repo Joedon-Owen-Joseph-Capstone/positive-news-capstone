@@ -28,7 +28,7 @@ export function LikeForm(props: LikeFormProps) {
                     <img src='/heart.svg' alt='like button' />
                 </button>
             </>
-        );
+        )
     }
 
     const handleLike = async () => {
@@ -41,7 +41,7 @@ export function LikeForm(props: LikeFormProps) {
         } catch (error) {
             console.error('Error toggling like:', error)
         }
-    };
+    }
 
     return (
         <>
@@ -52,5 +52,5 @@ export function LikeForm(props: LikeFormProps) {
                 <img src={isliked ? 'heart-fill.svg' : '/heart.svg'} alt='Like button' />
             </button>
         </>
-    );
+    )
 }

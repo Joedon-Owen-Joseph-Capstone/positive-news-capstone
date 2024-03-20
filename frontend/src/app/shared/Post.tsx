@@ -4,6 +4,10 @@ import {Article} from "@/utils/models/article.model";
 import {LikeForm} from "@/app/shared/LikeForm";
 import {Like} from "@/utils/models/like.model";
 import {getSession} from "@/utils/fetchSession";
+import {fetchAllArticles, fetchArticleByArticleId} from "@/utils/http/article.http";
+import {fetchLikesByArticleId} from "@/utils/http/like.http";
+import {Comment} from "@/utils/models/comment.model";
+import {fetchCommentsByArticleId} from "@/utils/http/comment.http";
 
 
 type Props = {
@@ -14,7 +18,10 @@ type Props = {
 export async function Post (props: Props) {
     const session = await getSession()
 
-    const { article, likes } = props
+    const { article } = props
+    const likes = await getData(article.articleId)
+     const comments =  await fetchCommentsByArticleId(article.articleId)
+
 
     return (
         <>
@@ -46,7 +53,7 @@ export async function Post (props: Props) {
                         <LikeForm article={article} session={session} likes={likes}/>
                         <div className='flex items-center gap-2'>
                             <button><a href={`/article-page/${article.articleId}`}><img src='/chat.svg' alt='chat button'/></a></button>
-                            <p>10</p>
+                            <p>{comments.length}</p>
                         </div>
                     </div>
                     <button><img src='/share.svg' alt='chat button'/></button>
@@ -57,3 +64,13 @@ export async function Post (props: Props) {
         </>
     )
 }
+
+async function getData(articleId : string) {
+
+    // Variable assigned to article data
+    const likes = await fetchLikesByArticleId(articleId)
+
+    // Return the article values
+    return likes
+}
+

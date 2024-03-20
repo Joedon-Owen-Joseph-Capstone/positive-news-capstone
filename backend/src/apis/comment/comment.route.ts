@@ -19,11 +19,11 @@ router.route('/')
     .post(isLoggedInController, postCommentController);
 
 // Route to get comments by article ID
-router.route('/articleId/:articleId')
+router.route('/commentArticleId/:commentArticleId')
     .get(getCommentsByArticleIdController);
 
 // Route to get comments by profile ID
-router.route('/profileId/:profileId')
+router.route('/commentProfileId/:commentProfileId')
     .get(getCommentsByProfileIdController);
 
 // Route to delete a comment by comment ID

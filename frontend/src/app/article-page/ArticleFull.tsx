@@ -4,15 +4,22 @@ import {Article} from "@/utils/models/article.model";
 import {LikeForm} from "@/app/shared/LikeForm";
 import {getSession} from "@/utils/fetchSession";
 import {Like} from "@/utils/models/like.model";
+import {Comment} from "@/utils/models/comment.model";
+import {CommentForm} from "@/app/shared/CommentForm";
+import {fetchCommentsByArticleId} from "@/utils/http/comment.http";
+import {CommentsDisplay} from "./CommentsDisplay";
+
 
 type Props = {
     article: Article
     likes: Like[]
+    comments: Comment[]
 }
 
 export async function ArticleFull(props: Props){
     const {article, likes} = props
     const session = await getSession()
+    const comments = await fetchCommentsByArticleId(article.articleId)
 
     return(
 
@@ -40,7 +47,7 @@ export async function ArticleFull(props: Props){
                     <LikeForm article={article} session={session} likes={likes}/>
                     <div className='flex items-center gap-2'>
                         <button><img src='/chat.svg' alt='chat button'/></button>
-                        <p className='text-gray-300'>10</p>
+                        <p className='text-gray-300'>{comments.length}</p>
                     </div>
                 </div>
                 <button><img src='/share.svg' alt='share button'/></button>
@@ -48,33 +55,9 @@ export async function ArticleFull(props: Props){
                 <p className='pt-5 text-lg'>10 Likes</p>
             </div>
 
-            {/* Comment section body */}
-            <section className="bg-gray-800 p-5 rounded-b-xl">
 
-                {/* Comment Display*/}
-                <div className='border-b-2 border-gray-500 py-5'>
-
-                    {/* Profile Image */}
-                    <img className='w-12 h-12 image-full rounded-full' src='/avatar-placeholder.jpg'
-                         alt='user profile image'/>
-                    <div>
-
-                        {/* Username */}
-                        <h2 className='text-white text-lg break-fix'>@jmarchBB</h2>
-
-                        {/* Comment Content */}
-                        <p className='text-gray-300 text-sm leading-4 break-fix'>Shrimp fried rice?!? Sure bud, I'll
-                            believe it when I see it.</p>
-                    </div>
-                </div>
-
-                {/* Comment box */}
-                <form className='flex items-center gap-2 pt-4'>
-                    <textarea className='bg-gray-200 text-black rounded-lg p-3' rows={1} cols={64} name='comment'
-                              id='comment' placeholder='Comment'/>
-                    <button type='submit'><img src='/send-fill.svg' alt='submit comment'/></button>
-                </form>
-            </section>
+            <CommentsDisplay comments={comments} article={article}/>
+            <CommentForm session={session} article={article}/>
 
             <div className={"text-black *:p-5 lg:px-60"}>
                 <div className='font-bold font-serif'>
