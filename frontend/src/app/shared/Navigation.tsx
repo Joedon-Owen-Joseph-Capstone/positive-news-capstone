@@ -1,8 +1,46 @@
 import {JSX} from 'react'
+import {getSession, Session} from "@/utils/fetchSession";
+import {Profile} from "@/utils/models/profile.model";
+import {SignOutButton} from "@/app/shared/SignOutForm";
 
+type Props = {
+    profile: Profile
+    session: Session | undefined
+}
+async function SignUpProfile(props: Props) {
+    const {profile, session} = props
+    if (!session) {
+        return (
+                <button><a className='hidden lg:flex items-center p-3 text-xl bg-blue-500 rounded-lg' href="../sign-up">Sign Up</a></button>
+        )
+    }
+    return (
+        <>
+            <div className="dropdown dropdown-end">
 
-export function Navigation() : JSX.Element {
-    return(
+                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                    <div className="w-10 rounded-full">
+                        <img alt="Tailwind CSS Navbar component"
+                             src="/avatar-placeholder.jpg"/>
+                    </div>
+                </div>
+
+                {/* Profile button links */}
+                <ul tabIndex={0}
+                    className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52 text-black">
+                    <li><a href={`../profile-page/${session.profile.profileId}/profile-edit-page`}
+                           className="justify-between">Profile</a></li>
+                    <li><SignOutButton/></li>
+                </ul>
+            </div>
+        </>
+    )
+}
+
+export async function Navigation(props: Props) {
+    const {profile} = props
+    const session = await getSession()
+    return (
         <>
 
             {/* Nav bar content */}
@@ -40,34 +78,35 @@ export function Navigation() : JSX.Element {
                                         {/* Drop down links */}
                                         <ul className="bg-white italic p-2 rounded-t-none text-black">
 
+                                           <li><SignUpProfile profile={profile} session={session}/></li>
                                             {/* Profile button HIDDEN IN PROGRESS*/}
-                                            <li className='hidden'>
-                                                <div className="dropdown dropdown-end">
+                                            {/*<li className='hidden'>*/}
+                                            {/*    <div className="dropdown dropdown-end">*/}
 
-                                                    <div tabIndex={0} role="button"
-                                                         className="btn btn-ghost btn-circle avatar">
-                                                        <div className="w-10 rounded-full">
-                                                            <img alt="Tailwind CSS Navbar component"
-                                                                 src="https://www.milton.edu/wp-content/uploads/2019/11/avatar-placeholder.jpg"/>
-                                                        </div>
-                                                    </div>
+                                            {/*        <div tabIndex={0} role="button"*/}
+                                            {/*             className="btn btn-ghost btn-circle avatar">*/}
+                                            {/*            <div className="w-10 rounded-full">*/}
+                                            {/*                <img alt="Tailwind CSS Navbar component"*/}
+                                            {/*                     src="https://www.milton.edu/wp-content/uploads/2019/11/avatar-placeholder.jpg"/>*/}
+                                            {/*            </div>*/}
+                                            {/*        </div>*/}
 
-                                                    {/* Profile button links */}
-                                                    <ul tabIndex={0}
-                                                        className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52 text-black">
-                                                        <li><a href='../profile-page'
-                                                               className="justify-between">Profile</a></li>
-                                                        <li><a href='/'>Logout</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
+                                            {/*        /!* Profile button links *!/*/}
+                                            {/*        <ul tabIndex={0}*/}
+                                            {/*            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52 text-black">*/}
+                                            {/*            <li><a href='../profile-edit-page'*/}
+                                            {/*                   className="justify-between">Profile</a></li>*/}
+                                            {/*            <li><a href='/'>Logout</a></li>*/}
+                                            {/*        </ul>*/}
+                                            {/*    </div>*/}
+                                            {/*</li>*/}
 
                                             {/* Other drop down button links */}
-                                            <li>
-                                                <button><a
-                                                    className='bg-blue-500 text-center rounded-lg text-white p-2'
-                                                    href="../sign-up">Sign Up</a></button>
-                                            </li>
+                                            {/*<li>*/}
+                                            {/*    <button><a*/}
+                                            {/*        className='bg-blue-500 text-center rounded-lg text-white p-2'*/}
+                                            {/*        href="../sign-up">Sign Up</a></button>*/}
+                                            {/*</li>*/}
                                             <li><a href='../about-us'>About PNN</a></li>
                                             <li><a href='../us-page'>U.S.</a></li>
                                             <li><a href='../world-page'>World</a></li>
@@ -88,26 +127,27 @@ export function Navigation() : JSX.Element {
                             </ul>
                         </div>
 
+                        <SignUpProfile profile={profile} session={session}/>
                         {/* Create account button */}
-                        <button><a className='hidden lg:flex items-center p-3 text-xl bg-blue-500 rounded-lg' href="../sign-up">Sign Up</a></button>
+                        {/*<button><a className='hidden lg:flex items-center p-3 text-xl bg-blue-500 rounded-lg' href="../sign-up">Sign Up</a></button>*/}
 
                         {/* Profile button HIDDEN RIGHT NOW NORMALLY lg:flex*/}
-                        <div className="dropdown dropdown-end hidden">
+                        {/*<div className="dropdown dropdown-end">*/}
 
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component"
-                                         src="/avatar-placeholder.jpg"/>
-                                </div>
-                            </div>
+                        {/*    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">*/}
+                        {/*        <div className="w-10 rounded-full">*/}
+                        {/*            <img alt="Tailwind CSS Navbar component"*/}
+                        {/*                 src="/avatar-placeholder.jpg"/>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
 
-                            {/* Profile button links */}
-                            <ul tabIndex={0}
-                                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52 text-black">
-                                <li><a href='../profile-page' className="justify-between">Profile</a></li>
-                                <li><a href='/'>Logout</a></li>
-                            </ul>
-                        </div>
+                        {/*    /!* Profile button links *!/*/}
+                        {/*    <ul tabIndex={0}*/}
+                        {/*        className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white rounded-box w-52 text-black">*/}
+                        {/*        <li><a href={`../profile-page/${session?.profile.profileId}/profile-edit-page`} className="justify-between">Profile</a></li>*/}
+                        {/*        <li><SignOutButton/></li>*/}
+                        {/*    </ul>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </nav>
