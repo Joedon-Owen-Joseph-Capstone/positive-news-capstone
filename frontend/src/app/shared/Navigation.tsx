@@ -43,7 +43,7 @@ export async function Navigation(props: Props) {
         <>
 
             {/* Nav bar content */}
-            <nav>
+            <nav className='z-50'>
 
                 {/* Nav bar container */}
                 <div className="navbar bg-gradient-to-br from-[#1B264F] to-[#274690] text-white p-5">

@@ -24,8 +24,8 @@ export async function FollowDisplay(props: Props)  {
 
                     {/* Profile Image */}
                     <div className='flex justify-center'>
-                        <div className="bg-[url('/avatar-placeholder.jpg')] rounded-full border-black border-4 p-18 md:p-36 w-60 h-60 bg-center">
-                        </div>
+                        {profile.profileImageUrl && <img src={profile.profileImageUrl}
+                              className="rounded-full border-black border-4 w-60 h-60 bg-center" alt='User profile image'/>}
                     </div>
 
                     {/* Follow text */}

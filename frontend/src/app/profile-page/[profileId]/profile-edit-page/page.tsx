@@ -29,9 +29,6 @@ export default async function EditProfile()  {
                          src={session.profile.profileImageUrl}
                          alt='profile image'/>}
                     <ProfileImageForm session={session} profile={session.profile}/>
-                    {/*<button className="absolute bottom-0 right-0 rounded-full bg-white">*/}
-                    {/*    <img src='/arrow-up-circle.svg' height="60" width='60' alt='upload new picture'/>*/}
-                    {/*</button>*/}
                 </div>
                 <div className='pb-10 lg:pb-1'>
 
@@ -47,14 +44,14 @@ export default async function EditProfile()  {
 
             </section>
 
-            <section className='my-24'>
-                <div className="container mx-auto">
-                    <div>
-                        <h2 className='text-black text-3xl font-custom md:text-4xl lg:text-5xl'>Liked Articles</h2>
-                        <ArticlePost/>
-                    </div>
-                </div>
-            </section>
+            {/*<section className='my-24'>*/}
+            {/*    <div className="container mx-auto">*/}
+            {/*        <div>*/}
+            {/*            <h2 className='text-black text-3xl font-custom md:text-4xl lg:text-5xl'>Liked Articles</h2>*/}
+            {/*            <ArticlePost/>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</section>*/}
         </>
     )
 }

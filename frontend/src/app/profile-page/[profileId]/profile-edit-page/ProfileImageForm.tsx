@@ -48,10 +48,10 @@ export function ProfileImageForm(props: ProfileImageFormProp) {
                     setStatus({type: "alert alert-danger"})
                 }
                 values.profileImageUrl = data.message
-                submitTree(values)
+                submitImage(values)
             })
 
-        function submitTree (values: Profile) {
+        function submitImage (values: Profile) {
                 const authorization = session.authorization
                 fetch(`/apis/profile/${profile.profileId}`, {
                     method: "PUT",
@@ -92,7 +92,6 @@ export function ProfileImageFormContent(props: FormikProps<Profile>) {
 
     const [selectedImage, setSelectedImage] = useState(null)
 
-    console.log(selectedImage)
     const {
         status,
         values,
