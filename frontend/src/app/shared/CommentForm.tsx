@@ -85,8 +85,8 @@ function CommentFormContent(props: any) {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <textarea className={"textarea textarea-lg block w-1/3 h-32 resize-none p-4 text-sm text-gray-700 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"}
+            <form onSubmit={handleSubmit} className={"flex flex-col gap-4 p-4 bg-[#344955]"}>
+                <textarea className={"textarea h-32 resize-none p-2 text-sm text-black bg-gray-200 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"}
                           id="content"
                           name="commentContent"
                           value={values.commentContent}
@@ -102,3 +102,4 @@ function CommentFormContent(props: any) {
         </>
     );
 }
+
