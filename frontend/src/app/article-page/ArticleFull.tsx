@@ -6,6 +6,8 @@ import {getSession} from "@/utils/fetchSession";
 import {Like} from "@/utils/models/like.model";
 import {Comment} from "@/utils/models/comment.model";
 import {CommentForm} from "@/app/shared/CommentForm";
+import {fetchCommentsByArticleId} from "@/utils/http/comment.http";
+import {CommentsDisplay} from "./CommentsDisplay";
 
 
 type Props = {
@@ -15,8 +17,9 @@ type Props = {
 }
 
 export async function ArticleFull(props: Props){
-    const {article, likes, comments} = props
+    const {article, likes} = props
     const session = await getSession()
+    const comments = await fetchCommentsByArticleId(article.articleId)
 
     return(
 
@@ -44,7 +47,7 @@ export async function ArticleFull(props: Props){
                     <LikeForm article={article} session={session} likes={likes}/>
                     <div className='flex items-center gap-2'>
                         <button><img src='/chat.svg' alt='chat button'/></button>
-                        <p className='text-gray-300'>10</p>
+                        <p className='text-gray-300'>{comments.length}</p>
                     </div>
                 </div>
                 <button><img src='/share.svg' alt='share button'/></button>
@@ -52,6 +55,8 @@ export async function ArticleFull(props: Props){
                 <p className='pt-5 text-lg'>10 Likes</p>
             </div>
 
+
+            <CommentsDisplay comments={comments} article={article}/>
             <CommentForm session={session} article={article}/>
 
             <div className={"text-black *:p-5 lg:px-60"}>

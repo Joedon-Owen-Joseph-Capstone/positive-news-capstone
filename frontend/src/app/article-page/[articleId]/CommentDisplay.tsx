@@ -1,0 +1,37 @@
+import {CommentsDisplay} from "@/app/article-page/CommentsDisplay";
+import {Comment} from "@/utils/models/comment.model";
+import {Profile} from "@/utils/models/profile.model";
+import {fetchProfileByProfileId} from "@/utils/http/profile.http";
+
+
+type Props = {
+    comment:Comment
+}
+
+export async function CommentDisplay(props:Props) {
+
+    const {comment} = props
+    const profile = await fetchProfileByProfileId(comment.commentProfileId)
+
+
+
+
+    return (
+        <>
+            <div className='border-b-2 border-gray-500 py-5'>
+
+                {/* Profile Image */}
+                <img className='w-12 h-12 image-full rounded-full' src= {profile.profileImageUrl}
+                     alt='user profile image'/>
+                <div>
+
+                    {/* Username */}
+                    <h2 className='text-white text-lg break-fix'>@{profile.profileName}</h2>
+
+                    {/* Comment Content */}
+                    <p className='text-gray-300 text-sm leading-4 break-fix'>{comment.commentContent}</p>
+                </div>
+            </div>
+        </>
+    )
+}
