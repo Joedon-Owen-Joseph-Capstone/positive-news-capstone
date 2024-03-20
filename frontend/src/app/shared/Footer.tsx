@@ -4,7 +4,7 @@ export function Footer(): JSX.Element {
     return (
         <>
             {/* Return to top and logo */}
-            <section className='flex justify-between items-baseline font-custom text-black border-t-4 border-black py-16 px-10 lg:px-40 mt-28 lg:mt-56'>
+            <section className='flex justify-between items-baseline font-custom text-black border-t-4 border-black py-16 px-10 lg:px-40'>
                 <h2 className='italic text-3xl md:text-4xl lg:text-5xl'>PNN</h2>
                 <p className='md:text-lg lg:text-xl hover:underline'>Back to the Top</p>
             </section>

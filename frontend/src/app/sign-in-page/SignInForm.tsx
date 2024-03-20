@@ -1,14 +1,11 @@
 "use client";
+
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import {toFormikValidationSchema} from "zod-formik-adapter";
-//import {FormDebugger} from "@/components/formDebugger";
 import {DisplayError} from "@/components/displayError";
 import {DisplayStatus} from "@/components/displayStatus";
 import {SignIn, SignInSchema} from "@/utils/models/profile.model";
-import {redirect, useRouter} from "next/navigation";
-import {router} from "next/client";
-import {revalidatePath} from "next/cache";
-//import {fetchPostSignIn} from "@/utils/http/profile.http";
+import {useRouter} from "next/navigation";
 
 export function SignInForm() {
 
@@ -30,8 +27,9 @@ export function SignInForm() {
         }).then(response => response.json()).then(json => {
             let type = 'alert alert-danger'
             if(json.status === 200) {
-                resetForm()
                 type = 'alert alert-success'
+                resetForm()
+                router.push('/')
                 router.refresh()
 
             }
@@ -65,29 +63,28 @@ function SignInFormContent(props: FormikProps<SignIn>) {
         handleChange,
         handleBlur,
         handleSubmit,
-        handleReset
     } = props;
 
     return(
         <>
             <form onSubmit={handleSubmit} className={"py-2 "}>
-                <div className="fl pb-2">
-                    <label className="text-lg" htmlFor="profileEmail">email</label>
+                <div className="pb-2">
+                    <label className="text-lg text-black" htmlFor="profileEmail">Email</label>
                     <input
                         onBlur={handleBlur}
                         onChange={handleChange}
                         value={values.profileEmail}
-                        className="input input-bordered w-full max"
+                        className="input input-bordered w-full text-white"
                         type="text"
                         name="profileEmail"
                         id="profileEmail"
                     />
                     <DisplayError errors={errors} touched={touched} field={"profileEmail"} />
                 </div>
-                <div className="">
-                    <label className={"text-lg"} htmlFor="password">Password</label>
+                <div>
+                    <label className={"text-lg text-black"} htmlFor="password">Password</label>
                     <input
-                        className="input input-bordered w-full"
+                        className="input input-bordered w-full text-white"
                         onBlur={handleBlur}
                         onChange={handleChange}
                         value={values.profilePassword}
@@ -98,10 +95,10 @@ function SignInFormContent(props: FormikProps<SignIn>) {
                     <DisplayError errors={errors} touched={touched} field={"profilePassword"} />
                 </div>
                 <div className="py-2 flex gap-2">
-                    <button className='btn btn-success bg-blue-500' type="submit" >Log In</button>
+                    <button className='btn btn-success bg-blue-500 text-white' type="submit" >Sign In</button>
 
                 </div>
-                <DisplayStatus status={status} />
+                <DisplayStatus status={status}/>
             </form>
         </>
     )

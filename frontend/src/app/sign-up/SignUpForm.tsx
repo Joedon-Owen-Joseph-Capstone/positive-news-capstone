@@ -1,11 +1,10 @@
 "use client";
+
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import {toFormikValidationSchema} from "zod-formik-adapter";
-import {FormDebugger} from "@/components/formDebugger";
 import {DisplayError} from "@/components/displayError";
 import {DisplayStatus} from "@/components/displayStatus";
 import {SignUp, SignUpSchema} from "@/utils/models/profile.model";
-//import {fetchPostSignUp} from "@/utils/http/profile.http";
 
 export function SignUpForm() {
 
@@ -64,42 +63,41 @@ function SignUpFormContent(props: FormikProps<SignUp>) {
         handleChange,
         handleBlur,
         handleSubmit,
-        handleReset
     } = props;
 
     return(
         <>
             <form onSubmit={handleSubmit} className={"py-2 "}>
-                <div className="fl pb-2">
-                    <label className="text-lg font-semibold" htmlFor="profileEmail">Name</label>
+                <div className="pb-2">
+                    <label className="text-lg font-semibold text-black" htmlFor="profileEmail">Name</label>
                     <input
                         onBlur={handleBlur}
                         onChange={handleChange}
                         value={values.profileName}
-                        className="input input-bordered w-full max"
+                        className="input input-bordered w-full text-white"
                         type="text"
                         name="profileName"
                         id="profileName"
                     />
                     <DisplayError errors={errors} touched={touched} field={"profileName"}/>
                 </div>
-                <div className="fl pb-2">
-                    <label className="text-lg font-semibold" htmlFor="profileEmail">Email</label>
+                <div className="pb-2">
+                    <label className="text-lg font-semibold text-black" htmlFor="profileEmail">Email</label>
                     <input
                         onBlur={handleBlur}
                         onChange={handleChange}
                         value={values.profileEmail}
-                        className="input input-bordered w-full max"
+                        className="input input-bordered w-full text-white"
                         type="text"
                         name="profileEmail"
                         id="profileEmail"
                     />
                     <DisplayError errors={errors} touched={touched} field={"profileEmail"}/>
                 </div>
-                <div className="">
-                    <label className={"text-lg font-semibold"} htmlFor="password">Password</label>
+                <div>
+                    <label className={"text-lg font-semibold text-black"} htmlFor="password">Password</label>
                     <input
-                        className="input input-bordered w-full"
+                        className="input input-bordered w-full text-white"
                         onBlur={handleBlur}
                         onChange={handleChange}
                         value={values.profilePassword}
@@ -109,10 +107,10 @@ function SignUpFormContent(props: FormikProps<SignUp>) {
                     />
                     <DisplayError errors={errors} touched={touched} field={"profilePassword"}/>
                 </div>
-                <div className="">
-                    <label className={"text-lg font-semibold"} htmlFor="password">Confirm Password</label>
+                <div>
+                    <label className={"text-lg font-semibold text-black"} htmlFor="password">Confirm Password</label>
                     <input
-                        className="input input-bordered w-full"
+                        className="input input-bordered w-full text-white"
                         onBlur={handleBlur}
                         onChange={handleChange}
                         value={values.profilePasswordConfirm}
@@ -123,7 +121,7 @@ function SignUpFormContent(props: FormikProps<SignUp>) {
                     <DisplayError errors={errors} touched={touched} field={"profilePassword"}/>
                 </div>
                 <div className="py-2 flex gap-2">
-                    <button className='btn btn-success mt-8 bg-blue-500 text-white' type="submit">Sign up</button>
+                    <button className='btn btn-success mt-8 bg-blue-500 text-white' type="submit">Create Account</button>
                 </div>
                 <DisplayStatus status={status}/>
             </form>

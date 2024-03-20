@@ -1,12 +1,8 @@
 "use client"
 
 import {Formik, FormikHelpers, FormikProps} from "formik";
-import {toFormikValidationSchema} from "zod-formik-adapter";
-import {FormDebugger} from "@/components/formDebugger";
-import {DisplayError} from "@/components/displayError";
-import {Profile, ProfileSchema} from "@/utils/models/profile.model";
-import {getSession, Session} from "@/utils/fetchSession";
-import {fetchProfileUpdate} from "@/utils/http/profile.http";
+import {Profile} from "@/utils/models/profile.model";
+import {Session} from "@/utils/fetchSession";
 import {useRouter} from "next/navigation";
 import React, {useState} from "react";
 import {useDropzone} from "react-dropzone";
@@ -32,10 +28,8 @@ export function ProfileImageForm(props: ProfileImageFormProp) {
     }
 
     const handleSubmit = (values: Profile, actions: FormikHelpers<Profile>)=> {
-        console.log("values here", values.profileImageUrl)
         const submitValues = {...values, profileImageUrl: null}
         const {setStatus, resetForm, setErrors} = actions
-
 
         // @ts-ignore
         if ((values.profileImageUrl instanceof FormData)) {
@@ -188,13 +182,3 @@ export function ProfileImageFormContent(props: FormikProps<Profile>) {
         )
     }
 }
-
-
-// <div className='relative inline-block mb-5 md:mb-1'>
-//     <img className='h-60 w-60 rounded-full border-black border-2'
-//          src={session.profile.profileImageUrl}
-//          alt='profile image'/>
-//     <button className="absolute bottom-0 right-0 rounded-full bg-white">
-//         <img src='/arrow-up-circle.svg' height="60" width='60' alt='upload new picture'/>
-//     </button>
-// </div>

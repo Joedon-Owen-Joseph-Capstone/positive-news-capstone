@@ -12,7 +12,6 @@ import {fetchCommentsByArticleId} from "@/utils/http/comment.http";
 
 type Props = {
     article: Article
-    likes: Like[]
 }
 
 export async function Post (props: Props) {
@@ -66,11 +65,6 @@ export async function Post (props: Props) {
 }
 
 async function getData(articleId : string) {
-
-    // Variable assigned to article data
-    const likes = await fetchLikesByArticleId(articleId)
-
-    // Return the article values
-    return likes
+    return await fetchLikesByArticleId(articleId)
 }
 

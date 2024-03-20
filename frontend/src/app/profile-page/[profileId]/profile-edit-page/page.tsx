@@ -1,6 +1,3 @@
-
-import {JSX} from "react";
-import {ArticlePost} from "@/app/shared/Posts";
 import {Profile} from "@/utils/models/profile.model";
 import {Follow} from "@/utils/models/follow.model";
 import {getSession, Session} from "@/utils/fetchSession";
@@ -8,6 +5,7 @@ import {fetchProfileByProfileId} from "@/utils/http/profile.http";
 import {redirect} from "next/navigation";
 import {ProfileAboutForm} from "@/app/profile-page/[profileId]/profile-edit-page/ProfileAboutForm";
 import {ProfileImageForm} from "@/app/profile-page/[profileId]/profile-edit-page/ProfileImageForm";
+import {ArticlePost} from "@/app/shared/Posts";
 
 
 type Props = {
@@ -51,8 +49,9 @@ export default async function EditProfile()  {
 
             <section className='my-24'>
                 <div className="container mx-auto">
-                    <div className='flex justify-between'>
+                    <div>
                         <h2 className='text-black text-3xl font-custom md:text-4xl lg:text-5xl'>Liked Articles</h2>
+                        <ArticlePost/>
                     </div>
                 </div>
             </section>

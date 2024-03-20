@@ -9,12 +9,10 @@ import { z } from 'zod'
 
 export const LikeSchema = z.object({
     likeProfileId: z.string({required_error: 'please provide a valid likeProfileId'})
-        .uuid({message: 'please provide a valid uuid for likeProfileId'})
-        .nullable(),
+        .uuid({message: 'please provide a valid uuid for likeProfileId'}),
 
     likeArticleId: z.string({required_error: 'please provide a valid likeArticleId'})
-        .uuid({message: 'please provide a valid uuid for likeArticleId'})
-        .nullable(),
+        .uuid({message: 'please provide a valid uuid for likeArticleId'}),
 
     likeDateTime: z.coerce.date({required_error: 'please provide a valid likeDatetime or null'})
         .nullable()

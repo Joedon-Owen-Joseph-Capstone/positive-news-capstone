@@ -22,14 +22,14 @@ export async function fetchLikesByArticleId(articleId : string) : Promise<Like[]
 
 }
 
-export async function fetchLikesByProfileId(authorization: string, likeProfileId:string) : Promise<Like[]> {
+export async function fetchLikesByProfileId(session: Session) : Promise<Like[]> {
 
     const sid = cookies().get('connect.sid')?.value ?? ""
-    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/like/likeProfileId/${likeProfileId}`, {
+    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/like/likeProfileId/${session.profile.profileId}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            authorization: authorization,
+            authorization: session.authorization,
             Cookie: `connect.sid=${sid}`
         },
         credentials: "include"

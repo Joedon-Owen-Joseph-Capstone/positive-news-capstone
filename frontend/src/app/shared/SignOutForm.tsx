@@ -2,10 +2,11 @@
 
 import {useRouter} from "next/navigation";
 import {fetchSignOut} from "@/utils/http/profile.http";
-import {revalidatePath} from "next/cache";
 
 export function SignOutButton() {
+
     const router = useRouter()
+
     const handleSignOut = async () => {
         const result = await fetchSignOut()
         if (result.status === 200) {
@@ -18,7 +19,7 @@ export function SignOutButton() {
     return (
         <>
             <label className='sr-only' htmlFor='sign-out'>Button to sign out</label>
-            <button onClick={handleSignOut} className='p-5 bg-black' id='sign-out' name='sign-out'>Sign Out</button>
+            <button onClick={handleSignOut} className='hover:bg-red-500 hover:text-white' id='sign-out' name='sign-out'>Sign Out</button>
         </>
     )
 }

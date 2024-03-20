@@ -2,11 +2,9 @@
 
 import {Formik, FormikHelpers, FormikProps} from "formik";
 import {toFormikValidationSchema} from "zod-formik-adapter";
-import {FormDebugger} from "@/components/formDebugger";
 import {DisplayError} from "@/components/displayError";
-import {Profile, ProfileSchema, SignIn} from "@/utils/models/profile.model";
-import {getSession, Session} from "@/utils/fetchSession";
-import {fetchProfileUpdate} from "@/utils/http/profile.http";
+import {Profile, ProfileSchema} from "@/utils/models/profile.model";
+import {Session} from "@/utils/fetchSession";
 import {useRouter} from "next/navigation";
 
 type ProfileAboutFormProp = {

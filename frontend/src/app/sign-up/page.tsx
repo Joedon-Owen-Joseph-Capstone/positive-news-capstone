@@ -16,7 +16,7 @@ export default function SignUp() {
                                 Create Your Account
                             </h1>
 
-                            <div className="w-full bg-slate-200 rounded-lg p-6 shadow-2xl">
+                            <div className="w-full bg-white rounded-lg p-6 shadow-2xl">
 
                                 <SignUpForm/>
 
