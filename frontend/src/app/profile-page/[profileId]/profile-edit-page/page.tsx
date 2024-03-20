@@ -10,9 +10,6 @@ import {ProfileAboutForm} from "@/app/profile-page/[profileId]/profile-edit-page
 import {ProfileImageForm} from "@/app/profile-page/[profileId]/profile-edit-page/ProfileImageForm";
 
 
-
-
-
 type Props = {
     profile: Profile
     session: Session | undefined
@@ -42,7 +39,7 @@ export default async function EditProfile()  {
 
                     {/* Username */}
                     <div className='flex'>
-                        <h1 className='text-4xl text-black md:text-5xl lg:text-6xl'>{value.profileName}</h1>
+                        <h1 className='text-4xl text-black md:text-5xl lg:text-6xl'>@{value.profileName}</h1>
                         <img className='mb-5' src='/edit-button.svg' alt='edit username'/>
                     </div>
                     <div className={"grid"}>
