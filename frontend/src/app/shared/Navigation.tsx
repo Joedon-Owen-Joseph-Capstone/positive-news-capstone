@@ -40,7 +40,6 @@ async function SignUpProfile(props: Props) {
 export async function Navigation(props: Props) {
     const {profile} = props
     const session = await getSession()
-    console.log(session)
     return (
         <>
 

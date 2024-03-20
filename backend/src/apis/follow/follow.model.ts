@@ -34,7 +34,8 @@ export async function selectFollowByFollowId(follow: Follow): Promise<Follow | n
     const {followProfileId, followFollowingProfileId} = follow
 
     // select the follow from the follow table by followId
-    const rowList = <Follow[]>await sql`SELECT follow_profile_id, follow_following_profile_id
+    const rowList = <Follow[]>await sql`SELECT follow_profile_id, follow_following_profile_id,
+       follow_date
                                         FROM follow
                                         WHERE follow_profile_id = ${followProfileId}
                                           AND follow_following_profile_id = ${followFollowingProfileId}`
@@ -74,7 +75,8 @@ export async function deleteFollow(follow: Follow): Promise<string> {
 export async function selectFollowsByFollowProfileId(followProfileId: string): Promise<Follow[]> {
 
     // selects a list of follows for the profiles that the profile is following
-    const rowList = <Follow[]>await sql`SELECT follow_profile_id, follow_following_profile_id
+    const rowList = <Follow[]>await sql`SELECT follow_profile_id, follow_following_profile_id, 
+       follow_date
                                         FROM follow
                                         WHERE follow_profile_id = ${followProfileId}`
 
@@ -90,7 +92,8 @@ export async function selectFollowsByFollowProfileId(followProfileId: string): P
 export async function selectFollowsByFollowFollowingProfileId(followFollowingProfileId: string): Promise<Follow[]> {
 
     // selects a list of follows for the profiles that are following this profile (followFollowingProfileId)
-    const rowList = <Follow[]>await sql`SELECT follow_profile_id, follow_following_profile_id
+    const rowList = <Follow[]>await sql`SELECT follow_profile_id, follow_following_profile_id, 
+       follow_date
                                             FROM follow
                                             WHERE follow_following_profile_id = ${followFollowingProfileId}`
 

@@ -1,18 +1,20 @@
-'use client'
+'use server'
 
-import {JSX} from "react"
-import {ArticlePost} from "@/app/shared/Posts";
 import {Follow} from "@/utils/models/follow.model";
 import {Profile} from "@/utils/models/profile.model";
+import {FollowForm} from "@/app/profile-page/FollowForm";
+import {getSession} from "@/utils/fetchSession";
+import {fetchFollowByFollowFollowingProfileId, fetchFollowByFollowProfileId} from "@/utils/http/follow.http";
 
 type Props = {
-    follows: Follow[]
-    following: Follow[],
     profile: Profile
 }
 
-export function FollowDisplay(props: Props) : JSX.Element {
-    const {follows, profile,following} = props
+export async function FollowDisplay(props: Props)  {
+    const { profile} = props
+    const following = await fetchFollowByFollowProfileId(profile.profileId)
+    const session = await getSession()
+    const follows = await fetchFollowByFollowFollowingProfileId(profile.profileId)
     return(
         <>
             <section className='border-b-4 border-black bg-[#b1b6bb] glass p-12 md:p-16'>
@@ -47,11 +49,7 @@ export function FollowDisplay(props: Props) : JSX.Element {
                 </div>
 
                 {/* follow profile */}
-                <div className='grid pt-5 max-w-full md:w-96 lg:w-96'>
-
-                    {/* follow profile */}
-                    <button className="btn btn-active bg-[#04bfad] text-white hover:bg-[#8181e6] border-[#04bfad] hover:border-[#8181e6]">Follow +</button>
-                </div>
+                <FollowForm session={session} profile={profile} follows={follows}/>
             </section>
 
         </>

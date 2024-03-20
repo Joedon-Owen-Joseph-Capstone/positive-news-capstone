@@ -42,6 +42,7 @@ export async function getFollowsByFollowProfileIdController(request: Request, re
 
         // if an error occurs, return the error to the user
     } catch (error) {
+        console.error(error)
         return response.json({
             status: 500,
             message: '',
@@ -80,6 +81,7 @@ export async function getFollowsByFollowFollowingProfileIdController(request: Re
 
         // if an error occurs, return the error to the user
     } catch (error) {
+        console.error(error)
         return response.json({
             status: 500,
             message: '',
@@ -172,6 +174,7 @@ export async function toggleFollowController (request: Request, response: Respon
 
         // if an error occurs, return the error to the user
     } catch (error: any) {
+        console.log(error)
         return (response.json({status: 500, data: null, message: error.message}))
     }
 }

@@ -7,32 +7,26 @@ import {fetchProfileByProfileId} from "@/utils/http/profile.http";
 import {Profile} from "@/utils/models/profile.model";
 
 
-export default async function followUser ({params}: { params: {profileId: string} }) {
+export default async function followUser ({params}: { params: {profileId: string, follows: Follow[], following: Follow[] } }) {
 
-    const {profileId} = params
-    const {follows,profile, following} =  await getData(profileId)
+    const {profileId, follows, following} = params
+    const {profile} =  await getData(profileId)
 
 
 
     return (
         <>
             <div>
-                <FollowDisplay following={following} profile={profile} follows={follows}/>
+                <FollowDisplay  profile={profile}/>
             </div>
         </>
     )
 }
 
 
-async function getData(profileId: string): Promise<{profile: Profile , follows: Follow[], following: Follow[]}> {
-    const follows = await fetchFollowByFollowProfileId(profileId)
-    let profiles: { [profileId: string]: Profile } = {}
-
-    // for (let follow of follows) {
+async function getData(profileId: string): Promise<{profile: Profile}> {
         const profile = await fetchProfileByProfileId(profileId)
-    // }
-    const following = await fetchFollowByFollowFollowingProfileId(profileId)
-    return {profile, follows, following}
+    return {profile}
 }
 
 
