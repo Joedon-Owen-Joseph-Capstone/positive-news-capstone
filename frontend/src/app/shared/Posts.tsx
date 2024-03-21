@@ -26,7 +26,7 @@ export async function PopPost () {
 
     return (
         <>
-            {articles.slice(17,18).map((article: Article) => <PopularArticle article={article} key={article.articleId}/>)}
+            {articles.slice(6,7).map((article: Article) => <PopularArticle article={article} key={article.articleId}/>)}
         </>
     )
 }

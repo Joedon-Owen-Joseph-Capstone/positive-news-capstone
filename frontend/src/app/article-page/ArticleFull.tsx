@@ -55,7 +55,7 @@ export async function ArticleFull(props: Props){
                 </div>
                 <button><img src='/share.svg' alt='share button'/></button>
             </div>
-                <p className='pt-5 text-lg'>10 Likes</p>
+                <p className='pt-5 text-lg'>{likes.length} Likes</p>
             </div>
 
 

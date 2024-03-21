@@ -1,5 +1,7 @@
 .git
-*Dockerfile*
+frontend/Dockerfile
 *docker-compose*
 **/node_modules
+.next
+node_modules
 README.md

@@ -122,7 +122,7 @@ export function ProfileImageFormContent(props: FormikProps<Profile>) {
                     }
 
                 />
-                <button type={"submit"} className="absolute bottom-0 right-0 rounded-full bg-white"><img
+                <button type={"submit"} className="relative rounded-full bg-white"><img
                     src='/arrow-up-circle.svg' height="60" width='60' alt='upload new picture'/></button>
             </form>
         </>
@@ -173,7 +173,7 @@ export function ProfileImageFormContent(props: FormikProps<Profile>) {
                     {
                         isDragActive ?
                             <span className="align-items-center">Drop image here</span> :
-                            <span className="align-items-center">Drag and drop image here, or click here to select an image</span>
+                            <span className="align-items-center">Drag and drop image here</span>
                     }
                 </div>
                 {/*<FormDebugger{...props}/>*/}
