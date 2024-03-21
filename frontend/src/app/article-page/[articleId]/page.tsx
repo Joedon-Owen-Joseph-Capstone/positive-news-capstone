@@ -9,7 +9,7 @@ import {fetchCommentsByArticleId} from "@/utils/http/comment.http";
 import {Comment} from "@/utils/models/comment.model";
 
 // Function to take articleId and display unique article when a post is clicked
-export default async function articlePage ({params} : {params :  {articleId : string, likes: Like[], comments: Comment[]}}) {
+export default async function articlePage ({params} : {params :  {articleId : string}}) {
 
     // Give function articleId as 'params' to pass it through the function
     const {articleId} = params

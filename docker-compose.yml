@@ -30,6 +30,8 @@ services:
       - ./backend/tsconfig.json:/home/node/app/tsconfig.json
   app:
     build: frontend
+    ports:
+      - '80:3000'
     user: "node"
     env_file:
       - ./project.env
