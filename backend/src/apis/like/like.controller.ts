@@ -15,9 +15,9 @@ import {z} from "zod";
 import "../../index";
 
 /**
- * Handles GET request for all likes associated with a thread
- * @param request object containing the like thread id
- * @param response object containing the status of the request and the likes associated with the thread
+ * Handles GET request for all likes associated with an article
+ * @param request object containing the like article id
+ * @param response object containing the status of the request and the likes associated with the article
  */
 export async function getLikesByLikeArticleIdController(request: Request, response: Response): Promise<Response> {
     try {
