@@ -14,31 +14,35 @@ Create an account or log in to personalize your experience on the Positive News 
 Navigate through news stories effortlessly using specialized tags such as space, technology, science, animals, and more. Whether you're interested in the latest advancements in space exploration or heartwarming stories about rescued animals, our intuitive search feature makes it easy to discover content tailored to your interests.
 
 ## Screenshots
+![Home Page](https://github.com/Joedon-Owen-Joseph-Capstone/positive-news-capstone/assets/153705879/062d31c7-5118-4703-b621-56fe86ee41a8)
 
-![Homepage] Home page screenshot
+![U.S. Page](https://github.com/Joedon-Owen-Joseph-Capstone/positive-news-capstone/assets/153705879/8be33c7a-4027-4b00-967b-9599bdcbe02a)
 
-![Article Page] Article page screenshot
+![World Page](https://github.com/Joedon-Owen-Joseph-Capstone/positive-news-capstone/assets/153705879/b842fb09-bb1a-443d-acbb-1f9b9c683536)
 
-![About Page] Home page screenshot
+![Article Page](https://github.com/Joedon-Owen-Joseph-Capstone/positive-news-capstone/assets/153705879/984a744f-9de2-42e2-886e-6d48b88af19c)
 
-![Profile Page] Article page screenshot
+![About Page](https://github.com/Joedon-Owen-Joseph-Capstone/positive-news-capstone/assets/153705879/2321f582-350e-4ccf-9111-94a3a2208898)
 
-![World Page] Home page screenshot
+![Profile Page](https://github.com/Joedon-Owen-Joseph-Capstone/positive-news-capstone/assets/153705879/898177ba-b102-4d63-b6d7-1b9d79158413)
 
-![U.S. Page] Article page screenshot
+![Sign Up Page](https://github.com/Joedon-Owen-Joseph-Capstone/positive-news-capstone/assets/153705879/6ecc6d61-ef38-4719-8f23-889a58651c60)
+
+![Create Account Page](https://github.com/Joedon-Owen-Joseph-Capstone/positive-news-capstone/assets/153705879/03b6a106-0648-4c71-bc3a-679b795f98bd)
 
 ## Installation
-
 To run this project locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/Joedon-Owen-Joseph-Capstone/positive-news-capstone.git`
 2. Navigate to the frontend directory: `cd frontend/`
 3. Install dependencies: `npm install`
-4. Start the development server: `npm run dev`
+4. Navigate to the backend directory: `cd ../backend/`
+3. Install dependencies: `npm install`
+4. Navigate back to the frontend directory: `cd ../frontend/`
+5. Start the development server: `npm run dev`
 
-## Usage
-
-Once the development server is running, you can access the website in your web browser at `http://localhost:3000`. Explore different news stories and features using the navigation menu.
+## Live Site
+You can view our site here! At: [Positive News Network]()
 
 ## Technologies Used
 
@@ -93,11 +97,11 @@ This project is licensed under the [Apache License 2.0](LICENSE).
 - World News Banner Image - Banner image sourced from [visibleearth.nasa.gov](https://visibleearth.nasa.gov/images/149388/yellow-sea-night-lights/149390l)
 - Homepage Banner Image - Banner image sourced from [unsplash.com](https://unsplash.com/photos/scattered-magazines-RpC-9e0ORNM)
 - Sign Up Image - Banner image sourced from [unsplash.com](https://unsplash.com/photos/white-good-news-is-coming-paper-on-wall-XmMsdtiGSfo)
-- Log-in Image - Banner image sourced from [unsplash.com](https://unsplash.com/photos/bundle-of-newspaper-on-table-Mwuod2cm8g4)
+- Sign-in Image - Banner image sourced from [unsplash.com](https://unsplash.com/photos/bundle-of-newspaper-on-table-Mwuod2cm8g4)
 
 ### API Used
-
 - World News API - API for retrieving news stories from around the world. [Website](https://worldnewsapi.com/)
+- Cloudinary - Create, manage and deliver engaging experiences at scale. [Website](https://cloudinary.com/)
 
 ## Contact
 
