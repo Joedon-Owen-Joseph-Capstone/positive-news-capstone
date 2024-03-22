@@ -70,7 +70,7 @@ export async function deleteLike(like: Like): Promise<string> {
 }
 
 /**
- * selects likes from the like table by likeThreadId and returns the likes
+ * selects likes from the like table by likeArticleId and returns the likes
  * @returns the likes that were selected
  * @param likeArticleId
  */
